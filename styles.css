@@ -919,3 +919,75 @@ p {
   opacity: 1 !important;
   transform: none !important;
 }
+
+/* ===== BOTONES DE GALERÍA DENTRO DE CADA TARJETA ===== */
+.grafico-botones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.btn-galeria {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 1rem;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s,
+    transform 0.15s;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  color: var(--accent);
+}
+
+.btn-galeria i {
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.btn-texturas,
+.btn-tr {
+  border-color: rgba(242, 233, 220, 0.25);
+}
+
+.btn-texturas:hover,
+.btn-tr:hover {
+  background: rgba(242, 233, 220, 0.1);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Las tarjetas ya no son clickeables en sí mismas */
+.grafico-item {
+  cursor: default !important;
+}
+
+.grafico-item:hover {
+  transform: none !important;
+}
+
+/* ===== MODAL — subtítulo de tipo de galería ===== */
+.gallery-modal-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.gallery-modal-tipo {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}

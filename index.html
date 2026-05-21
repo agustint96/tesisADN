@@ -5,6 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Análisis textural — ADN — Alaín Pérez</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* ── Panel de audios dentro del modal de galería ── */
+      .gallery-audio-panel {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex: 1;
+        flex-wrap: wrap;
+        padding: 0 12px;
+      }
+      .audio-panel-label {
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(255, 255, 255, 0.4);
+        margin: 0;
+        white-space: nowrap;
+      }
+      .audio-btn-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        align-items: center;
+      }
+      .btn-audio-textura {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 4px 10px;
+        border-radius: 20px;
+        border: 1.5px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.07);
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          background 0.18s,
+          border-color 0.18s,
+          transform 0.12s;
+        white-space: nowrap;
+      }
+      .btn-audio-textura:hover {
+        background: rgba(255, 255, 255, 0.16);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.05);
+      }
+      .btn-audio-textura.reproduciendo {
+        background: rgba(99, 210, 140, 0.25);
+        border-color: #63d28c;
+        color: #63d28c;
+      }
+      .btn-audio-textura.error {
+        background: rgba(220, 80, 80, 0.2);
+        border-color: #dc5050;
+        color: #dc5050;
+        cursor: not-allowed;
+      }
+      .btn-audio-textura i {
+        font-size: 0.65rem;
+      }
+    </style>
   </head>
   <body>
     <!-- ── 1. INTRO ── -->
@@ -115,144 +181,297 @@
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="0"
-          data-gallery='["IMAGENES/A ella le gustan mis canciones (1).jpg","IMAGENES/A ella le gustan mis canciones (2).jpg","IMAGENES-T-R/A ella le gustan mis canciones (1).jpg","IMAGENES-T-R/A ella le gustan mis canciones (2).jpg"]'
+          data-gallery-texturas='["IMAGENES/A ella le gustan mis canciones (1).jpg","IMAGENES/A ella le gustan mis canciones (2).jpg"]'
+          data-gallery-tr='["IMAGENES-T-R/A ella le gustan mis canciones (1).jpg","IMAGENES-T-R/A ella le gustan mis canciones (2).jpg"]'
+          data-audios-texturas="[1,2,3,4,5]"
         >
           <div class="grafico-contenido">
             <h3>A Ella Le Gustan Mis Canciones</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="empty-placeholder"></div>
+            <div class="grafico-botones">
+              <button
+                class="btn-galeria btn-texturas"
+                onclick="abrirGaleria(this, 'texturas')"
+              >
+                <i class="fa-solid fa-file-image"></i> Gráficos texturas
+              </button>
+              <button
+                class="btn-galeria btn-tr"
+                onclick="abrirGaleria(this, 'tr')"
+              >
+                <i class="fa-regular fa-file-image"></i> Gráficos tensión reposo
+              </button>
+            </div>
           </div>
         </div>
 
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="1"
-          data-gallery='["IMAGENES/ADN (1).jpg","IMAGENES/ADN (2).jpg","IMAGENES-T-R/Adn (1).jpg","IMAGENES-T-R/Adn (2).jpg"]'
+          data-gallery-texturas='["IMAGENES/ADN (1).jpg","IMAGENES/ADN (2).jpg"]'
+          data-gallery-tr='["IMAGENES-T-R/Adn (1).jpg","IMAGENES-T-R/Adn (2).jpg"]'
+          data-audios-texturas="[6,7,8,9,10,11,12]"
         >
           <div class="grafico-contenido">
             <h3>ADN</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="empty-placeholder"></div>
+            <div class="grafico-botones">
+              <button
+                class="btn-galeria btn-texturas"
+                onclick="abrirGaleria(this, 'texturas')"
+              >
+                <i class="fa-solid fa-file-image"></i> Gráficos texturas
+              </button>
+              <button
+                class="btn-galeria btn-tr"
+                onclick="abrirGaleria(this, 'tr')"
+              >
+                <i class="fa-regular fa-file-image"></i> Gráficos tensión reposo
+              </button>
+            </div>
           </div>
         </div>
 
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="2"
-          data-gallery='["IMAGENES/Amor contradictorio (1).jpg","IMAGENES/Amor contradictorio (2).jpg","IMAGENES-T-R/Amor contradictorio (1).jpg","IMAGENES-T-R/Amor contradictorio (2).jpg"]'
+          data-gallery-texturas='["IMAGENES/Amor contradictorio (1).jpg","IMAGENES/Amor contradictorio (2).jpg"]'
+          data-gallery-tr='["IMAGENES-T-R/Amor contradictorio (1).jpg","IMAGENES-T-R/Amor contradictorio (2).jpg"]'
+          data-audios-texturas='[13,14,15,16,17,18,{"l":"18a","f":19}]'
         >
           <div class="grafico-contenido">
             <h3>Amor Contradictorio</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="empty-placeholder"></div>
+            <div class="grafico-botones">
+              <button
+                class="btn-galeria btn-texturas"
+                onclick="abrirGaleria(this, 'texturas')"
+              >
+                <i class="fa-solid fa-file-image"></i> Gráficos texturas
+              </button>
+              <button
+                class="btn-galeria btn-tr"
+                onclick="abrirGaleria(this, 'tr')"
+              >
+                <i class="fa-regular fa-file-image"></i> Gráficos tensión reposo
+              </button>
+            </div>
           </div>
         </div>
 
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="3"
-          data-gallery='["IMAGENES/Anotonio Rodriguez (1).jpg","IMAGENES/Anotonio Rodriguez (2).jpg","IMAGENES-T-R/Antonio rodriguez (1).jpg","IMAGENES-T-R/Antonio rodriguez (2).jpg"]'
+          data-gallery-texturas='["IMAGENES/Anotonio Rodriguez (1).jpg","IMAGENES/Anotonio Rodriguez (2).jpg"]'
+          data-gallery-tr='["IMAGENES-T-R/Antonio rodriguez (1).jpg","IMAGENES-T-R/Antonio rodriguez (2).jpg"]'
+          data-audios-texturas='[{"l":"19","f":20},{"l":"20","f":21},{"l":"21","f":22},{"l":"22","f":23},{"l":"23","f":24}]'
         >
           <div class="grafico-contenido">
             <h3>Antonio Rodríguez</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="empty-placeholder"></div>
+            <div class="grafico-botones">
+              <button
+                class="btn-galeria btn-texturas"
+                onclick="abrirGaleria(this, 'texturas')"
+              >
+                <i class="fa-solid fa-file-image"></i> Gráficos texturas
+              </button>
+              <button
+                class="btn-galeria btn-tr"
+                onclick="abrirGaleria(this, 'tr')"
+              >
+                <i class="fa-regular fa-file-image"></i> Gráficos tensión reposo
+              </button>
+            </div>
           </div>
         </div>
 
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="4"
-          data-gallery='["IMAGENES/De flor en flor (1).jpg","IMAGENES/De flor en flor (2).jpg","IMAGENES-T-R/De flor en flor (1).jpg","IMAGENES-T-R/De flor en flor (2).jpg"]'
+          data-gallery-texturas='["IMAGENES/De flor en flor (1).jpg","IMAGENES/De flor en flor (2).jpg"]'
+          data-gallery-tr='["IMAGENES-T-R/De flor en flor (1).jpg","IMAGENES-T-R/De flor en flor (2).jpg"]'
+          data-audios-texturas='[{"l":"24","f":25},{"l":"25","f":26},{"l":"26","f":27},{"l":"27","f":28},{"l":"28","f":29}]'
         >
           <div class="grafico-contenido">
             <h3>De Flor En Flor</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="empty-placeholder"></div>
+            <div class="grafico-botones">
+              <button
+                class="btn-galeria btn-texturas"
+                onclick="abrirGaleria(this, 'texturas')"
+              >
+                <i class="fa-solid fa-file-image"></i> Gráficos texturas
+              </button>
+              <button
+                class="btn-galeria btn-tr"
+                onclick="abrirGaleria(this, 'tr')"
+              >
+                <i class="fa-regular fa-file-image"></i> Gráficos tensión reposo
+              </button>
+            </div>
           </div>
         </div>
 
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="5"
-          data-gallery='["IMAGENES/Chacha (1).jpg","IMAGENES/Chacha (2).jpg","IMAGENES-T-R/Chacha (1).jpg","IMAGENES-T-R/Chacha (2).jpg"]'
+          data-gallery-texturas='["IMAGENES/Chacha (1).jpg","IMAGENES/Chacha (2).jpg"]'
+          data-gallery-tr='["IMAGENES-T-R/Chacha (1).jpg","IMAGENES-T-R/Chacha (2).jpg"]'
+          data-audios-texturas='[{"l":"29","f":30},{"l":"30","f":31},{"l":"31","f":32},{"l":"32","f":33},{"l":"33","f":34},{"l":"34","f":35}]'
         >
           <div class="grafico-contenido">
             <h3>Chacha</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="empty-placeholder"></div>
+            <div class="grafico-botones">
+              <button
+                class="btn-galeria btn-texturas"
+                onclick="abrirGaleria(this, 'texturas')"
+              >
+                <i class="fa-solid fa-file-image"></i> Gráficos texturas
+              </button>
+              <button
+                class="btn-galeria btn-tr"
+                onclick="abrirGaleria(this, 'tr')"
+              >
+                <i class="fa-regular fa-file-image"></i> Gráficos tensión reposo
+              </button>
+            </div>
           </div>
         </div>
 
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="6"
-          data-gallery='["IMAGENES/Shorcito (1).jpg","IMAGENES/Shorcito (2).jpg","IMAGENES-T-R/Shorcito (1).jpg","IMAGENES-T-R/Shorcito (2).jpg"]'
+          data-gallery-texturas='["IMAGENES/Shorcito (1).jpg","IMAGENES/Shorcito (2).jpg"]'
+          data-gallery-tr='["IMAGENES-T-R/Shorcito (1).jpg","IMAGENES-T-R/Shorcito (2).jpg"]'
+          data-audios-texturas='[{"l":"35","f":36},{"l":"36","f":37},{"l":"37","f":38},{"l":"38","f":39},{"l":"39","f":40},{"l":"40","f":41},{"l":"41","f":42}]'
         >
           <div class="grafico-contenido">
             <h3>Shorcito</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="empty-placeholder"></div>
+            <div class="grafico-botones">
+              <button
+                class="btn-galeria btn-texturas"
+                onclick="abrirGaleria(this, 'texturas')"
+              >
+                <i class="fa-solid fa-file-image"></i> Gráficos texturas
+              </button>
+              <button
+                class="btn-galeria btn-tr"
+                onclick="abrirGaleria(this, 'tr')"
+              >
+                <i class="fa-regular fa-file-image"></i> Gráficos tensión reposo
+              </button>
+            </div>
           </div>
         </div>
 
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="7"
-          data-gallery='["IMAGENES/Con corbata y sin cabeza (1).jpg","IMAGENES/Con corbata y sin cabeza (2).jpg","IMAGENES-T-R/Con corbata y sin cabeza (1).jpg","IMAGENES-T-R/Con corbata y sin cabeza (2).jpg"]'
+          data-gallery-texturas='["IMAGENES/Con corbata y sin cabeza (1).jpg","IMAGENES/Con corbata y sin cabeza (2).jpg"]'
+          data-gallery-tr='["IMAGENES-T-R/Con corbata y sin cabeza (1).jpg","IMAGENES-T-R/Con corbata y sin cabeza (2).jpg"]'
+          data-audios-texturas='[{"l":"42","f":43},{"l":"43","f":44},{"l":"44","f":45},{"l":"45","f":46},{"l":"46","f":47},{"l":"47","f":48}]'
         >
           <div class="grafico-contenido">
             <h3>Con Corbata Y Sin Cabeza</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="empty-placeholder"></div>
+            <div class="grafico-botones">
+              <button
+                class="btn-galeria btn-texturas"
+                onclick="abrirGaleria(this, 'texturas')"
+              >
+                <i class="fa-solid fa-file-image"></i> Gráficos texturas
+              </button>
+              <button
+                class="btn-galeria btn-tr"
+                onclick="abrirGaleria(this, 'tr')"
+              >
+                <i class="fa-regular fa-file-image"></i> Gráficos tensión reposo
+              </button>
+            </div>
           </div>
         </div>
 
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="8"
-          data-gallery='["IMAGENES/Peligroso ladron (1).jpg","IMAGENES/Peligroso ladron (2).jpg","IMAGENES-T-R/Peligroso ladron (1).jpg","IMAGENES-T-R/Peligroso ladron (2).jpg"]'
+          data-gallery-texturas='["IMAGENES/Peligroso ladron (1).jpg","IMAGENES/Peligroso ladron (2).jpg"]'
+          data-gallery-tr='["IMAGENES-T-R/Peligroso ladron (1).jpg","IMAGENES-T-R/Peligroso ladron (2).jpg"]'
+          data-audios-texturas='[{"l":"48","f":49},{"l":"49","f":50},{"l":"50","f":51},{"l":"51","f":52},{"l":"52","f":53}]'
         >
           <div class="grafico-contenido">
             <h3>Peligroso Ladrón</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="empty-placeholder"></div>
+            <div class="grafico-botones">
+              <button
+                class="btn-galeria btn-texturas"
+                onclick="abrirGaleria(this, 'texturas')"
+              >
+                <i class="fa-solid fa-file-image"></i> Gráficos texturas
+              </button>
+              <button
+                class="btn-galeria btn-tr"
+                onclick="abrirGaleria(this, 'tr')"
+              >
+                <i class="fa-regular fa-file-image"></i> Gráficos tensión reposo
+              </button>
+            </div>
           </div>
         </div>
 
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="9"
-          data-gallery='["IMAGENES/Nos vemos luego (1).jpg","IMAGENES/Nos vemos luego (2).jpg","IMAGENES-T-R/Nos vemos luego (1).jpg","IMAGENES-T-R/Nos vemos luego (2).jpg"]'
+          data-gallery-texturas='["IMAGENES/Nos vemos luego (1).jpg","IMAGENES/Nos vemos luego (2).jpg"]'
+          data-gallery-tr='["IMAGENES-T-R/Nos vemos luego (1).jpg","IMAGENES-T-R/Nos vemos luego (2).jpg"]'
+          data-audios-texturas='[{"l":"53","f":54},{"l":"54","f":55},{"l":"55","f":56}]'
         >
           <div class="grafico-contenido">
             <h3>Nos Vemos Luego</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="empty-placeholder"></div>
+            <div class="grafico-botones">
+              <button
+                class="btn-galeria btn-texturas"
+                onclick="abrirGaleria(this, 'texturas')"
+              >
+                <i class="fa-solid fa-file-image"></i> Gráficos texturas
+              </button>
+              <button
+                class="btn-galeria btn-tr"
+                onclick="abrirGaleria(this, 'tr')"
+              >
+                <i class="fa-regular fa-file-image"></i> Gráficos tensión reposo
+              </button>
+            </div>
           </div>
         </div>
 
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="10"
-          data-gallery='["IMAGENES/Bemba colora (1).jpg","IMAGENES/Bemba colora (2).jpg","IMAGENES-T-R/Bemba colorá (1).jpg","IMAGENES-T-R/Bemba colorá (2).jpg"]'
+          data-gallery-texturas='["IMAGENES/Bemba colora (1).jpg","IMAGENES/Bemba colora (2).jpg"]'
+          data-gallery-tr='["IMAGENES-T-R/Bemba colorá (1).jpg","IMAGENES-T-R/Bemba colorá (2).jpg"]'
+          data-audios-texturas='[{"l":"56","f":57},{"l":"57","f":58},{"l":"58","f":59},{"l":"59","f":60},{"l":"60","f":61},{"l":"61","f":62}]'
         >
           <div class="grafico-contenido">
             <h3>Bemba Colorá</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="empty-placeholder"></div>
-          </div>
-        </div>
-
-        <div
-          class="grafico-item activo reveal reveal--up"
-          data-track-index="11"
-          data-gallery='["IMAGENES/Lloraré (1).jpg","IMAGENES/Lloraré (2).jpg","IMAGENES-T-R/Lloraré (1).jpg","IMAGENES-T-R/Lloraré (2).jpg"]'
-        >
-          <div class="grafico-contenido">
-            <h3>Lloraré</h3>
-            <p class="grafico-desc">Análisis textural</p>
-            <div class="empty-placeholder"></div>
+            <div class="grafico-botones">
+              <button
+                class="btn-galeria btn-texturas"
+                onclick="abrirGaleria(this, 'texturas')"
+              >
+                <i class="fa-solid fa-file-image"></i> Gráficos texturas
+              </button>
+              <button
+                class="btn-galeria btn-tr"
+                onclick="abrirGaleria(this, 'tr')"
+              >
+                <i class="fa-regular fa-file-image"></i> Gráficos tensión reposo
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -330,7 +549,15 @@
       <div class="gallery-modal-overlay" onclick="cerrarGalleryModal()"></div>
       <div class="gallery-modal-content">
         <div class="gallery-modal-header">
-          <span id="gallery-modal-title" class="gallery-modal-title"></span>
+          <div class="gallery-modal-header-info">
+            <span id="gallery-modal-title" class="gallery-modal-title"></span>
+            <span id="gallery-modal-tipo" class="gallery-modal-tipo"></span>
+          </div>
+          <div
+            id="gallery-audio-panel"
+            class="gallery-audio-panel"
+            style="display: none"
+          ></div>
           <button
             class="gallery-modal-close"
             onclick="cerrarGalleryModal()"
@@ -364,7 +591,8 @@
             <div class="pdf-placeholder-icon">🖼️</div>
             <p>
               No hay imágenes disponibles para esta galería. Agregá rutas
-              válidas en el atributo <code>data-gallery</code> del gráfico.
+              válidas en el atributo <code>data-gallery-texturas</code> o
+              <code>data-gallery-tr</code> del gráfico.
             </p>
           </div>
         </div>
@@ -444,8 +672,19 @@
         images: [],
       };
 
-      function abrirGaleria(item) {
-        const rawGallery = item.getAttribute("data-gallery");
+      // Reproductor de audio activo
+      let audioActivo = null;
+      let btnActivo = null;
+
+      // btn  = el botón clickeado
+      // tipo = 'texturas' | 'tr'
+      function abrirGaleria(btn, tipo) {
+        event.stopPropagation();
+
+        const item = btn.closest(".grafico-item");
+        const attr =
+          tipo === "texturas" ? "data-gallery-texturas" : "data-gallery-tr";
+        const rawGallery = item.getAttribute(attr);
         let images = [];
 
         try {
@@ -457,16 +696,110 @@
         galeria.images = images;
         galeria.currentIndex = 0;
 
-        document.getElementById("gallery-modal-title").textContent =
-          item.querySelector("h3").textContent;
+        const titulo = item.querySelector("h3").textContent;
+        const tipoLabel =
+          tipo === "texturas" ? "Gráficos texturas" : "Gráficos tensión reposo";
+
+        document.getElementById("gallery-modal-title").textContent = titulo;
+        document.getElementById("gallery-modal-tipo").textContent = tipoLabel;
+
+        // ── Panel de audios (solo en modo texturas) ──
+        const audioPanel = document.getElementById("gallery-audio-panel");
+        audioPanel.innerHTML = "";
+        detenerAudio();
+
+        if (tipo === "texturas") {
+          const rawAudios = item.getAttribute("data-audios-texturas");
+          let audioNums = [];
+          try {
+            audioNums = rawAudios ? JSON.parse(rawAudios) : [];
+          } catch (e) {
+            audioNums = [];
+          }
+
+          if (audioNums.length) {
+            const label = document.createElement("p");
+            label.className = "audio-panel-label";
+            label.textContent = "Audios de texturas:";
+            audioPanel.appendChild(label);
+
+            const grid = document.createElement("div");
+            grid.className = "audio-btn-grid";
+
+            audioNums.forEach((entry) => {
+              // entry puede ser número simple o {l: "label", f: fileNum}
+              const fileNum = typeof entry === "object" ? entry.f : entry;
+              const label = typeof entry === "object" ? entry.l : String(entry);
+              const ab = document.createElement("button");
+              ab.className = "btn-audio-textura";
+              ab.dataset.audioNum = fileNum;
+              ab.innerHTML = `<i class="fa-solid fa-play"></i> <span>${label}</span>`;
+              ab.addEventListener("click", () => toggleAudio(ab, fileNum));
+              grid.appendChild(ab);
+            });
+
+            audioPanel.appendChild(grid);
+            audioPanel.style.display = "block";
+          } else {
+            audioPanel.style.display = "none";
+          }
+        } else {
+          audioPanel.style.display = "none";
+        }
 
         actualizarGaleria();
-
         document.getElementById("gallery-modal").classList.add("abierto");
         document.body.style.overflow = "hidden";
       }
 
+      function toggleAudio(btn, num) {
+        const src = `AUDIOS/textura (${num}).mp3`;
+
+        // Si hay un audio activo y es el mismo botón → pausar
+        if (audioActivo && btnActivo === btn) {
+          detenerAudio();
+          return;
+        }
+
+        // Si hay otro audio activo → detenerlo primero
+        detenerAudio();
+
+        // Reproducir nuevo
+        audioActivo = new Audio(src);
+        btnActivo = btn;
+        btn.classList.add("reproduciendo");
+        btn.querySelector("i").className = "fa-solid fa-pause";
+
+        audioActivo.play().catch(() => {
+          // El archivo no existe o no se pudo reproducir
+          btn.classList.add("error");
+          btn.querySelector("i").className = "fa-solid fa-triangle-exclamation";
+          audioActivo = null;
+          btnActivo = null;
+        });
+
+        audioActivo.addEventListener("ended", () => {
+          btn.classList.remove("reproduciendo");
+          btn.querySelector("i").className = "fa-solid fa-play";
+          audioActivo = null;
+          btnActivo = null;
+        });
+      }
+
+      function detenerAudio() {
+        if (audioActivo) {
+          audioActivo.pause();
+          audioActivo = null;
+        }
+        if (btnActivo) {
+          btnActivo.classList.remove("reproduciendo");
+          btnActivo.querySelector("i").className = "fa-solid fa-play";
+          btnActivo = null;
+        }
+      }
+
       function cerrarGalleryModal() {
+        detenerAudio();
         const modal = document.getElementById("gallery-modal");
         modal.classList.remove("abierto");
         document.body.style.overflow = "";
@@ -503,12 +836,6 @@
         placeholder.style.display = "none";
         counter.textContent = `${galeria.currentIndex + 1} / ${galeria.images.length}`;
       }
-
-      document.querySelectorAll(".grafico-item").forEach((item) => {
-        item.addEventListener("click", () => {
-          abrirGaleria(item);
-        });
-      });
 
       // Cerrar con Escape
       document.addEventListener("keydown", (e) => {
@@ -553,8 +880,3 @@
     </script>
   </body>
 </html>
-
-<!-- - Falta corregir glosario
-    - Revisar bien imagenes
-    etc 
-    etc-->
