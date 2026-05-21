@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análisis textural del disco ADN — Alaín Pérez</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ── 1. INTRO ── -->
+    <div class="container--1">
+      <h1>Análisis textural del disco ADN — Alaín Pérez</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+      <h2>Cómo usarlo</h2>
+      <p>
+        Mirá el video introductorio y luego reproducí el disco ADN. Los gráficos
+        se sincronizan con cada tema.
+      </p>
+
+      <div id="player-wrap">
+  <div id="video-placeholder">
+    <div class="video-placeholder-inner">
+
+      <video width="100%" controls>
+        <source src="video/Con corbate y sin cabeza - Análisis.mp4" type="video/mp4" />
+        Tu navegador no soporta video HTML5.
+      </video>
+
+    </div>
+  </div>
+</div>
+
+    <!-- ── 2. GLOSARIO DE TEXTURAS ── -->
+    <div class="container--2">
+      <h1>Glosario de texturas</h1>
+      <div class="columnas-2">
+        <div>
+          <h2>Columna A</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div>
+          <h2>Columna B</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 3. GRÁFICOS ── -->
+    <div class="container--3">
+      <h1>Gráficos</h1>
+
+      <!-- PLAYLIST DE YOUTUBE -->
+      <div id="youtube-playlist">
+        <h2>Playlist del disco ADN</h2>
+        <div class="youtube-embed-wrap">
+          <iframe
+            width="100%"
+            height="360"
+            src="https://www.youtube.com/embed/videoseries?list=PLNrx6yV99mJ9EnCxl5uITbYNRaTXBJota"
+            title="Playlist del disco ADN"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- GRÁFICOS — uno por tema -->
+      <div class="graficos-grid" id="graficos-container">
+        <div class="grafico-item activo" data-track-index="0">
+          <div class="grafico-contenido">
+            <h3>A Ella Le Gustan Mis Canciones</h3>
+            <p class="grafico-desc">Análisis textural</p>
+            <div class="barra-placeholder">
+              <div class="barra-label">Densidad</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 80%"></div>
+              </div>
+              <div class="barra-label">Tensión</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 55%"></div>
+              </div>
+              <div class="barra-label">Reposo</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 70%"></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
+            <span class="pdf-icon">📄</span> Ver análisis en PDF
+          </button>
+        </div>
+
+        <div class="grafico-item activo" data-track-index="1">
+          <div class="grafico-contenido">
+            <h3>ADN</h3>
+            <p class="grafico-desc">Análisis textural</p>
+            <div class="barra-placeholder">
+              <div class="barra-label">Densidad</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 65%"></div>
+              </div>
+              <div class="barra-label">Tensión</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 90%"></div>
+              </div>
+              <div class="barra-label">Reposo</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 40%"></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
+            <span class="pdf-icon">📄</span> Ver análisis en PDF
+          </button>
+        </div>
+
+        <div class="grafico-item activo" data-track-index="2">
+          <div class="grafico-contenido">
+            <h3>Amor Contradictorio</h3>
+            <p class="grafico-desc">Análisis textural</p>
+            <div class="barra-placeholder">
+              <div class="barra-label">Densidad</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 50%"></div>
+              </div>
+              <div class="barra-label">Tensión</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 75%"></div>
+              </div>
+              <div class="barra-label">Reposo</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 85%"></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
+            <span class="pdf-icon">📄</span> Ver análisis en PDF
+          </button>
+        </div>
+
+        <div class="grafico-item activo" data-track-index="3">
+          <div class="grafico-contenido">
+            <h3>Antonio Rodríguez</h3>
+            <p class="grafico-desc">Análisis textural</p>
+            <div class="barra-placeholder">
+              <div class="barra-label">Densidad</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 70%"></div>
+              </div>
+              <div class="barra-label">Tensión</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 45%"></div>
+              </div>
+              <div class="barra-label">Reposo</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 80%"></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
+            <span class="pdf-icon">📄</span> Ver análisis en PDF
+          </button>
+        </div>
+
+        <div class="grafico-item activo" data-track-index="4">
+          <div class="grafico-contenido">
+            <h3>De Flor En Flor</h3>
+            <p class="grafico-desc">Análisis textural</p>
+            <div class="barra-placeholder">
+              <div class="barra-label">Densidad</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 90%"></div>
+              </div>
+              <div class="barra-label">Tensión</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 60%"></div>
+              </div>
+              <div class="barra-label">Reposo</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 55%"></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
+            <span class="pdf-icon">📄</span> Ver análisis en PDF
+          </button>
+        </div>
+
+        <div class="grafico-item activo" data-track-index="5">
+          <div class="grafico-contenido">
+            <h3>Chacha</h3>
+            <p class="grafico-desc">Análisis textural</p>
+            <div class="barra-placeholder">
+              <div class="barra-label">Densidad</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 60%"></div>
+              </div>
+              <div class="barra-label">Tensión</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 85%"></div>
+              </div>
+              <div class="barra-label">Reposo</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 65%"></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
+            <span class="pdf-icon">📄</span> Ver análisis en PDF
+          </button>
+        </div>
+
+        <div class="grafico-item activo" data-track-index="6">
+          <div class="grafico-contenido">
+            <h3>Shorcito</h3>
+            <p class="grafico-desc">Análisis textural</p>
+            <div class="barra-placeholder">
+              <div class="barra-label">Densidad</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 45%"></div>
+              </div>
+              <div class="barra-label">Tensión</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 90%"></div>
+              </div>
+              <div class="barra-label">Reposo</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 50%"></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
+            <span class="pdf-icon">📄</span> Ver análisis en PDF
+          </button>
+        </div>
+
+        <div class="grafico-item activo" data-track-index="7">
+          <div class="grafico-contenido">
+            <h3>Con Corbata Y Sin Cabeza</h3>
+            <p class="grafico-desc">Análisis textural</p>
+            <div class="barra-placeholder">
+              <div class="barra-label">Densidad</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 75%"></div>
+              </div>
+              <div class="barra-label">Tensión</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 55%"></div>
+              </div>
+              <div class="barra-label">Reposo</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 85%"></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
+            <span class="pdf-icon">📄</span> Ver análisis en PDF
+          </button>
+        </div>
+
+        <div class="grafico-item activo" data-track-index="8">
+          <div class="grafico-contenido">
+            <h3>Peligroso Ladrón</h3>
+            <p class="grafico-desc">Análisis textural</p>
+            <div class="barra-placeholder">
+              <div class="barra-label">Densidad</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 55%"></div>
+              </div>
+              <div class="barra-label">Tensión</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 70%"></div>
+              </div>
+              <div class="barra-label">Reposo</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 45%"></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
+            <span class="pdf-icon">📄</span> Ver análisis en PDF
+          </button>
+        </div>
+
+        <div class="grafico-item activo" data-track-index="9">
+          <div class="grafico-contenido">
+            <h3>Nos Vemos Luego</h3>
+            <p class="grafico-desc">Análisis textural</p>
+            <div class="barra-placeholder">
+              <div class="barra-label">Densidad</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 85%"></div>
+              </div>
+              <div class="barra-label">Tensión</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 40%"></div>
+              </div>
+              <div class="barra-label">Reposo</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 75%"></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
+            <span class="pdf-icon">📄</span> Ver análisis en PDF
+          </button>
+        </div>
+
+        <div class="grafico-item activo" data-track-index="10">
+          <div class="grafico-contenido">
+            <h3>Bemba Colorá</h3>
+            <p class="grafico-desc">Análisis textural</p>
+            <div class="barra-placeholder">
+              <div class="barra-label">Densidad</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 95%"></div>
+              </div>
+              <div class="barra-label">Tensión</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 80%"></div>
+              </div>
+              <div class="barra-label">Reposo</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 30%"></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
+            <span class="pdf-icon">📄</span> Ver análisis en PDF
+          </button>
+        </div>
+
+        <div class="grafico-item activo" data-track-index="11">
+          <div class="grafico-contenido">
+            <h3>Lloraré</h3>
+            <p class="grafico-desc">Análisis textural</p>
+            <div class="barra-placeholder">
+              <div class="barra-label">Densidad</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 40%"></div>
+              </div>
+              <div class="barra-label">Tensión</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 35%"></div>
+              </div>
+              <div class="barra-label">Reposo</div>
+              <div class="barra-wrap">
+                <div class="barra" style="--w: 95%"></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
+            <span class="pdf-icon">📄</span> Ver análisis en PDF
+          </button>
+        </div>
+      </div>
+      <!-- /graficos-grid -->
+
+      
+
+    <!-- ── 4. COMPENDIO DE TEXTURAS ── -->
+    <div class="container--4">
+      <h1>Compendio de texturas</h1>
+      <p>
+        Análisis textural completo del disco ADN — fila por fila, con audios de
+        referencia.
+      </p>
+      <div class="compendio-embed-wrap">
+        <iframe
+          src="compendio.html"
+          class="compendio-embed"
+          title="Compendio de texturas"
+          scrolling="yes"
+          frameborder="0"
+        ></iframe>
+      </div>
+    </div>
+
+    <!-- ── MODAL PDF ── -->
+    <div
+      id="pdf-modal"
+      class="pdf-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Análisis en PDF"
+    >
+      <div class="pdf-modal-overlay" onclick="cerrarModal()"></div>
+      <div class="pdf-modal-content">
+        <div class="pdf-modal-header">
+          <span id="pdf-modal-titulo" class="pdf-modal-titulo"></span>
+          <button
+            class="pdf-modal-cerrar"
+            onclick="cerrarModal()"
+            aria-label="Cerrar"
+          >
+            ✕
+          </button>
+        </div>
+        <iframe
+          id="pdf-modal-iframe"
+          class="pdf-modal-frame"
+          src=""
+          title="PDF análisis textural"
+        ></iframe>
+        <div id="pdf-modal-placeholder" class="pdf-modal-placeholder">
+          <div class="pdf-placeholder-icon">📄</div>
+          <p>
+            Colocá tu PDF en la misma carpeta que este archivo<br />y actualizá
+            el atributo <code>data-pdf</code> del botón correspondiente.
+          </p>
+          <p class="pdf-placeholder-ejemplo">
+            Ejemplo: <code>data-pdf="analisis-adn.pdf"</code>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // ── BARRAS animadas al cargar ──────────────────────────
+      document.querySelectorAll(".barra").forEach((b) => {
+        const w = getComputedStyle(b).getPropertyValue("--w").trim() || "60%";
+        b.style.width = "0%";
+        setTimeout(() => {
+          b.style.width = w;
+        }, 200);
+      });
+
+      // ── MODAL PDF ──────────────────────────────────────────
+      function abrirPDF(btn) {
+        const pdfSrc = btn.getAttribute("data-pdf");
+        const titulo = btn
+          .closest(".grafico-item")
+          .querySelector("h3").textContent;
+        const modal = document.getElementById("pdf-modal");
+        const iframe = document.getElementById("pdf-modal-iframe");
+        const placeholder = document.getElementById("pdf-modal-placeholder");
+        const tituloEl = document.getElementById("pdf-modal-titulo");
+
+        tituloEl.textContent = titulo;
+
+        if (pdfSrc && pdfSrc.trim() !== "") {
+          iframe.src = pdfSrc;
+          iframe.style.display = "block";
+          placeholder.style.display = "none";
+        } else {
+          iframe.src = "";
+          iframe.style.display = "none";
+          placeholder.style.display = "flex";
+        }
+
+        modal.classList.add("abierto");
+        document.body.style.overflow = "hidden";
+      }
+
+      function cerrarModal() {
+        const modal = document.getElementById("pdf-modal");
+        modal.classList.remove("abierto");
+        document.body.style.overflow = "";
+        // NO tocamos el audio — el modal es solo una capa visual encima
+        setTimeout(() => {
+          document.getElementById("pdf-modal-iframe").src = "";
+        }, 300);
+      }
+
+      // Cerrar con Escape
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") cerrarModal();
+      });
+    </script>
+  </body>
+</html>

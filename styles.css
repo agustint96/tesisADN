@@ -1,0 +1,517 @@
+/* ===== RESET ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== VARIABLES ===== */
+:root {
+  --bg:        #2a1f1a;
+  --bg-card:   #352820;
+  --bg-alt:    #3e2e24;
+  --accent:    #c49a6c;
+  --text:      #e8ddd4;
+  --text-muted:#a0887a;
+  --border:    rgba(196, 154, 108, 0.2);
+
+  --font-title: Georgia, 'Times New Roman', serif;
+  --font-body:  'Helvetica Neue', Arial, sans-serif;
+
+  --max-width: 1100px;
+  --gap: 2rem;
+}
+
+/* ===== BASE ===== */
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-title);
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(1.8rem, 4vw, 2.75rem); margin-bottom: 1rem; }
+h2 { font-size: clamp(1.3rem, 3vw, 2rem);    margin-bottom: 0.75rem; }
+h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  max-width: 680px;
+}
+
+/* ===== CONTAINER 1 — INTRO ===== */
+.container--1 {
+  padding: 6rem 1.5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  border-bottom: 1px solid var(--border);
+}
+
+.container--1 h2 { margin-top: 3rem; }
+
+/* ── PLAYER ── */
+#player-wrap {
+  margin-top: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+/* ===== CONTAINER 2 — GLOSARIO ===== */
+.container--2 {
+  background-color: var(--bg-alt);
+  padding: 5rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.container--2 > h1 {
+  max-width: var(--max-width);
+  margin: 0 auto 2.5rem;
+}
+
+.columnas-2 {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.columnas-2 > * { flex: 1 1 280px; }
+
+/* ===== CONTAINER 3 — GRÁFICOS ===== */
+.container--3 {
+  padding: 5rem 1.5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  border-bottom: 1px solid var(--border);
+}
+
+.container--3 > h1 { margin-bottom: 1.5rem; }
+
+/* ── INDICADOR DE TEMA ACTUAL ── */
+#tema-actual {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  color: var(--accent);
+  font-family: var(--font-title);
+  font-style: italic;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+/* ── GRILLA DE GRÁFICOS ── */
+.graficos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+/* ── CADA GRÁFICO (oculto por defecto, se muestra con JS) ── */
+.grafico-item {
+  flex: 1 1 280px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-height: 220px;
+  display: none;               /* JS lo cambia a flex cuando toca */
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Clase que agrega JS para animar la entrada */
+.grafico-item.activo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.grafico-contenido { display: flex; flex-direction: column; gap: 0.75rem; }
+
+/* ── BARRAS PLACEHOLDER (reemplazá con tus gráficos reales) ── */
+.barra-placeholder {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.barra {
+  height: 14px;
+  background: var(--accent);
+  border-radius: 3px;
+  opacity: 0.6;
+  transition: width 0.5s ease;
+}
+
+/* ===== CONTAINER 4 — COMPENDIO ===== */
+.container--4 {
+  background-color: var(--bg-alt);
+  padding: 5rem 1.5rem;
+}
+
+.container--4 > h1,
+.container--4 > p {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container--4 > h1 { margin-bottom: 1rem; }
+
+.pdf-embed {
+  max-width: var(--max-width);
+  margin: 2rem auto 0;
+  width: 100%;
+  height: 600px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-card);
+  display: block;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.2rem; }
+
+  .container--1,
+  .container--2,
+  .container--3,
+  .container--4 { padding: 3.5rem 1rem; }
+
+  .columnas-2,
+  .graficos-grid { flex-direction: column; }
+}
+
+/* ===== VIDEO PLACEHOLDER ===== */
+#video-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-card);
+  border: 2px dashed var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-placeholder-inner {
+  text-align: center;
+  padding: 2rem;
+}
+
+.video-icon {
+  font-size: 3rem;
+  color: var(--accent);
+  opacity: 0.4;
+  margin-bottom: 1rem;
+}
+
+.video-hint {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+.video-hint code {
+  background: var(--bg-alt);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-family: monospace;
+}
+
+/* ===== BARRAS — ancho por variable CSS ===== */
+.barra { width: var(--w, 60%); }
+
+/* ===== BOTÓN PDF EN TARJETA ===== */
+.btn-pdf {
+  margin-top: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-pdf:hover {
+  background: rgba(196, 154, 108, 0.1);
+  border-color: var(--accent);
+}
+
+.pdf-icon { font-size: 1rem; }
+
+/* grafico-item siempre visible (sin Spotify) */
+.grafico-item {
+  display: flex !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ===== BOTÓN YOUTUBE MUSIC ===== */
+.yt-music-wrap {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.yt-music-texto {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+  max-width: none;
+}
+
+.btn-yt-music {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.btn-yt-music:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.yt-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ===== MODAL PDF ===== */
+.pdf-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdf-modal.abierto { display: flex; }
+
+.pdf-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 12, 8, 0.82);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.pdf-modal-content {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  width: min(820px, 95vw);
+  height: min(88vh, 700px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalEntrar 0.25s ease;
+}
+
+@keyframes modalEntrar {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.pdf-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+  flex-shrink: 0;
+}
+
+.pdf-modal-titulo {
+  font-family: var(--font-title);
+  color: var(--accent);
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.pdf-modal-cerrar {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+  line-height: 1;
+}
+
+.pdf-modal-cerrar:hover {
+  color: var(--text);
+  background: rgba(255,255,255,0.06);
+}
+
+.pdf-modal-frame {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: #fff;
+}
+
+.pdf-modal-placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.pdf-placeholder-icon { font-size: 3rem; opacity: 0.4; }
+
+.pdf-modal-placeholder p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 420px;
+  margin: 0;
+}
+
+.pdf-modal-placeholder code {
+  background: var(--bg-alt);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-family: monospace;
+}
+
+.pdf-placeholder-ejemplo {
+  font-size: 0.82rem !important;
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  .yt-music-wrap { flex-direction: column; align-items: flex-start; }
+  .pdf-modal-content { height: 92vh; }
+}
+
+/* ===== DISCO EMBEBIDO YOUTUBE ===== */
+.yt-embed-wrap {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.yt-embed-titulo {
+  margin-bottom: 1.25rem;
+  font-size: 1.3rem;
+}
+
+.yt-embed-container {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #000;
+  width: 100%;
+}
+
+.yt-embed-container iframe {
+  display: block;
+  width: 100%;
+  height: 360px;
+}
+
+@media (max-width: 600px) {
+  .yt-embed-container iframe { height: 240px; }
+}
+
+/* ===== GOOGLE SHEETS EMBED ===== */
+.sheets-embed-wrap {
+  max-width: var(--max-width);
+  margin: 1.5rem auto 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.sheets-embed {
+  display: block;
+  width: 100%;
+  height: 600px;
+  border: none;
+}
+
+@media (max-width: 600px) {
+  .sheets-embed { height: 420px; }
+}
+
+/* ===== COMPENDIO EMBED ===== */
+.compendio-embed-wrap {
+  max-width: var(--max-width);
+  margin: 1.5rem auto 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.compendio-embed {
+  display: block;
+  width: 100%;
+  height: 700px;
+  border: none;
+  background: var(--bg);
+}
+
+@media (max-width: 600px) {
+  .compendio-embed { height: 500px; }
+}
