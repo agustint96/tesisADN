@@ -138,11 +138,13 @@ p {
   object-fit: cover;
   object-position: center top;
   display: block;
-  transition: transform 0.5s ease;
+  transform: scale(1) translate(0, 0);
+  transform-origin: 16% 50%;
+  transition: transform 3s ease-in-out;
 }
 
 .hero-img:hover {
-  transform: scale(1.05);
+  transform: scale(1.1) translate(-8px, 6px);
 }
 
 /* COLUMNA DERECHA: se desliza normalmente */
@@ -152,7 +154,7 @@ p {
   gap: var(--content-gap);
   padding: var(--section-padding-v) 0;
   padding-bottom: calc(var(--section-padding-v) * 2);
-  margin-top: 9.3rem;
+  margin-top: 8.6rem;
 }
 
 .hero-right h2 {
@@ -189,7 +191,7 @@ p {
 
 .hero-nav-link {
   display: block;
-  color: var(--text);
+  color: var(--text-muted);
   text-decoration: none;
   font-family: var(--font-body);
   font-size: 1rem;
@@ -199,7 +201,7 @@ p {
 }
 
 .hero-nav-link:hover {
-  color: var(--text-muted);
+  color: var(--accent);
 }
 
 @media (max-width: 768px) {

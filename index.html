@@ -57,9 +57,9 @@
         transform: scale(1.05);
       }
       .btn-audio-textura.reproduciendo {
-        background: rgba(99, 210, 140, 0.25);
-        border-color: #63d28c;
-        color: #63d28c;
+        background: #f2e9dc6c;
+        border-color: var(--accent-color);
+        color: #f2e9dc;
       }
       .btn-audio-textura.error {
         background: rgba(220, 80, 80, 0.2);
@@ -76,7 +76,6 @@
     <!-- ── 1. INTRO ── -->
     <div class="container--1">
       <div class="hero-grid">
-
         <!-- COLUMNA IZQUIERDA: sticky / parallax -->
         <div class="hero-left">
           <h1 class="reveal reveal--up" style="transition-delay: 0ms">
@@ -100,8 +99,10 @@
         </div>
 
         <!-- COLUMNA DERECHA: se desliza, hero-left queda fijo -->
-        <div class="hero-right reveal reveal--right" style="transition-delay: 550ms">
-
+        <div
+          class="hero-right reveal reveal--right"
+          style="transition-delay: 550ms"
+        >
           <div id="player-wrap">
             <div id="video-placeholder">
               <div class="video-placeholder-inner">
@@ -118,19 +119,35 @@
 
           <h2>¿Cómo usarlo?</h2>
           <p>
-            Este documento interactivo es una herramienta de análisis musical diseñada para explorar las texturas sonoras del disco <em>ADN</em> de Alaín Pérez. Cada sección está organizada para facilitar la lectura, la escucha y la comprensión profunda de los recursos compositivos empleados.
+            Este documento interactivo es una herramienta de análisis musical
+            diseñada para explorar las texturas sonoras del disco
+            <em>ADN</em> de Alaín Pérez. Cada sección está organizada para
+            facilitar la lectura, la escucha y la comprensión profunda de los
+            recursos compositivos empleados.
           </p>
           <p>
-            Podés navegar por el glosario de texturas para entender los términos técnicos utilizados a lo largo del análisis. Cada definición está pensada para ser accesible tanto para músicos en formación como para oyentes con experiencia.
+            Podés navegar por el glosario de texturas para entender los términos
+            técnicos utilizados a lo largo del análisis. Cada definición está
+            pensada para ser accesible tanto para músicos en formación como para
+            oyentes con experiencia.
           </p>
           <p>
-            En la sección de gráficos encontrarás representaciones visuales de las texturas y la tensión-reposo en cada tema del disco. Hacé clic en los botones de cada tarjeta para abrir el visor de imágenes con los gráficos correspondientes.
+            En la sección de gráficos encontrarás representaciones visuales de
+            las texturas y la tensión-reposo en cada tema del disco. Hacé clic
+            en los botones de cada tarjeta para abrir el visor de imágenes con
+            los gráficos correspondientes.
           </p>
           <p>
-            El compendio de texturas reúne de forma ordenada todos los materiales del análisis: fichas por canción, observaciones armónicas, rítmicas y tímbricas, y referencias cruzadas entre los distintos temas del álbum.
+            El compendio de texturas reúne de forma ordenada todos los
+            materiales del análisis: fichas por canción, observaciones
+            armónicas, rítmicas y tímbricas, y referencias cruzadas entre los
+            distintos temas del álbum.
           </p>
           <p>
-            Podés escuchar los audios de referencia directamente desde los modales de galería. Cada fragmento ilustra una textura específica dentro de la canción analizada, permitiendo vincular lo que leés con lo que escuchás en tiempo real.
+            Podés escuchar los audios de referencia directamente desde los
+            modales de galería. Cada fragmento ilustra una textura específica
+            dentro de la canción analizada, permitiendo vincular lo que leés con
+            lo que escuchás en tiempo real.
           </p>
 
           <!-- NAV en columnas debajo del texto -->
@@ -142,10 +159,11 @@
               <a href="#graficos" class="hero-nav-link">Gráficos</a>
             </div>
             <div class="hero-nav-col">
-              <a href="#compendio" class="hero-nav-link">Compendio de texturas</a>
+              <a href="#compendio" class="hero-nav-link"
+                >Compendio de texturas</a
+              >
             </div>
           </nav>
-
         </div>
       </div>
     </div>
