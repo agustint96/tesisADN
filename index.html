@@ -76,7 +76,8 @@
     <!-- ── 1. INTRO ── -->
     <div class="container--1">
       <div class="hero-grid">
-        <!-- COLUMNA IZQUIERDA: imagen + título + descripción -->
+
+        <!-- COLUMNA IZQUIERDA: sticky / parallax -->
         <div class="hero-left">
           <h1 class="reveal reveal--up" style="transition-delay: 0ms">
             Análisis textural <br />
@@ -98,11 +99,9 @@
           </p>
         </div>
 
-        <!-- COLUMNA DERECHA: video + cómo usarlo -->
-        <div
-          class="hero-right reveal reveal--right"
-          style="transition-delay: 550ms"
-        >
+        <!-- COLUMNA DERECHA: se desliza, hero-left queda fijo -->
+        <div class="hero-right reveal reveal--right" style="transition-delay: 550ms">
+
           <div id="player-wrap">
             <div id="video-placeholder">
               <div class="video-placeholder-inner">
@@ -116,24 +115,44 @@
               </div>
             </div>
           </div>
+
           <h2>¿Cómo usarlo?</h2>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed nam
-            accusantium reprehenderit debitis? Accusantium nihil sunt porro
-            cupiditate similique eveniet distinctio beatae, illo, consequuntur
-            nisi commodi quidem odit! Eligendi, magni. Sapiente voluptatibus
-            ducimus cupiditate! Ipsum in dolore non animi nihil quos repudiandae
-            optio dolorem excepturi veniam, pariatur praesentium delectus
-            deserunt eum provident suscipit est id ad! Quis, sapiente?
-            Veritatis, modi.
+            Este documento interactivo es una herramienta de análisis musical diseñada para explorar las texturas sonoras del disco <em>ADN</em> de Alaín Pérez. Cada sección está organizada para facilitar la lectura, la escucha y la comprensión profunda de los recursos compositivos empleados.
           </p>
+          <p>
+            Podés navegar por el glosario de texturas para entender los términos técnicos utilizados a lo largo del análisis. Cada definición está pensada para ser accesible tanto para músicos en formación como para oyentes con experiencia.
+          </p>
+          <p>
+            En la sección de gráficos encontrarás representaciones visuales de las texturas y la tensión-reposo en cada tema del disco. Hacé clic en los botones de cada tarjeta para abrir el visor de imágenes con los gráficos correspondientes.
+          </p>
+          <p>
+            El compendio de texturas reúne de forma ordenada todos los materiales del análisis: fichas por canción, observaciones armónicas, rítmicas y tímbricas, y referencias cruzadas entre los distintos temas del álbum.
+          </p>
+          <p>
+            Podés escuchar los audios de referencia directamente desde los modales de galería. Cada fragmento ilustra una textura específica dentro de la canción analizada, permitiendo vincular lo que leés con lo que escuchás en tiempo real.
+          </p>
+
+          <!-- NAV en columnas debajo del texto -->
+          <nav class="hero-nav">
+            <div class="hero-nav-col">
+              <a href="#glosario" class="hero-nav-link">Glosario de texturas</a>
+            </div>
+            <div class="hero-nav-col">
+              <a href="#graficos" class="hero-nav-link">Gráficos</a>
+            </div>
+            <div class="hero-nav-col">
+              <a href="#compendio" class="hero-nav-link">Compendio de texturas</a>
+            </div>
+          </nav>
+
         </div>
       </div>
     </div>
     <!-- /container--1 -->
 
     <!-- ── 2. GLOSARIO DE TEXTURAS ── -->
-    <div class="container--2">
+    <div class="container--2" id="glosario">
       <h1>Glosario de texturas</h1>
       <div class="compendio-embed-wrap">
         <iframe
@@ -149,7 +168,7 @@
     <!-- /container--2 -->
 
     <!-- ── 3. GRÁFICOS ── -->
-    <div class="container--3">
+    <div class="container--3" id="graficos">
       <h1>Gráficos</h1>
 
       <!-- PLAYLIST DE SPOTIFY -->
@@ -480,7 +499,7 @@
     <!-- /container--3 -->
 
     <!-- ── 4. COMPENDIO DE TEXTURAS ── -->
-    <div class="container--4">
+    <div class="container--4" id="compendio">
       <h1>Compendio de texturas</h1>
       <p>
         Análisis textural completo del disco ADN — fila por fila, con audios de

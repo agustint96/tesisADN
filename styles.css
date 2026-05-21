@@ -87,13 +87,12 @@ p {
 /* ===== CONTAINER 1 — HERO ===== */
 .container--1 {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
   box-sizing: border-box;
   border-bottom: 1px solid var(--border);
+  padding: 0 var(--section-padding-h);
 }
 
-/* ── GRID DOS COLUMNAS ── */
+/* ── GRID DOS COLUMNAS — parallax ── */
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -104,10 +103,16 @@ p {
   align-items: start;
 }
 
+/* COLUMNA IZQUIERDA: sticky centrada verticalmente */
 .hero-left {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: var(--block-gap);
+  padding: var(--section-padding-v) 0;
 }
 
 .hero-left h1 {
@@ -133,7 +138,6 @@ p {
   object-fit: cover;
   object-position: center top;
   display: block;
-
   transition: transform 0.5s ease;
 }
 
@@ -141,11 +145,14 @@ p {
   transform: scale(1.05);
 }
 
+/* COLUMNA DERECHA: se desliza normalmente */
 .hero-right {
   display: flex;
   flex-direction: column;
   gap: var(--content-gap);
-  margin-top: 7.5rem;
+  padding: var(--section-padding-v) 0;
+  padding-bottom: calc(var(--section-padding-v) * 2);
+  margin-top: 9.3rem;
 }
 
 .hero-right h2 {
@@ -165,14 +172,60 @@ p {
   border: 1px solid var(--border);
 }
 
+/* ── NAV EN COLUMNAS ── */
+.hero-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.hero-nav-col {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-nav-link {
+  display: block;
+  color: var(--text);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: center;
+  transition: color 0.2s ease;
+}
+
+.hero-nav-link:hover {
+  color: var(--text-muted);
+}
+
 @media (max-width: 768px) {
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .container--1 {
-    align-items: stretch;
+  .hero-left {
+    position: relative;
+    height: auto;
+    padding: var(--section-padding-v) 0 0;
+  }
+
+  .hero-right {
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  .hero-nav {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .hero-nav-col {
+    justify-content: flex-start;
   }
 }
 
