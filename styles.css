@@ -116,21 +116,33 @@ p {
   margin-bottom: 0;
 }
 
-.hero-img {
+.hero-img-wrap {
   width: 100%;
   height: 320px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center top;
-  border-radius: 8px;
   display: block;
-  border: 1px solid var(--border);
+
+  transition: transform 0.5s ease;
+}
+
+.hero-img:hover {
+  transform: scale(1.05);
 }
 
 .hero-right {
   display: flex;
   flex-direction: column;
   gap: var(--content-gap);
-  margin-top: 7.2rem;
+  margin-top: 7.5rem;
 }
 
 .hero-right h2 {
@@ -163,7 +175,7 @@ p {
 
 /* ===== CONTAINER 2 — GLOSARIO ===== */
 .container--2 {
-  background-color: var(--bg-alt);
+  background-color: var(--bg-card);
   border-bottom: 1px solid var(--border);
 }
 
@@ -186,10 +198,24 @@ p {
 
 /* ===== CONTAINER 3 — GRÁFICOS ===== */
 .container--3 {
+  max-width: unset;
+  margin-left: 0;
+  margin-right: 0;
+  border-bottom: 1px solid var(--border);
+  background-image: url("marble-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.container--3 > h1,
+.container--3 > p,
+.container--3 > #tema-actual,
+.container--3 > .graficos-grid,
+.container--3 > #spotify-playlist {
   max-width: var(--max-width);
   margin-left: auto;
   margin-right: auto;
-  border-bottom: 1px solid var(--border);
 }
 
 .container--3 > h1 {
@@ -411,7 +437,6 @@ p {
 .grafico-item:hover {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.03);
 }
 
 .gallery-modal {
