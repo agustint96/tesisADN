@@ -18,7 +18,7 @@
         --bg-card: #352820;
         --bg-alt: #3e2e24;
         --accent: #c49a6c;
-        --text: #e8ddd4;
+        --text: #000;
         --text-muted: #a0887a;
         --border: rgba(196, 154, 108, 0.2);
         --font-title: Georgia, "Times New Roman", serif;
@@ -26,8 +26,8 @@
       }
 
       body {
-        background: var(--bg);
-        color: var(--text);
+        background: #ffffff;
+        color: #1a1a1a;
         font-family: var(--font-body);
         font-size: 0.9rem;
         line-height: 1.5;
@@ -51,7 +51,7 @@
       .tabla-wrap {
         overflow-x: auto;
         border-radius: 8px;
-        border: 1px solid var(--border);
+        border: 1px solid #ccc;
       }
 
       table {
@@ -61,42 +61,43 @@
       }
 
       thead tr {
-        background: var(--bg-alt);
-        border-bottom: 2px solid var(--accent);
+        background: #efefef;
+        border-bottom: 2px solid #aaa;
       }
 
       thead th {
         padding: 0.75rem 0.9rem;
         text-align: left;
         font-family: var(--font-title);
-        color: var(--accent);
+        color: #1a1a1a;
         font-size: 0.85rem;
-        font-weight: normal;
-        font-style: italic;
+        font-weight: 700;
+        font-style: normal;
         white-space: nowrap;
       }
 
       /* ── FILAS CANCIÓN (separador) ── */
       tr.cancion-header td {
-        background: var(--bg-alt);
-        border-top: 2px solid rgba(196, 154, 108, 0.4);
-        border-bottom: 1px solid rgba(196, 154, 108, 0.2);
+        background: #b6d7a8;
+        border-top: 2px solid #8ab87a;
+        border-bottom: 1px solid #8ab87a;
         padding: 0.5rem 0.9rem;
         font-family: var(--font-title);
         font-style: italic;
-        color: var(--accent);
+        color: #1a1a1a;
         font-size: 0.95rem;
+        font-weight: 700;
         letter-spacing: 0.03em;
       }
 
       /* ── FILAS DE DATOS ── */
       tbody tr.fila-dato {
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid #d0d0d0;
         transition: background 0.15s;
       }
 
       tbody tr.fila-dato:hover {
-        background: rgba(196, 154, 108, 0.05);
+        filter: brightness(0.97);
       }
 
       tbody tr.fila-dato td {
@@ -106,35 +107,46 @@
       }
 
       td.num {
-        color: var(--accent);
+        background: #ea9999;
+        color: #1a1a1a;
         font-family: var(--font-title);
         text-align: center;
         white-space: nowrap;
+        font-weight: 700;
       }
       td.compas {
-        color: var(--text-muted);
+        background: #f9cb9c;
+        color: #1a1a1a;
         white-space: nowrap;
         font-size: 0.82rem;
       }
       td.forma {
+        background: #ffe599;
+        color: #1a1a1a;
         white-space: nowrap;
       }
       td.dt {
+        background: #b4a7d6;
+        color: #1a1a1a;
         white-space: nowrap;
         font-size: 0.85rem;
       }
       td.tr {
+        background: #f1c232;
+        color: #1a1a1a;
         white-space: nowrap;
         font-size: 0.85rem;
       }
       td.cat {
+        background: #ffe599;
+        color: #1a1a1a;
         font-size: 0.82rem;
-        color: var(--text-muted);
         max-width: 180px;
       }
       td.desc {
+        background: #a4c2f4;
+        color: #1a1a1a;
         font-size: 0.82rem;
-        color: var(--text-muted);
         max-width: 340px;
         line-height: 1.45;
       }
@@ -162,7 +174,7 @@
         border: 1px solid var(--border);
         border-radius: 4px;
         background: transparent;
-        color: var(--accent);
+        color: #000;
         font-size: 0.78rem;
         font-family: var(--font-body);
         cursor: pointer;
@@ -217,13 +229,11 @@
     </style>
   </head>
   <body>
-    <h1>Compendio de texturas — ADN</h1>
-    <p class="subtitulo">Alaín Pérez · Análisis textural completo</p>
-
     <div class="tabla-wrap">
       <table>
         <thead>
           <tr>
+            <th>Audio</th>
             <th>N°</th>
             <th>Compás</th>
             <th>Forma</th>
@@ -231,7 +241,6 @@
             <th>T/R</th>
             <th>Categorías Piston</th>
             <th>Descripción</th>
-            <th>Audio</th>
           </tr>
         </thead>
         <tbody>
@@ -243,15 +252,6 @@
             </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">1</td>
-            <td class="compas">2°8c</td>
-            <td class="forma">Intro</td>
-            <td class="dt">DT 3</td>
-            <td class="tr">R2</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">
-              Entrada de metales sobre marcha songo + melodía de campanas
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -270,15 +270,17 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">1</td>
+            <td class="compas">2°8c</td>
+            <td class="forma">Intro</td>
+            <td class="dt">DT 3</td>
+            <td class="tr">R2</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">
+              Entrada de metales sobre marcha songo + melodía de campanas
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">2</td>
-            <td class="compas"></td>
-            <td class="forma">Precoro</td>
-            <td class="dt">DT 5</td>
-            <td class="tr">T2</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">Presión y pedal de bajo</td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -297,17 +299,15 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">2</td>
+            <td class="compas"></td>
+            <td class="forma">Precoro</td>
+            <td class="dt">DT 5</td>
+            <td class="tr">T2</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">Presión y pedal de bajo</td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">3</td>
-            <td class="compas"></td>
-            <td class="forma">Puente 2</td>
-            <td class="dt">DT3</td>
-            <td class="tr">T3</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">
-              Textura background y tratamiento de metales + voz
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -326,18 +326,17 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">3</td>
+            <td class="compas"></td>
+            <td class="forma">Puente 2</td>
+            <td class="dt">DT3</td>
+            <td class="tr">T3</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">
+              Textura background y tratamiento de metales + voz
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">4</td>
-            <td class="compas"></td>
-            <td class="forma">Coro 2 y Guía</td>
-            <td class="dt">DT5</td>
-            <td class="tr">T2</td>
-            <td class="cat">Textura compleja / Melodía con acompañamiento</td>
-            <td class="desc">
-              Mazacote con obligados pregunta tumbadora y resp percusión + bajo
-              hacia marcha arriba
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -356,18 +355,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">4</td>
+            <td class="compas"></td>
+            <td class="forma">Coro 2 y Guía</td>
+            <td class="dt">DT5</td>
+            <td class="tr">T2</td>
+            <td class="cat">Textura compleja / Melodía con acompañamiento</td>
+            <td class="desc">
+              Mazacote con obligados pregunta tumbadora y resp percusión + bajo
+              hacia marcha arriba
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">5</td>
-            <td class="compas"></td>
-            <td class="forma">Puente 3</td>
-            <td class="dt">DT2</td>
-            <td class="tr">T3</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">
-              Background + guía voz y marcha tipo rock con comentario rítmico de
-              timbal
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -386,6 +385,16 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">5</td>
+            <td class="compas"></td>
+            <td class="forma">Puente 3</td>
+            <td class="dt">DT2</td>
+            <td class="tr">T3</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">
+              Background + guía voz y marcha tipo rock con comentario rítmico de
+              timbal
+            </td>
           </tr>
 
           <!-- ══ ADN ══ -->
@@ -393,15 +402,6 @@
             <td colspan="8">ADN &nbsp;·&nbsp; Categoría: FUSIÓN LATINA</td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">6</td>
-            <td class="compas">1°8c</td>
-            <td class="forma">A</td>
-            <td class="dt">DT4</td>
-            <td class="tr">R2</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">
-              Sostiene un ostinato y va agregando otros subconjuntos texturales
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -420,21 +420,17 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">6</td>
+            <td class="compas">1°8c</td>
+            <td class="forma">A</td>
+            <td class="dt">DT4</td>
+            <td class="tr">R2</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">
+              Sostiene un ostinato y va agregando otros subconjuntos texturales
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">7</td>
-            <td class="compas"></td>
-            <td class="forma">Precoro 1</td>
-            <td class="dt">DT3 / DT1</td>
-            <td class="tr">T2</td>
-            <td class="cat">
-              Melodía con acompañamiento / Contrapunto / Un solo elemento
-            </td>
-            <td class="desc">
-              Presión 3-2 guaguancó. Melodía metales (preg), coro (resp), golpes
-              de bombo, obligado de armonía y salida de timbal a marcha arriba
-              contracampana.
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -453,19 +449,21 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">7</td>
+            <td class="compas"></td>
+            <td class="forma">Precoro 1</td>
+            <td class="dt">DT3 / DT1</td>
+            <td class="tr">T2</td>
+            <td class="cat">
+              Melodía con acompañamiento / Contrapunto / Un solo elemento
+            </td>
+            <td class="desc">
+              Presión 3-2 guaguancó. Melodía metales (preg), coro (resp), golpes
+              de bombo, obligado de armonía y salida de timbal a marcha arriba
+              contracampana.
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">8</td>
-            <td class="compas"></td>
-            <td class="forma">Precoro 2</td>
-            <td class="dt">DT2 / DT1</td>
-            <td class="tr">T2</td>
-            <td class="cat">Un solo elemento</td>
-            <td class="desc">
-              Apoyo y salida de orquesta, bloque de percusión (preg) metales
-              (resp) y obligado como respuesta final de toda la sección rítmica
-              armónica
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -484,18 +482,19 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">8</td>
+            <td class="compas"></td>
+            <td class="forma">Precoro 2</td>
+            <td class="dt">DT2 / DT1</td>
+            <td class="tr">T2</td>
+            <td class="cat">Un solo elemento</td>
+            <td class="desc">
+              Apoyo y salida de orquesta, bloque de percusión (preg) metales
+              (resp) y obligado como respuesta final de toda la sección rítmica
+              armónica
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">9</td>
-            <td class="compas">2°9c</td>
-            <td class="forma">Mambo 1 y Coro 2</td>
-            <td class="dt">DT6</td>
-            <td class="tr">T1</td>
-            <td class="cat">Contrapunto</td>
-            <td class="desc">
-              Mazacote, corto corto y guía, bloques en bajo y percusión + moña
-              metales 2 elementos, salida hacia marcha arriba
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -514,18 +513,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">9</td>
+            <td class="compas">2°9c</td>
+            <td class="forma">Mambo 1 y Coro 2</td>
+            <td class="dt">DT6</td>
+            <td class="tr">T1</td>
+            <td class="cat">Contrapunto</td>
+            <td class="desc">
+              Mazacote, corto corto y guía, bloques en bajo y percusión + moña
+              metales 2 elementos, salida hacia marcha arriba
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">10</td>
-            <td class="compas"></td>
-            <td class="forma">Coro 3 y guía</td>
-            <td class="dt">DT5</td>
-            <td class="tr">T2</td>
-            <td class="cat">Melodía con acompañamiento / Contrapunto</td>
-            <td class="desc">
-              Marcha abajo cargada con salida hacia marcha arriba + línea de
-              timba + contramelodía + tumbao
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -544,18 +543,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">10</td>
+            <td class="compas"></td>
+            <td class="forma">Coro 3 y guía</td>
+            <td class="dt">DT5</td>
+            <td class="tr">T2</td>
+            <td class="cat">Melodía con acompañamiento / Contrapunto</td>
+            <td class="desc">
+              Marcha abajo cargada con salida hacia marcha arriba + línea de
+              timba + contramelodía + tumbao
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">11</td>
-            <td class="compas"></td>
-            <td class="forma">Puente</td>
-            <td class="dt">DT4</td>
-            <td class="tr">T3</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">
-              2 compases de puente para introducir a sección nueva (función de
-              nexo) con salida fluida y poco densa de percusión
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -574,18 +573,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">11</td>
+            <td class="compas"></td>
+            <td class="forma">Puente</td>
+            <td class="dt">DT4</td>
+            <td class="tr">T3</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">
+              2 compases de puente para introducir a sección nueva (función de
+              nexo) con salida fluida y poco densa de percusión
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">12</td>
-            <td class="compas"></td>
-            <td class="forma">Coda</td>
-            <td class="dt">DT5</td>
-            <td class="tr">T3</td>
-            <td class="cat">Melodía con acompañamiento / Un solo elemento</td>
-            <td class="desc">
-              Tipo Rock con acompañamiento en piano, ostinato 1 en guitarra y
-              apoyos en bajo junto a metales
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -604,6 +603,16 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">12</td>
+            <td class="compas"></td>
+            <td class="forma">Coda</td>
+            <td class="dt">DT5</td>
+            <td class="tr">T3</td>
+            <td class="cat">Melodía con acompañamiento / Un solo elemento</td>
+            <td class="desc">
+              Tipo Rock con acompañamiento en piano, ostinato 1 en guitarra y
+              apoyos en bajo junto a metales
+            </td>
           </tr>
 
           <!-- ══ AMOR CONTRADICTORIO ══ -->
@@ -613,16 +622,6 @@
             </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">13</td>
-            <td class="compas">1°8c</td>
-            <td class="forma">A</td>
-            <td class="dt">DT2</td>
-            <td class="tr">R1</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">
-              Acompañamiento guitarra sola, marcha abajo en bongó, clave 2-3 y
-              triángulo
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -641,18 +640,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
-          </tr>
-          <tr class="fila-dato">
-            <td class="num">14</td>
-            <td class="compas"></td>
-            <td class="forma">Puente</td>
+            <td class="num">13</td>
+            <td class="compas">1°8c</td>
+            <td class="forma">A</td>
             <td class="dt">DT2</td>
             <td class="tr">R1</td>
             <td class="cat">Melodía con acompañamiento</td>
             <td class="desc">
-              Baja marcha a solo maraca, guitarra sola acompaña y comenta
-              melódicamente el piano en registro agudo
+              Acompañamiento guitarra sola, marcha abajo en bongó, clave 2-3 y
+              triángulo
             </td>
+          </tr>
+          <tr class="fila-dato">
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -671,18 +670,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">14</td>
+            <td class="compas"></td>
+            <td class="forma">Puente</td>
+            <td class="dt">DT2</td>
+            <td class="tr">R1</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">
+              Baja marcha a solo maraca, guitarra sola acompaña y comenta
+              melódicamente el piano en registro agudo
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">15</td>
-            <td class="compas">1°8c</td>
-            <td class="forma">B</td>
-            <td class="dt">DT4</td>
-            <td class="tr">R3</td>
-            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
-            <td class="desc">
-              Voz y coro preg-respuesta. Marcha y bajo tipo Brasil,
-              acompañamiento en piano, guitarra y contramelodía en metales
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -701,19 +700,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">15</td>
+            <td class="compas">1°8c</td>
+            <td class="forma">B</td>
+            <td class="dt">DT4</td>
+            <td class="tr">R3</td>
+            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
+            <td class="desc">
+              Voz y coro preg-respuesta. Marcha y bajo tipo Brasil,
+              acompañamiento en piano, guitarra y contramelodía en metales
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">16</td>
-            <td class="compas">5°2c</td>
-            <td class="forma">Intro 2</td>
-            <td class="dt">DT5</td>
-            <td class="tr">R3</td>
-            <td class="cat">Contrapunto</td>
-            <td class="desc">
-              Cambia intención desde la composición de la textura. Marcha tipo
-              rock, background bajo y guitarra, acompañamiento en piano, melodía
-              metales, contramelodía voz
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -732,18 +730,19 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">16</td>
+            <td class="compas">5°2c</td>
+            <td class="forma">Intro 2</td>
+            <td class="dt">DT5</td>
+            <td class="tr">R3</td>
+            <td class="cat">Contrapunto</td>
+            <td class="desc">
+              Cambia intención desde la composición de la textura. Marcha tipo
+              rock, background bajo y guitarra, acompañamiento en piano, melodía
+              metales, contramelodía voz
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">17</td>
-            <td class="compas">1°8c</td>
-            <td class="forma">Coro 2 y guía</td>
-            <td class="dt">DT3</td>
-            <td class="tr">T2</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">
-              Mazacote con background en sección rítmico armónica + marcha con
-              melodía en campanas hacia obligados y marcha arriba
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -762,18 +761,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">17</td>
+            <td class="compas">1°8c</td>
+            <td class="forma">Coro 2 y guía</td>
+            <td class="dt">DT3</td>
+            <td class="tr">T2</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">
+              Mazacote con background en sección rítmico armónica + marcha con
+              melodía en campanas hacia obligados y marcha arriba
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">18</td>
-            <td class="compas"></td>
-            <td class="forma">Mambo 2 y Coro 2'</td>
-            <td class="dt">DT5</td>
-            <td class="tr">T3</td>
-            <td class="cat">Contrapunto</td>
-            <td class="desc">
-              Textura coexistiendo un coro de 4 compases con loop de metales
-              sobre línea de bajo + marcha y tumbao
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -792,18 +791,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">18</td>
+            <td class="compas"></td>
+            <td class="forma">Mambo 2 y Coro 2'</td>
+            <td class="dt">DT5</td>
+            <td class="tr">T3</td>
+            <td class="cat">Contrapunto</td>
+            <td class="desc">
+              Textura coexistiendo un coro de 4 compases con loop de metales
+              sobre línea de bajo + marcha y tumbao
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">18a</td>
-            <td class="compas"></td>
-            <td class="forma">Coda</td>
-            <td class="dt">DT3 / DT1</td>
-            <td class="tr">T2 / T1</td>
-            <td class="cat">Melodía con acompañamiento / Un solo elemento</td>
-            <td class="desc">
-              Bajo y guitarra background, marcha abajo y apoyos en acentos de
-              background hacia obligado final
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -822,6 +821,16 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">18a</td>
+            <td class="compas"></td>
+            <td class="forma">Coda</td>
+            <td class="dt">DT3 / DT1</td>
+            <td class="tr">T2 / T1</td>
+            <td class="cat">Melodía con acompañamiento / Un solo elemento</td>
+            <td class="desc">
+              Bajo y guitarra background, marcha abajo y apoyos en acentos de
+              background hacia obligado final
+            </td>
           </tr>
 
           <!-- ══ ANTONIO RODRÍGUEZ ══ -->
@@ -831,16 +840,6 @@
             </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">19</td>
-            <td class="compas">1°4c</td>
-            <td class="forma">Intro</td>
-            <td class="dt">DT2</td>
-            <td class="tr">T2</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">
-              Entrada batería y tutti para generar explosión y bajar intensidad
-              en sección coro con una presión
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -859,18 +858,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">19</td>
+            <td class="compas">1°4c</td>
+            <td class="forma">Intro</td>
+            <td class="dt">DT2</td>
+            <td class="tr">T2</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">
+              Entrada batería y tutti para generar explosión y bajar intensidad
+              en sección coro con una presión
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">20</td>
-            <td class="compas"></td>
-            <td class="forma">A</td>
-            <td class="dt">DT3 / DT4</td>
-            <td class="tr">R2 / R3</td>
-            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
-            <td class="desc">
-              Sostiene un ostinato y se van agregando capas o subconjuntos
-              texturales para dar variedad
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -889,19 +888,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
-          </tr>
-          <tr class="fila-dato">
-            <td class="num">21</td>
+            <td class="num">20</td>
             <td class="compas"></td>
-            <td class="forma">A'</td>
+            <td class="forma">A</td>
             <td class="dt">DT3 / DT4</td>
-            <td class="tr">R1 / R2</td>
+            <td class="tr">R2 / R3</td>
             <td class="cat">Melodía con acompañamiento / Contramelodía</td>
             <td class="desc">
-              Un ejemplo de distinto tratamiento de una misma sección para bajar
-              intensidad, primero con poca densidad en percusión y variaciones
-              en el género, primero con marcha abajo luego rumba guaguancó
+              Sostiene un ostinato y se van agregando capas o subconjuntos
+              texturales para dar variedad
             </td>
+          </tr>
+          <tr class="fila-dato">
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -920,19 +918,19 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
-          </tr>
-          <tr class="fila-dato">
-            <td class="num">22</td>
-            <td class="compas">1°8c</td>
-            <td class="forma">Mambo 1</td>
-            <td class="dt">DT5</td>
-            <td class="tr">T2</td>
+            <td class="num">21</td>
+            <td class="compas"></td>
+            <td class="forma">A'</td>
+            <td class="dt">DT3 / DT4</td>
+            <td class="tr">R1 / R2</td>
             <td class="cat">Melodía con acompañamiento / Contramelodía</td>
             <td class="desc">
-              Textura con mucha densidad, convivencia de solo de guitarra junto
-              a background de dos elementos por metales, acompañamiento de
-              piano, línea de timba y marcha arriba contracampana
+              Un ejemplo de distinto tratamiento de una misma sección para bajar
+              intensidad, primero con poca densidad en percusión y variaciones
+              en el género, primero con marcha abajo luego rumba guaguancó
             </td>
+          </tr>
+          <tr class="fila-dato">
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -951,19 +949,19 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">22</td>
+            <td class="compas">1°8c</td>
+            <td class="forma">Mambo 1</td>
+            <td class="dt">DT5</td>
+            <td class="tr">T2</td>
+            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
+            <td class="desc">
+              Textura con mucha densidad, convivencia de solo de guitarra junto
+              a background de dos elementos por metales, acompañamiento de
+              piano, línea de timba y marcha arriba contracampana
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">23</td>
-            <td class="compas"></td>
-            <td class="forma">Coro 4 y metales</td>
-            <td class="dt">DT6 / DT1</td>
-            <td class="tr">T2</td>
-            <td class="cat">Contrapunto</td>
-            <td class="desc">
-              Mazacote textura densa de subconjuntos, bloques en percusión y
-              apoyos con bajo, tumbao en piano, apoyos en guitarra y 3 elementos
-              en metales hacia obligado final
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -982,6 +980,17 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">23</td>
+            <td class="compas"></td>
+            <td class="forma">Coro 4 y metales</td>
+            <td class="dt">DT6 / DT1</td>
+            <td class="tr">T2</td>
+            <td class="cat">Contrapunto</td>
+            <td class="desc">
+              Mazacote textura densa de subconjuntos, bloques en percusión y
+              apoyos con bajo, tumbao en piano, apoyos en guitarra y 3 elementos
+              en metales hacia obligado final
+            </td>
           </tr>
 
           <!-- ══ DE FLOR EN FLOR ══ -->
@@ -991,16 +1000,6 @@
             </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">24</td>
-            <td class="compas"></td>
-            <td class="forma">Intro</td>
-            <td class="dt">DT3</td>
-            <td class="tr">R1</td>
-            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
-            <td class="desc">
-              Melodía y contramelodía en clarinete y violín, marcha abajo,
-              acompañamiento bajo + piano
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1019,20 +1018,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
-          </tr>
-          <tr class="fila-dato">
-            <td class="num">25</td>
+            <td class="num">24</td>
             <td class="compas"></td>
-            <td class="forma">2° Coro 1</td>
-            <td class="dt">DT5</td>
-            <td class="tr">R3</td>
+            <td class="forma">Intro</td>
+            <td class="dt">DT3</td>
+            <td class="tr">R1</td>
             <td class="cat">Melodía con acompañamiento / Contramelodía</td>
             <td class="desc">
-              Muchas expresiones de tumbao o guajeos: en violín estilo aragón,
-              en piano tumbao de son, en laud tumbao o guajeo y línea o tumbao
-              de son, marcha arriba percusión con salida de clarinete +
-              percusión para bajar
+              Melodía y contramelodía en clarinete y violín, marcha abajo,
+              acompañamiento bajo + piano
             </td>
+          </tr>
+          <tr class="fila-dato">
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1051,21 +1048,20 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">25</td>
+            <td class="compas"></td>
+            <td class="forma">2° Coro 1</td>
+            <td class="dt">DT5</td>
+            <td class="tr">R3</td>
+            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
+            <td class="desc">
+              Muchas expresiones de tumbao o guajeos: en violín estilo aragón,
+              en piano tumbao de son, en laud tumbao o guajeo y línea o tumbao
+              de son, marcha arriba percusión con salida de clarinete +
+              percusión para bajar
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">26</td>
-            <td class="compas">2°8c</td>
-            <td class="forma">3° Coro 1</td>
-            <td class="dt">DT6 / DT1</td>
-            <td class="tr">T3</td>
-            <td class="cat">
-              Melodía con acompañamiento / Contramelodía / Contrapunto / Un solo
-              elemento
-            </td>
-            <td class="desc">
-              A la textura anterior se le incluye una línea de clarinete,
-              ostinato en bajo sobre base de changuí como variación
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1084,18 +1080,21 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">26</td>
+            <td class="compas">2°8c</td>
+            <td class="forma">3° Coro 1</td>
+            <td class="dt">DT6 / DT1</td>
+            <td class="tr">T3</td>
+            <td class="cat">
+              Melodía con acompañamiento / Contramelodía / Contrapunto / Un solo
+              elemento
+            </td>
+            <td class="desc">
+              A la textura anterior se le incluye una línea de clarinete,
+              ostinato en bajo sobre base de changuí como variación
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">27</td>
-            <td class="compas"></td>
-            <td class="forma">Solo Percu</td>
-            <td class="dt">DT3</td>
-            <td class="tr">T3</td>
-            <td class="cat">Contrapunto</td>
-            <td class="desc">
-              Convivencia de 3 ostinatos como base para solo de percusión, piano
-              + bajo, laud, marcha changuí
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1114,17 +1113,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">27</td>
+            <td class="compas"></td>
+            <td class="forma">Solo Percu</td>
+            <td class="dt">DT3</td>
+            <td class="tr">T3</td>
+            <td class="cat">Contrapunto</td>
+            <td class="desc">
+              Convivencia de 3 ostinatos como base para solo de percusión, piano
+              + bajo, laud, marcha changuí
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">28</td>
-            <td class="compas"></td>
-            <td class="forma">Coro 2</td>
-            <td class="dt">DT4 / DT3 / DT5 / DT6</td>
-            <td class="tr">R3 / T3 / T2 / R3</td>
-            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
-            <td class="desc">
-              Todo el desarrollo textural de un coro para fadeout. Ver gráfico.
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1143,6 +1143,15 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">28</td>
+            <td class="compas"></td>
+            <td class="forma">Coro 2</td>
+            <td class="dt">DT4 / DT3 / DT5 / DT6</td>
+            <td class="tr">R3 / T3 / T2 / R3</td>
+            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
+            <td class="desc">
+              Todo el desarrollo textural de un coro para fadeout. Ver gráfico.
+            </td>
           </tr>
 
           <!-- ══ CHACHA ══ -->
@@ -1150,18 +1159,6 @@
             <td colspan="8">Chacha &nbsp;·&nbsp; Categoría: FUSIÓN LATINA</td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">29</td>
-            <td class="compas">1°8c</td>
-            <td class="forma">Intro</td>
-            <td class="dt">DT2 / DT4</td>
-            <td class="tr">R1 / R2</td>
-            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
-            <td class="desc">
-              Momento 1: piano + voz muy sencillo. Momento 2: Entrada de
-              percusión tipo rock y acompañamiento guitarra + piano + bajo como
-              un elemento. De poca intensidad y densidad hacia cambio brusco de
-              intención para presión prematura.
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1180,17 +1177,20 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">29</td>
+            <td class="compas">1°8c</td>
+            <td class="forma">Intro</td>
+            <td class="dt">DT2 / DT4</td>
+            <td class="tr">R1 / R2</td>
+            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
+            <td class="desc">
+              Momento 1: piano + voz muy sencillo. Momento 2: Entrada de
+              percusión tipo rock y acompañamiento guitarra + piano + bajo como
+              un elemento. De poca intensidad y densidad hacia cambio brusco de
+              intención para presión prematura.
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">30</td>
-            <td class="compas">2°8c</td>
-            <td class="forma">A</td>
-            <td class="dt">DT4</td>
-            <td class="tr">R2</td>
-            <td class="cat">Partes reales</td>
-            <td class="desc">
-              Partes reales entre voz, piano, metales y guitarra
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1209,20 +1209,17 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">30</td>
+            <td class="compas">2°8c</td>
+            <td class="forma">A</td>
+            <td class="dt">DT4</td>
+            <td class="tr">R2</td>
+            <td class="cat">Partes reales</td>
+            <td class="desc">
+              Partes reales entre voz, piano, metales y guitarra
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">31</td>
-            <td class="compas"></td>
-            <td class="forma">Precoro</td>
-            <td class="dt">DT4 / DT1</td>
-            <td class="tr">R2</td>
-            <td class="cat">
-              Melodía con acompañamiento / Contramelodía / Un solo elemento
-            </td>
-            <td class="desc">
-              Ejemplo de salida de A abajo con obligado hacia coro marcha arriba
-              con presencia a través de obligado
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1241,18 +1238,20 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">31</td>
+            <td class="compas"></td>
+            <td class="forma">Precoro</td>
+            <td class="dt">DT4 / DT1</td>
+            <td class="tr">R2</td>
+            <td class="cat">
+              Melodía con acompañamiento / Contramelodía / Un solo elemento
+            </td>
+            <td class="desc">
+              Ejemplo de salida de A abajo con obligado hacia coro marcha arriba
+              con presencia a través de obligado
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">32</td>
-            <td class="compas"></td>
-            <td class="forma">Puente / Intro</td>
-            <td class="dt">DT4</td>
-            <td class="tr">R3</td>
-            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
-            <td class="desc">
-              Variación de intro como puente con más elementos, melodía de
-              metales y contramelo de voz + salida para presión
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1271,20 +1270,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">32</td>
+            <td class="compas"></td>
+            <td class="forma">Puente / Intro</td>
+            <td class="dt">DT4</td>
+            <td class="tr">R3</td>
+            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
+            <td class="desc">
+              Variación de intro como puente con más elementos, melodía de
+              metales y contramelo de voz + salida para presión
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">33</td>
-            <td class="compas">1°8c</td>
-            <td class="forma">Coro 2 y guía</td>
-            <td class="dt">DT5 / DT1 / DT5</td>
-            <td class="tr">T1</td>
-            <td class="cat">Contrapunto</td>
-            <td class="desc">
-              Coro y guía corto. Mazacote. Tumbao de piano, contratumbao de
-              guitarra y línea de bajo se encuentran en un obligado al tercer
-              compás, bloques en percusión y comentarios rítmicos de batería
-              hacia entrada a marcha arriba.
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1303,18 +1300,20 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">33</td>
+            <td class="compas">1°8c</td>
+            <td class="forma">Coro 2 y guía</td>
+            <td class="dt">DT5 / DT1 / DT5</td>
+            <td class="tr">T1</td>
+            <td class="cat">Contrapunto</td>
+            <td class="desc">
+              Coro y guía corto. Mazacote. Tumbao de piano, contratumbao de
+              guitarra y línea de bajo se encuentran en un obligado al tercer
+              compás, bloques en percusión y comentarios rítmicos de batería
+              hacia entrada a marcha arriba.
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">34</td>
-            <td class="compas"></td>
-            <td class="forma">Coda</td>
-            <td class="dt">DT3 / DT2 / DT2 / DT1</td>
-            <td class="tr">T3 / T1</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">
-              La función de la voz y coro final para salir hacia obligado.
-              Background en piano, guitarra y bajo + obligado final
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1333,6 +1332,16 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">34</td>
+            <td class="compas"></td>
+            <td class="forma">Coda</td>
+            <td class="dt">DT3 / DT2 / DT2 / DT1</td>
+            <td class="tr">T3 / T1</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">
+              La función de la voz y coro final para salir hacia obligado.
+              Background en piano, guitarra y bajo + obligado final
+            </td>
           </tr>
 
           <!-- ══ SHORCITO ══ -->
@@ -1340,16 +1349,6 @@
             <td colspan="8">Shorcito &nbsp;·&nbsp; Categoría: FUSIÓN LATINA</td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">35</td>
-            <td class="compas"></td>
-            <td class="forma">A</td>
-            <td class="dt">DT6</td>
-            <td class="tr">R2</td>
-            <td class="cat">Contrapunto</td>
-            <td class="desc">
-              Textura densa pero abajo. Melodía de voz + apoyos, tumbao piano +
-              contramelodía guitarra, background de barítono + bajo.
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1368,20 +1367,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">35</td>
+            <td class="compas"></td>
+            <td class="forma">A</td>
+            <td class="dt">DT6</td>
+            <td class="tr">R2</td>
+            <td class="cat">Contrapunto</td>
+            <td class="desc">
+              Textura densa pero abajo. Melodía de voz + apoyos, tumbao piano +
+              contramelodía guitarra, background de barítono + bajo.
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">36</td>
-            <td class="compas">1°4c</td>
-            <td class="forma">2° A</td>
-            <td class="dt">DT2 / DT5</td>
-            <td class="tr">R2</td>
-            <td class="cat">
-              Un solo elemento / Melodía con acompañamiento / Contramelodía
-            </td>
-            <td class="desc">
-              Obligado inicial como pregunta para inducir el background y llevar
-              marcha cargada
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1400,19 +1397,20 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">36</td>
+            <td class="compas">1°4c</td>
+            <td class="forma">2° A</td>
+            <td class="dt">DT2 / DT5</td>
+            <td class="tr">R2</td>
+            <td class="cat">
+              Un solo elemento / Melodía con acompañamiento / Contramelodía
+            </td>
+            <td class="desc">
+              Obligado inicial como pregunta para inducir el background y llevar
+              marcha cargada
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">37</td>
-            <td class="compas"></td>
-            <td class="forma">B</td>
-            <td class="dt">DT4 / DT6</td>
-            <td class="tr">R1</td>
-            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
-            <td class="desc">
-              Buen ejemplo de B contrastante para generar reposo. 2°8c suma
-              metales para complejizar la textura hacia obligado y vuelta a
-              subir
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1431,17 +1429,19 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">37</td>
+            <td class="compas"></td>
+            <td class="forma">B</td>
+            <td class="dt">DT4 / DT6</td>
+            <td class="tr">R1</td>
+            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
+            <td class="desc">
+              Buen ejemplo de B contrastante para generar reposo. 2°8c suma
+              metales para complejizar la textura hacia obligado y vuelta a
+              subir
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">38</td>
-            <td class="compas"></td>
-            <td class="forma">Puente / Precoro</td>
-            <td class="dt">DT4</td>
-            <td class="tr">T3</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">
-              Presión para variar intro y subir a coro y guía
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1460,19 +1460,17 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
-          </tr>
-          <tr class="fila-dato">
-            <td class="num">39</td>
+            <td class="num">38</td>
             <td class="compas"></td>
-            <td class="forma">Puente 2</td>
-            <td class="dt">DT3</td>
-            <td class="tr">T1 / T3</td>
+            <td class="forma">Puente / Precoro</td>
+            <td class="dt">DT4</td>
+            <td class="tr">T3</td>
             <td class="cat">Melodía con acompañamiento</td>
             <td class="desc">
-              Mazacote. Golpes en percusión sobre background (preg) y golpes de
-              batería + más segunda parte de tumbao en piano (resp). Todo sobre
-              "guía"
+              Presión para variar intro y subir a coro y guía
             </td>
+          </tr>
+          <tr class="fila-dato">
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1491,19 +1489,19 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">39</td>
+            <td class="compas"></td>
+            <td class="forma">Puente 2</td>
+            <td class="dt">DT3</td>
+            <td class="tr">T1 / T3</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">
+              Mazacote. Golpes en percusión sobre background (preg) y golpes de
+              batería + más segunda parte de tumbao en piano (resp). Todo sobre
+              "guía"
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">40</td>
-            <td class="compas"></td>
-            <td class="forma">Coro 2 y metales</td>
-            <td class="dt">DT5</td>
-            <td class="tr">T1 / T2</td>
-            <td class="cat">Contrapunto</td>
-            <td class="desc">
-              Ejemplo Clímax. Momento 1: 1°4c mazacote con bloques + obligado
-              con bajo y trompeta (preg). Momento 2: 2°8c en adelante Bomba.
-              Trombones (resp) marcha cargada y obligado para marcha arriba
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1522,18 +1520,19 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">40</td>
+            <td class="compas"></td>
+            <td class="forma">Coro 2 y metales</td>
+            <td class="dt">DT5</td>
+            <td class="tr">T1 / T2</td>
+            <td class="cat">Contrapunto</td>
+            <td class="desc">
+              Ejemplo Clímax. Momento 1: 1°4c mazacote con bloques + obligado
+              con bajo y trompeta (preg). Momento 2: 2°8c en adelante Bomba.
+              Trombones (resp) marcha cargada y obligado para marcha arriba
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">41</td>
-            <td class="compas"></td>
-            <td class="forma">Coda</td>
-            <td class="dt">DT1</td>
-            <td class="tr">T2</td>
-            <td class="cat">Un solo elemento</td>
-            <td class="desc">
-              Obligado con tema del coro y cierre orquestado con pocos
-              instrumentos
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1552,6 +1551,16 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">41</td>
+            <td class="compas"></td>
+            <td class="forma">Coda</td>
+            <td class="dt">DT1</td>
+            <td class="tr">T2</td>
+            <td class="cat">Un solo elemento</td>
+            <td class="desc">
+              Obligado con tema del coro y cierre orquestado con pocos
+              instrumentos
+            </td>
           </tr>
 
           <!-- ══ CON CORBATA Y SIN CABEZA ══ -->
@@ -1561,16 +1570,6 @@
             </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">42</td>
-            <td class="compas">1°6c</td>
-            <td class="forma">Intro</td>
-            <td class="dt">DT2 / DT1</td>
-            <td class="tr">T1</td>
-            <td class="cat">Un solo elemento</td>
-            <td class="desc">
-              Introducción timbal y batería (preg) Metales (resp). Obligado para
-              marcha abajo.
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1589,17 +1588,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">42</td>
+            <td class="compas">1°6c</td>
+            <td class="forma">Intro</td>
+            <td class="dt">DT2 / DT1</td>
+            <td class="tr">T1</td>
+            <td class="cat">Un solo elemento</td>
+            <td class="desc">
+              Introducción timbal y batería (preg) Metales (resp). Obligado para
+              marcha abajo.
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">43</td>
-            <td class="compas">2°8c</td>
-            <td class="forma">2° A</td>
-            <td class="dt">DT5</td>
-            <td class="tr">R3</td>
-            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
-            <td class="desc">
-              Entrada de metales con acordes de piano para quedarse en coro 1
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1618,18 +1618,17 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">43</td>
+            <td class="compas">2°8c</td>
+            <td class="forma">2° A</td>
+            <td class="dt">DT5</td>
+            <td class="tr">R3</td>
+            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
+            <td class="desc">
+              Entrada de metales con acordes de piano para quedarse en coro 1
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">44</td>
-            <td class="compas"></td>
-            <td class="forma">Mambo 1</td>
-            <td class="dt">DT4</td>
-            <td class="tr">T3</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">
-              Metales picaditos + contramelodía guitarra tipo solo hacia solo de
-              saxo y coro
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1648,21 +1647,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">44</td>
+            <td class="compas"></td>
+            <td class="forma">Mambo 1</td>
+            <td class="dt">DT4</td>
+            <td class="tr">T3</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">
+              Metales picaditos + contramelodía guitarra tipo solo hacia solo de
+              saxo y coro
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">45</td>
-            <td class="compas"></td>
-            <td class="forma">Coro 2</td>
-            <td class="dt">DT6 / DT7 / DT4 / DT5</td>
-            <td class="tr">T1 / T3</td>
-            <td class="cat">
-              Contrapunto / Melodía con acompañamiento / Contramelodía
-            </td>
-            <td class="desc">
-              Tratamiento formal de todo el coro 2. Ver gráfico. 1° momento:
-              1°16c Presión, Bomba. 2° momento: Marcha arriba en adelante,
-              variaciones texturales varias.
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1681,18 +1677,21 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">45</td>
+            <td class="compas"></td>
+            <td class="forma">Coro 2</td>
+            <td class="dt">DT6 / DT7 / DT4 / DT5</td>
+            <td class="tr">T1 / T3</td>
+            <td class="cat">
+              Contrapunto / Melodía con acompañamiento / Contramelodía
+            </td>
+            <td class="desc">
+              Tratamiento formal de todo el coro 2. Ver gráfico. 1° momento:
+              1°16c Presión, Bomba. 2° momento: Marcha arriba en adelante,
+              variaciones texturales varias.
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">46</td>
-            <td class="compas"></td>
-            <td class="forma">Coro 1 y Coro 3</td>
-            <td class="dt">DT6 / DT7 / DT4 / DT5</td>
-            <td class="tr">T2 / T3</td>
-            <td class="cat">Contrapunto</td>
-            <td class="desc">
-              Superposición de coros + "guías" 1°8c mazacote y salida de bajo
-              hacia línea de timba y marcha arriba
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1711,18 +1710,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">46</td>
+            <td class="compas"></td>
+            <td class="forma">Coro 1 y Coro 3</td>
+            <td class="dt">DT6 / DT7 / DT4 / DT5</td>
+            <td class="tr">T2 / T3</td>
+            <td class="cat">Contrapunto</td>
+            <td class="desc">
+              Superposición de coros + "guías" 1°8c mazacote y salida de bajo
+              hacia línea de timba y marcha arriba
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">47</td>
-            <td class="compas"></td>
-            <td class="forma">Coda</td>
-            <td class="dt">DT2 / DT1</td>
-            <td class="tr">T1</td>
-            <td class="cat">Un solo elemento</td>
-            <td class="desc">
-              Obligado con 2 momentos. 1° momento: con rellenos de percusión. 2°
-              momento: un solo elemento obligado
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1741,6 +1740,16 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">47</td>
+            <td class="compas"></td>
+            <td class="forma">Coda</td>
+            <td class="dt">DT2 / DT1</td>
+            <td class="tr">T1</td>
+            <td class="cat">Un solo elemento</td>
+            <td class="desc">
+              Obligado con 2 momentos. 1° momento: con rellenos de percusión. 2°
+              momento: un solo elemento obligado
+            </td>
           </tr>
 
           <!-- ══ PELIGROSO LADRÓN ══ -->
@@ -1750,15 +1759,6 @@
             </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">48</td>
-            <td class="compas"></td>
-            <td class="forma">Intro</td>
-            <td class="dt">DT1</td>
-            <td class="tr">R1</td>
-            <td class="cat">Un solo elemento</td>
-            <td class="desc">
-              1 solo elemento, ostinato a dos guitarras y salida de metales
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1777,17 +1777,17 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
-          </tr>
-          <tr class="fila-dato">
-            <td class="num">49</td>
-            <td class="compas">9°2c</td>
-            <td class="forma">B</td>
-            <td class="dt">DT2</td>
-            <td class="tr">T3</td>
+            <td class="num">48</td>
+            <td class="compas"></td>
+            <td class="forma">Intro</td>
+            <td class="dt">DT1</td>
+            <td class="tr">R1</td>
             <td class="cat">Un solo elemento</td>
             <td class="desc">
-              Obligado como nexo para volver a empezar textura sencilla de A
+              1 solo elemento, ostinato a dos guitarras y salida de metales
             </td>
+          </tr>
+          <tr class="fila-dato">
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1806,18 +1806,17 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">49</td>
+            <td class="compas">9°2c</td>
+            <td class="forma">B</td>
+            <td class="dt">DT2</td>
+            <td class="tr">T3</td>
+            <td class="cat">Un solo elemento</td>
+            <td class="desc">
+              Obligado como nexo para volver a empezar textura sencilla de A
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">50</td>
-            <td class="compas"></td>
-            <td class="forma">Mambo 1</td>
-            <td class="dt">DT3</td>
-            <td class="tr">T3</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">
-              Tensión armónica trabajada con 2 elementos, melodía-contramelodía.
-              Background armonía y saxo barítono + trompetas agudas
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1836,19 +1835,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">50</td>
+            <td class="compas"></td>
+            <td class="forma">Mambo 1</td>
+            <td class="dt">DT3</td>
+            <td class="tr">T3</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">
+              Tensión armónica trabajada con 2 elementos, melodía-contramelodía.
+              Background armonía y saxo barítono + trompetas agudas
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">51</td>
-            <td class="compas"></td>
-            <td class="forma">Precoro</td>
-            <td class="dt">DT2</td>
-            <td class="tr">T2</td>
-            <td class="cat">Un solo elemento</td>
-            <td class="desc">
-              Obligado instrumental con apoyos de percusión para salir de
-              textura anterior y generar más estabilidad al entrar marcha arriba
-              en guía y coro
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1867,21 +1865,19 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">51</td>
+            <td class="compas"></td>
+            <td class="forma">Precoro</td>
+            <td class="dt">DT2</td>
+            <td class="tr">T2</td>
+            <td class="cat">Un solo elemento</td>
+            <td class="desc">
+              Obligado instrumental con apoyos de percusión para salir de
+              textura anterior y generar más estabilidad al entrar marcha arriba
+              en guía y coro
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">52</td>
-            <td class="compas">1°4c</td>
-            <td class="forma">Coro 2 y guía</td>
-            <td class="dt">DT2 / DT4</td>
-            <td class="tr">T2 / R2</td>
-            <td class="cat">
-              Un solo elemento / Melodía con acompañamiento / Contramelodía
-            </td>
-            <td class="desc">
-              Cómo genera sensación de inestabilidad el obligado y apoyos de
-              clave de guaguancó para bajar marcha y entrar en sensación de
-              estabilidad
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1900,6 +1896,19 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">52</td>
+            <td class="compas">1°4c</td>
+            <td class="forma">Coro 2 y guía</td>
+            <td class="dt">DT2 / DT4</td>
+            <td class="tr">T2 / R2</td>
+            <td class="cat">
+              Un solo elemento / Melodía con acompañamiento / Contramelodía
+            </td>
+            <td class="desc">
+              Cómo genera sensación de inestabilidad el obligado y apoyos de
+              clave de guaguancó para bajar marcha y entrar en sensación de
+              estabilidad
+            </td>
           </tr>
 
           <!-- ══ NOS VEMOS LUEGO ══ -->
@@ -1909,13 +1918,6 @@
             </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">53</td>
-            <td class="compas">1°c</td>
-            <td class="forma">Intro</td>
-            <td class="dt">DT1</td>
-            <td class="tr">R2</td>
-            <td class="cat">Un solo elemento</td>
-            <td class="desc">Entrada de bajo solo</td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1934,18 +1936,15 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">53</td>
+            <td class="compas">1°c</td>
+            <td class="forma">Intro</td>
+            <td class="dt">DT1</td>
+            <td class="tr">R2</td>
+            <td class="cat">Un solo elemento</td>
+            <td class="desc">Entrada de bajo solo</td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">54</td>
-            <td class="compas"></td>
-            <td class="forma">Mambo 1</td>
-            <td class="dt">DT5</td>
-            <td class="tr">R3</td>
-            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
-            <td class="desc">
-              Cambio de clave en salida marcando la parte 3 de la clave y
-              entrando a mambo en 2-3 con dos elementos en metales
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1964,18 +1963,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">54</td>
+            <td class="compas"></td>
+            <td class="forma">Mambo 1</td>
+            <td class="dt">DT5</td>
+            <td class="tr">R3</td>
+            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
+            <td class="desc">
+              Cambio de clave en salida marcando la parte 3 de la clave y
+              entrando a mambo en 2-3 con dos elementos en metales
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">55</td>
-            <td class="compas"></td>
-            <td class="forma">Coda</td>
-            <td class="dt">DT4 / DT2 / DT1</td>
-            <td class="tr">R2 / R1</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">
-              Cambio de clave, coda en máximo de reposo generando inestabilidad
-              armónica con los últimos compases en piano y guitarra
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -1994,6 +1993,16 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">55</td>
+            <td class="compas"></td>
+            <td class="forma">Coda</td>
+            <td class="dt">DT4 / DT2 / DT1</td>
+            <td class="tr">R2 / R1</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">
+              Cambio de clave, coda en máximo de reposo generando inestabilidad
+              armónica con los últimos compases en piano y guitarra
+            </td>
           </tr>
 
           <!-- ══ BEMBA COLORÁ ══ -->
@@ -2003,16 +2012,6 @@
             </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">56</td>
-            <td class="compas">2°8</td>
-            <td class="forma">Intro</td>
-            <td class="dt">DT2</td>
-            <td class="tr">T2</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">
-              Apoyos bajo, percusión y mano izquierda de piano + melodía en
-              metales
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -2031,18 +2030,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">56</td>
+            <td class="compas">2°8</td>
+            <td class="forma">Intro</td>
+            <td class="dt">DT2</td>
+            <td class="tr">T2</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">
+              Apoyos bajo, percusión y mano izquierda de piano + melodía en
+              metales
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">57</td>
-            <td class="compas"></td>
-            <td class="forma">A'</td>
-            <td class="dt">DT1 / DT2</td>
-            <td class="tr">T3</td>
-            <td class="cat">Un solo elemento / Contramelodía</td>
-            <td class="desc">
-              Obligados como contramelodía de la voz y apoyos para salir hacia
-              background en puente/intro
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -2061,18 +2060,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">57</td>
+            <td class="compas"></td>
+            <td class="forma">A'</td>
+            <td class="dt">DT1 / DT2</td>
+            <td class="tr">T3</td>
+            <td class="cat">Un solo elemento / Contramelodía</td>
+            <td class="desc">
+              Obligados como contramelodía de la voz y apoyos para salir hacia
+              background en puente/intro
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">58</td>
-            <td class="compas">1°2c</td>
-            <td class="forma">Coro 1 y guía</td>
-            <td class="dt">DT2</td>
-            <td class="tr">R3</td>
-            <td class="cat">Melodía con acompañamiento</td>
-            <td class="desc">
-              Cambio de clave a través de acentos en contratiempo hacia marcha
-              arriba 2-3, llama bongó y entra campana con guía en 2°8c
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -2091,19 +2090,18 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">58</td>
+            <td class="compas">1°2c</td>
+            <td class="forma">Coro 1 y guía</td>
+            <td class="dt">DT2</td>
+            <td class="tr">R3</td>
+            <td class="cat">Melodía con acompañamiento</td>
+            <td class="desc">
+              Cambio de clave a través de acentos en contratiempo hacia marcha
+              arriba 2-3, llama bongó y entra campana con guía en 2°8c
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">59</td>
-            <td class="compas"></td>
-            <td class="forma">Coro 3 y metales</td>
-            <td class="dt">DT4</td>
-            <td class="tr">T2 / DT1</td>
-            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
-            <td class="desc">
-              Mazacote. 1° momento: 1°8c Entrada de metales suma tensión.
-              Bloques y obligados percusión + bajo. 2° momento: Bomba en bajo +
-              marcha cargada y movimiento de bajo sugiere tumbao.
-            </td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -2122,15 +2120,19 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">59</td>
+            <td class="compas"></td>
+            <td class="forma">Coro 3 y metales</td>
+            <td class="dt">DT4</td>
+            <td class="tr">T2 / DT1</td>
+            <td class="cat">Melodía con acompañamiento / Contramelodía</td>
+            <td class="desc">
+              Mazacote. 1° momento: 1°8c Entrada de metales suma tensión.
+              Bloques y obligados percusión + bajo. 2° momento: Bomba en bajo +
+              marcha cargada y movimiento de bajo sugiere tumbao.
+            </td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">60</td>
-            <td class="compas">3°2c</td>
-            <td class="forma">Solo y coro 3</td>
-            <td class="dt">DT1 / DT2</td>
-            <td class="tr">T2</td>
-            <td class="cat">Un solo elemento / Contramelodía</td>
-            <td class="desc">Obligado para chachacha. Blanca=Negra.</td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -2149,15 +2151,15 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">60</td>
+            <td class="compas">3°2c</td>
+            <td class="forma">Solo y coro 3</td>
+            <td class="dt">DT1 / DT2</td>
+            <td class="tr">T2</td>
+            <td class="cat">Un solo elemento / Contramelodía</td>
+            <td class="desc">Obligado para chachacha. Blanca=Negra.</td>
           </tr>
           <tr class="fila-dato">
-            <td class="num">61</td>
-            <td class="compas"></td>
-            <td class="forma">Coda</td>
-            <td class="dt">DT2</td>
-            <td class="tr">T1</td>
-            <td class="cat">Un solo elemento</td>
-            <td class="desc">Obligado/tutti y calderón</td>
             <td class="audio-cell">
               <div class="audio-wrap">
                 <button
@@ -2176,6 +2178,13 @@
                 ><span class="audio-filename">—</span>
               </div>
             </td>
+            <td class="num">61</td>
+            <td class="compas"></td>
+            <td class="forma">Coda</td>
+            <td class="dt">DT2</td>
+            <td class="tr">T1</td>
+            <td class="cat">Un solo elemento</td>
+            <td class="desc">Obligado/tutti y calderón</td>
           </tr>
         </tbody>
       </table>

@@ -10,355 +10,231 @@
     <!-- ── 1. INTRO ── -->
     <div class="container--1">
       <h1>Análisis textural del disco ADN — Alaín Pérez</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+        voluptas magni reprehenderit nemo eaque.
+      </p>
 
       <h2>Cómo usarlo</h2>
       <p>
-        Mirá el video introductorio y luego reproducí el disco ADN. Los gráficos
-        se sincronizan con cada tema.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed nam
+        accusantium reprehenderit debitis? Accusantium nihil sunt porro
+        cupiditate similique eveniet distinctio beatae, illo, consequuntur nisi
+        commodi quidem odit! Eligendi, magni. Sapiente voluptatibus ducimus
+        cupiditate! Ipsum in dolore non animi nihil quos repudiandae optio
+        dolorem excepturi veniam, pariatur praesentium delectus deserunt eum
+        provident suscipit est id ad! Quis, sapiente? Veritatis, modi.
       </p>
 
       <div id="player-wrap">
-  <div id="video-placeholder">
-    <div class="video-placeholder-inner">
-
-      <video width="100%" controls>
-        <source src="video/Con corbate y sin cabeza - Análisis.mp4" type="video/mp4" />
-        Tu navegador no soporta video HTML5.
-      </video>
-
+        <div id="video-placeholder">
+          <div class="video-placeholder-inner">
+            <iframe
+              src="https://drive.google.com/file/d/1V2jtgCxdTojfGXgKSuCn1WJUKlyYEid3/preview"
+              width="100%"
+              height="480"
+              allow="autoplay"
+              style="border: none; border-radius: 8px"
+            ></iframe>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+    <!-- /container--1 -->
 
     <!-- ── 2. GLOSARIO DE TEXTURAS ── -->
     <div class="container--2">
       <h1>Glosario de texturas</h1>
-      <div class="columnas-2">
-        <div>
-          <h2>Columna A</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-        <div>
-          <h2>Columna B</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
+      <div class="compendio-embed-wrap">
+        <iframe
+          src="glosario.html"
+          class="compendio-embed"
+          style="height: 1100px"
+          title="Glosario de texturas"
+          scrolling="yes"
+          frameborder="0"
+        ></iframe>
       </div>
     </div>
+    <!-- /container--2 -->
 
     <!-- ── 3. GRÁFICOS ── -->
     <div class="container--3">
       <h1>Gráficos</h1>
 
-      <!-- PLAYLIST DE YOUTUBE -->
-      <div id="youtube-playlist">
+      <!-- PLAYLIST DE SPOTIFY -->
+      <div id="spotify-playlist">
         <h2>Playlist del disco ADN</h2>
         <div class="youtube-embed-wrap">
           <iframe
+            data-testid="embed-iframe"
+            style="border-radius: 12px"
+            src="https://open.spotify.com/embed/album/7EZxvOUfpm1qcnAZhh44fr?utm_source=generator"
             width="100%"
-            height="360"
-            src="https://www.youtube.com/embed/videoseries?list=PLNrx6yV99mJ9EnCxl5uITbYNRaTXBJota"
-            title="Playlist del disco ADN"
+            height="352"
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
+            allowfullscreen=""
+            allow="
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              fullscreen;
+              picture-in-picture;
+            "
+            loading="lazy"
           ></iframe>
         </div>
       </div>
 
       <!-- GRÁFICOS — uno por tema -->
       <div class="graficos-grid" id="graficos-container">
-        <div class="grafico-item activo" data-track-index="0">
+        <div
+          class="grafico-item activo"
+          data-track-index="0"
+          data-gallery='["IMAGENES/A ella le gustan mis canciones (1).jpg","IMAGENES/A ella le gustan mis canciones (2).jpg","IMAGENES-T-R/A ella le gustan mis canciones (1).jpg","IMAGENES-T-R/A ella le gustan mis canciones (2).jpg"]'
+        >
           <div class="grafico-contenido">
             <h3>A Ella Le Gustan Mis Canciones</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="barra-placeholder">
-              <div class="barra-label">Densidad</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 80%"></div>
-              </div>
-              <div class="barra-label">Tensión</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 55%"></div>
-              </div>
-              <div class="barra-label">Reposo</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 70%"></div>
-              </div>
-            </div>
+            <div class="empty-placeholder"></div>
           </div>
-          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
-            <span class="pdf-icon">📄</span> Ver análisis en PDF
-          </button>
         </div>
 
-        <div class="grafico-item activo" data-track-index="1">
+        <div
+          class="grafico-item activo"
+          data-track-index="1"
+          data-gallery='["IMAGENES/ADN (1).jpg","IMAGENES/ADN (2).jpg","IMAGENES-T-R/Adn (1).jpg","IMAGENES-T-R/Adn (2).jpg"]'
+        >
           <div class="grafico-contenido">
             <h3>ADN</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="barra-placeholder">
-              <div class="barra-label">Densidad</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 65%"></div>
-              </div>
-              <div class="barra-label">Tensión</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 90%"></div>
-              </div>
-              <div class="barra-label">Reposo</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 40%"></div>
-              </div>
-            </div>
+            <div class="empty-placeholder"></div>
           </div>
-          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
-            <span class="pdf-icon">📄</span> Ver análisis en PDF
-          </button>
         </div>
 
-        <div class="grafico-item activo" data-track-index="2">
+        <div
+          class="grafico-item activo"
+          data-track-index="2"
+          data-gallery='["IMAGENES/Amor contradictorio (1).jpg","IMAGENES/Amor contradictorio (2).jpg","IMAGENES-T-R/Amor contradictorio (1).jpg","IMAGENES-T-R/Amor contradictorio (2).jpg"]'
+        >
           <div class="grafico-contenido">
             <h3>Amor Contradictorio</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="barra-placeholder">
-              <div class="barra-label">Densidad</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 50%"></div>
-              </div>
-              <div class="barra-label">Tensión</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 75%"></div>
-              </div>
-              <div class="barra-label">Reposo</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 85%"></div>
-              </div>
-            </div>
+            <div class="empty-placeholder"></div>
           </div>
-          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
-            <span class="pdf-icon">📄</span> Ver análisis en PDF
-          </button>
         </div>
 
-        <div class="grafico-item activo" data-track-index="3">
+        <div
+          class="grafico-item activo"
+          data-track-index="3"
+          data-gallery='["IMAGENES/Anotonio Rodriguez (1).jpg","IMAGENES/Anotonio Rodriguez (2).jpg","IMAGENES-T-R/Antonio rodriguez (1).jpg","IMAGENES-T-R/Antonio rodriguez (2).jpg"]'
+        >
           <div class="grafico-contenido">
             <h3>Antonio Rodríguez</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="barra-placeholder">
-              <div class="barra-label">Densidad</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 70%"></div>
-              </div>
-              <div class="barra-label">Tensión</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 45%"></div>
-              </div>
-              <div class="barra-label">Reposo</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 80%"></div>
-              </div>
-            </div>
+            <div class="empty-placeholder"></div>
           </div>
-          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
-            <span class="pdf-icon">📄</span> Ver análisis en PDF
-          </button>
         </div>
 
-        <div class="grafico-item activo" data-track-index="4">
+        <div
+          class="grafico-item activo"
+          data-track-index="4"
+          data-gallery='["IMAGENES/De flor en flor (1).jpg","IMAGENES/De flor en flor (2).jpg","IMAGENES-T-R/De flor en flor (1).jpg","IMAGENES-T-R/De flor en flor (2).jpg"]'
+        >
           <div class="grafico-contenido">
             <h3>De Flor En Flor</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="barra-placeholder">
-              <div class="barra-label">Densidad</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 90%"></div>
-              </div>
-              <div class="barra-label">Tensión</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 60%"></div>
-              </div>
-              <div class="barra-label">Reposo</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 55%"></div>
-              </div>
-            </div>
+            <div class="empty-placeholder"></div>
           </div>
-          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
-            <span class="pdf-icon">📄</span> Ver análisis en PDF
-          </button>
         </div>
 
-        <div class="grafico-item activo" data-track-index="5">
+        <div
+          class="grafico-item activo"
+          data-track-index="5"
+          data-gallery='["IMAGENES/Chacha (1).jpg","IMAGENES/Chacha (2).jpg","IMAGENES-T-R/Chacha (1).jpg","IMAGENES-T-R/Chacha (2).jpg"]'
+        >
           <div class="grafico-contenido">
             <h3>Chacha</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="barra-placeholder">
-              <div class="barra-label">Densidad</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 60%"></div>
-              </div>
-              <div class="barra-label">Tensión</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 85%"></div>
-              </div>
-              <div class="barra-label">Reposo</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 65%"></div>
-              </div>
-            </div>
+            <div class="empty-placeholder"></div>
           </div>
-          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
-            <span class="pdf-icon">📄</span> Ver análisis en PDF
-          </button>
         </div>
 
-        <div class="grafico-item activo" data-track-index="6">
+        <div
+          class="grafico-item activo"
+          data-track-index="6"
+          data-gallery='["IMAGENES/Shorcito (1).jpg","IMAGENES/Shorcito (2).jpg","IMAGENES-T-R/Shorcito (1).jpg","IMAGENES-T-R/Shorcito (2).jpg"]'
+        >
           <div class="grafico-contenido">
             <h3>Shorcito</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="barra-placeholder">
-              <div class="barra-label">Densidad</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 45%"></div>
-              </div>
-              <div class="barra-label">Tensión</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 90%"></div>
-              </div>
-              <div class="barra-label">Reposo</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 50%"></div>
-              </div>
-            </div>
+            <div class="empty-placeholder"></div>
           </div>
-          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
-            <span class="pdf-icon">📄</span> Ver análisis en PDF
-          </button>
         </div>
 
-        <div class="grafico-item activo" data-track-index="7">
+        <div
+          class="grafico-item activo"
+          data-track-index="7"
+          data-gallery='["IMAGENES/Con corbata y sin cabeza (1).jpg","IMAGENES/Con corbata y sin cabeza (2).jpg","IMAGENES-T-R/Con corbata y sin cabeza (1).jpg","IMAGENES-T-R/Con corbata y sin cabeza (2).jpg"]'
+        >
           <div class="grafico-contenido">
             <h3>Con Corbata Y Sin Cabeza</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="barra-placeholder">
-              <div class="barra-label">Densidad</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 75%"></div>
-              </div>
-              <div class="barra-label">Tensión</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 55%"></div>
-              </div>
-              <div class="barra-label">Reposo</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 85%"></div>
-              </div>
-            </div>
+            <div class="empty-placeholder"></div>
           </div>
-          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
-            <span class="pdf-icon">📄</span> Ver análisis en PDF
-          </button>
         </div>
 
-        <div class="grafico-item activo" data-track-index="8">
+        <div
+          class="grafico-item activo"
+          data-track-index="8"
+          data-gallery='["IMAGENES/Peligroso ladron (1).jpg","IMAGENES/Peligroso ladron (2).jpg","IMAGENES-T-R/Peligroso ladron (1).jpg","IMAGENES-T-R/Peligroso ladron (2).jpg"]'
+        >
           <div class="grafico-contenido">
             <h3>Peligroso Ladrón</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="barra-placeholder">
-              <div class="barra-label">Densidad</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 55%"></div>
-              </div>
-              <div class="barra-label">Tensión</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 70%"></div>
-              </div>
-              <div class="barra-label">Reposo</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 45%"></div>
-              </div>
-            </div>
+            <div class="empty-placeholder"></div>
           </div>
-          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
-            <span class="pdf-icon">📄</span> Ver análisis en PDF
-          </button>
         </div>
 
-        <div class="grafico-item activo" data-track-index="9">
+        <div
+          class="grafico-item activo"
+          data-track-index="9"
+          data-gallery='["IMAGENES/Nos vemos luego (1).jpg","IMAGENES/Nos vemos luego (2).jpg","IMAGENES-T-R/Nos vemos luego (1).jpg","IMAGENES-T-R/Nos vemos luego (2).jpg"]'
+        >
           <div class="grafico-contenido">
             <h3>Nos Vemos Luego</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="barra-placeholder">
-              <div class="barra-label">Densidad</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 85%"></div>
-              </div>
-              <div class="barra-label">Tensión</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 40%"></div>
-              </div>
-              <div class="barra-label">Reposo</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 75%"></div>
-              </div>
-            </div>
+            <div class="empty-placeholder"></div>
           </div>
-          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
-            <span class="pdf-icon">📄</span> Ver análisis en PDF
-          </button>
         </div>
 
-        <div class="grafico-item activo" data-track-index="10">
+        <div
+          class="grafico-item activo"
+          data-track-index="10"
+          data-gallery='["IMAGENES/Bemba colora (1).jpg","IMAGENES/Bemba colora (2).jpg","IMAGENES-T-R/Bemba colorá (1).jpg","IMAGENES-T-R/Bemba colorá (2).jpg"]'
+        >
           <div class="grafico-contenido">
             <h3>Bemba Colorá</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="barra-placeholder">
-              <div class="barra-label">Densidad</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 95%"></div>
-              </div>
-              <div class="barra-label">Tensión</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 80%"></div>
-              </div>
-              <div class="barra-label">Reposo</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 30%"></div>
-              </div>
-            </div>
+            <div class="empty-placeholder"></div>
           </div>
-          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
-            <span class="pdf-icon">📄</span> Ver análisis en PDF
-          </button>
         </div>
 
-        <div class="grafico-item activo" data-track-index="11">
+        <div
+          class="grafico-item activo"
+          data-track-index="11"
+          data-gallery='["IMAGENES/Lloraré (1).jpg","IMAGENES/Lloraré (2).jpg","IMAGENES-T-R/Lloraré (1).jpg","IMAGENES-T-R/Lloraré (2).jpg"]'
+        >
           <div class="grafico-contenido">
             <h3>Lloraré</h3>
             <p class="grafico-desc">Análisis textural</p>
-            <div class="barra-placeholder">
-              <div class="barra-label">Densidad</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 40%"></div>
-              </div>
-              <div class="barra-label">Tensión</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 35%"></div>
-              </div>
-              <div class="barra-label">Reposo</div>
-              <div class="barra-wrap">
-                <div class="barra" style="--w: 95%"></div>
-              </div>
-            </div>
+            <div class="empty-placeholder"></div>
           </div>
-          <button class="btn-pdf" onclick="abrirPDF(this)" data-pdf="">
-            <span class="pdf-icon">📄</span> Ver análisis en PDF
-          </button>
         </div>
       </div>
       <!-- /graficos-grid -->
-
-      
+    </div>
+    <!-- /container--3 -->
 
     <!-- ── 4. COMPENDIO DE TEXTURAS ── -->
     <div class="container--4">
@@ -377,6 +253,7 @@
         ></iframe>
       </div>
     </div>
+    <!-- /container--4 -->
 
     <!-- ── MODAL PDF ── -->
     <div
@@ -416,6 +293,80 @@
         </div>
       </div>
     </div>
+    <!-- /pdf-modal -->
+
+    <!-- ── MODAL GALERÍA ── -->
+    <div
+      id="gallery-modal"
+      class="gallery-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Galería de gráficos"
+    >
+      <div class="gallery-modal-overlay" onclick="cerrarGalleryModal()"></div>
+      <div class="gallery-modal-content">
+        <div class="gallery-modal-header">
+          <span id="gallery-modal-title" class="gallery-modal-title"></span>
+          <button
+            class="gallery-modal-close"
+            onclick="cerrarGalleryModal()"
+            aria-label="Cerrar galería"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="gallery-carousel">
+          <button
+            class="gallery-arrow left"
+            onclick="moverSlide(-1)"
+            aria-label="Anterior"
+          >
+            ◀
+          </button>
+          <img
+            id="gallery-image"
+            class="gallery-image"
+            src=""
+            alt="Imagen de gráfico"
+          />
+          <button
+            class="gallery-arrow right"
+            onclick="moverSlide(1)"
+            aria-label="Siguiente"
+          >
+            ▶
+          </button>
+          <div id="gallery-placeholder" class="gallery-placeholder">
+            <div class="pdf-placeholder-icon">🖼️</div>
+            <p>
+              No hay imágenes disponibles para esta galería. Agregá rutas
+              válidas en el atributo <code>data-gallery</code> del gráfico.
+            </p>
+          </div>
+        </div>
+        <div class="gallery-controls">
+          <button
+            class="gallery-button"
+            onclick="moverSlide(-1)"
+            aria-label="Anterior"
+          >
+            ◀
+          </button>
+          <div class="gallery-meta">
+            <span id="gallery-title"></span>
+            <span id="gallery-counter" class="gallery-counter"></span>
+          </div>
+          <button
+            class="gallery-button"
+            onclick="moverSlide(1)"
+            aria-label="Siguiente"
+          >
+            ▶
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- /gallery-modal -->
 
     <script>
       // ── BARRAS animadas al cargar ──────────────────────────
@@ -458,16 +409,101 @@
         const modal = document.getElementById("pdf-modal");
         modal.classList.remove("abierto");
         document.body.style.overflow = "";
-        // NO tocamos el audio — el modal es solo una capa visual encima
         setTimeout(() => {
           document.getElementById("pdf-modal-iframe").src = "";
         }, 300);
       }
 
+      // ── CARRUSEL DE IMÁGENES ───────────────────────────────
+      const galeria = {
+        currentIndex: 0,
+        images: [],
+      };
+
+      function abrirGaleria(item) {
+        const rawGallery = item.getAttribute("data-gallery");
+        let images = [];
+
+        try {
+          images = rawGallery ? JSON.parse(rawGallery) : [];
+        } catch (error) {
+          images = [];
+        }
+
+        galeria.images = images;
+        galeria.currentIndex = 0;
+
+        document.getElementById("gallery-modal-title").textContent =
+          item.querySelector("h3").textContent;
+
+        actualizarGaleria();
+
+        document.getElementById("gallery-modal").classList.add("abierto");
+        document.body.style.overflow = "hidden";
+      }
+
+      function cerrarGalleryModal() {
+        const modal = document.getElementById("gallery-modal");
+        modal.classList.remove("abierto");
+        document.body.style.overflow = "";
+      }
+
+      function moverSlide(direction) {
+        if (!galeria.images.length) return;
+        galeria.currentIndex =
+          (galeria.currentIndex + direction + galeria.images.length) %
+          galeria.images.length;
+        actualizarGaleria();
+      }
+
+      function actualizarGaleria() {
+        const imageEl = document.getElementById("gallery-image");
+        const placeholder = document.getElementById("gallery-placeholder");
+        const counter = document.getElementById("gallery-counter");
+
+        if (!galeria.images.length) {
+          imageEl.style.display = "none";
+          placeholder.style.display = "flex";
+          counter.textContent = "";
+          return;
+        }
+
+        imageEl.onerror = () => {
+          imageEl.style.display = "none";
+          placeholder.style.display = "flex";
+          counter.textContent = "";
+        };
+        imageEl.src = galeria.images[galeria.currentIndex];
+        imageEl.alt = `Imagen ${galeria.currentIndex + 1} de ${galeria.images.length}`;
+        imageEl.style.display = "block";
+        placeholder.style.display = "none";
+        counter.textContent = `${galeria.currentIndex + 1} / ${galeria.images.length}`;
+      }
+
+      document.querySelectorAll(".grafico-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          abrirGaleria(item);
+        });
+      });
+
       // Cerrar con Escape
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") cerrarModal();
+        if (e.key === "Escape") {
+          cerrarModal();
+          cerrarGalleryModal();
+        }
       });
+
+      // ── ICONO CARRUSEL EN CADA TEMA ───────────────────────
+      document
+        .querySelectorAll(".grafico-item .grafico-contenido")
+        .forEach((content) => {
+          const icon = document.createElement("img");
+          icon.src = "img/carouselle.png";
+          icon.alt = "Icono carrusel";
+          icon.className = "grafico-icon";
+          content.insertBefore(icon, content.firstChild);
+        });
     </script>
   </body>
 </html>
