@@ -242,6 +242,10 @@ p {
   margin: 0 auto var(--content-gap);
 }
 
+.container--2 > p {
+  max-width: var(--max-width);
+  margin: 0 auto var(--block-gap);
+}
 .columnas-2 {
   max-width: var(--max-width);
   margin: 0 auto;
