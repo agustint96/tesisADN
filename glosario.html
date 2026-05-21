@@ -288,6 +288,26 @@
           width: 100%;
         }
       }
+
+      /* ===== SCROLLBAR PERSONALIZADA ===== */
+      html {
+        scrollbar-width: thin;
+        scrollbar-color: #f2e9dc #0a0a0a;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #f2e9dc;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d0c8bc;
+      }
     </style>
   </head>
   <body>
