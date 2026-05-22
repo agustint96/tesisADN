@@ -188,8 +188,14 @@ p {
   display: flex;
   justify-content: center;
 }
-
-.hero-nav-link {
+a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent);
+}
+a:after .hero-nav-link {
   display: block;
   color: var(--text-muted);
   text-decoration: none;
