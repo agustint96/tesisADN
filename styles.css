@@ -75,6 +75,13 @@ p {
   max-width: 680px;
 }
 
+p .destaca {
+  font-family: var(--font-body);
+  font-style: normal;
+  color: inherit;
+  font-weight: 600;
+}
+
 /* ===== CONTAINERS — base común ===== */
 .container--1,
 .container--2,
@@ -88,7 +95,7 @@ p {
 .container--1 {
   min-height: 100vh;
   box-sizing: border-box;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 0px solid var(--border);
   padding: 0 var(--section-padding-h);
 }
 
@@ -124,9 +131,14 @@ p {
   margin-bottom: 0;
 }
 
+/* altura compartida imagen ↔ video */
+:root {
+  --hero-media-h: 320px;
+}
+
 .hero-img-wrap {
   width: 100%;
-  height: 320px;
+  height: 460px;
   overflow: hidden;
   border-radius: 8px;
   border: 1px solid var(--border);
@@ -154,7 +166,7 @@ p {
   gap: var(--content-gap);
   padding: var(--section-padding-v) 0;
   padding-bottom: calc(var(--section-padding-v) * 2);
-  margin-top: 8.6rem;
+  margin-top: 12rem;
 }
 
 .hero-right h2 {
@@ -172,6 +184,27 @@ p {
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--border);
+}
+
+#video-placeholder {
+  width: 100%;
+  height: var(--hero-media-h);
+  background: var(--bg-card);
+  border: none;
+  border-radius: 8px;
+  display: block;
+}
+
+#video-placeholder .video-placeholder-inner {
+  height: 100%;
+}
+
+#video-placeholder .video-placeholder-inner iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  display: block;
 }
 
 /* ── NAV EN COLUMNAS ── */
@@ -210,6 +243,11 @@ a:after .hero-nav-link {
   color: var(--accent);
 }
 
+.hero-nav-link.nav-pulse {
+  color: var(--accent);
+  transition: color 0.2s ease;
+}
+
 @media (max-width: 768px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -240,7 +278,7 @@ a:after .hero-nav-link {
 /* ===== CONTAINER 2 — GLOSARIO ===== */
 .container--2 {
   background-color: var(--bg-card);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 0px solid var(--border);
 }
 
 .container--2 > h1 {
@@ -401,22 +439,6 @@ a:after .hero-nav-link {
   .graficos-grid {
     flex-direction: column;
   }
-}
-
-/* ===== VIDEO PLACEHOLDER ===== */
-#video-placeholder {
-  width: 100%;
-  background: var(--bg-card);
-  border: none;
-  border-radius: 8px;
-  display: block;
-}
-
-#video-placeholder video {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
 }
 
 .grafico-icon {

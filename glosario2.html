@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabla de densidad textural — ADN Alaín Pérez</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --bg: #0a0a0a;
+        --bg-card: #181818;
+        --accent: #909090;
+        --text: #909090;
+        --text-muted: #606060;
+        --border: rgba(255, 255, 255, 0.12);
+        --font-title: Georgia, "Times New Roman", serif;
+        --font-body: "Helvetica Neue", Arial, sans-serif;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-body);
+        font-size: 0.92rem;
+        line-height: 1.65;
+        padding: 2rem 1.5rem 2.5rem;
+      }
+
+      /* ── TABLA SUPERIOR DT ── */
+      .tabla-overflow {
+        overflow-x: auto;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        margin-bottom: 2rem;
+      }
+      .tabla-dt {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 420px;
+        font-size: 0.78rem;
+        font-family: var(--font-body);
+      }
+      .dt-label {
+        background: #f0f0f0;
+        color: #1a1a1a;
+        font-weight: 700;
+        font-size: 0.72rem;
+        padding: 0.55rem 0.8rem;
+        border: 1px solid #bbb;
+        min-width: 90px;
+        vertical-align: middle;
+        line-height: 1.5;
+      }
+      .dt-cell {
+        text-align: center;
+        padding: 0.55rem 0.7rem;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        font-weight: 700;
+        font-size: 0.82rem;
+        letter-spacing: 0.02em;
+      }
+      .dt-purple {
+        background: #7030a0;
+        color: #fff;
+      }
+      .dt-orange {
+        background: #e36c09;
+        color: #fff;
+      }
+
+      /* ── JERARQUÍAS ── */
+      .jerarquia-titulo {
+        font-family: var(--font-body);
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #808080;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        margin-bottom: 1rem;
+      }
+
+      .tabla-jerarquia {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.83rem;
+        font-family: var(--font-body);
+      }
+
+      .tabla-jerarquia thead th {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: #606060;
+        font-weight: 600;
+        padding: 0.4rem 0.6rem 0.6rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        text-align: left;
+      }
+      .tabla-jerarquia thead th.col-grado {
+        text-align: center;
+      }
+
+      .tabla-jerarquia tbody tr {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .tabla-jerarquia tbody tr:last-child {
+        border-bottom: none;
+      }
+      .tabla-jerarquia tbody td {
+        padding: 0.55rem 0.6rem;
+        vertical-align: middle;
+      }
+
+      .col-perc {
+        color: #d0c8bc;
+        font-size: 0.82rem;
+        white-space: nowrap;
+        min-width: 140px;
+      }
+      .col-familia {
+        color: #909090;
+        font-size: 0.82rem;
+        line-height: 1.55;
+      }
+      .col-grado {
+        text-align: center;
+        font-weight: 700;
+        color: #d0c8bc;
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+
+      /* corchetes SVG-like con CSS */
+      .bracket-group {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .bracket {
+        display: inline-block;
+        width: 10px;
+        border-top: 1.5px solid #555;
+        border-bottom: 1.5px solid #555;
+        border-left: 1.5px solid #555;
+        border-radius: 2px 0 0 2px;
+        align-self: stretch;
+        min-height: 2.4em;
+        flex-shrink: 0;
+      }
+      .bracket-items {
+        color: #909090;
+        font-size: 0.81rem;
+        line-height: 1.6;
+      }
+
+      /* ── SCROLLBAR ── */
+      html {
+        scrollbar-width: thin;
+        scrollbar-color: #f2e9dc #0a0a0a;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #f2e9dc;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d0c8bc;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Tabla DT1–DT7 -->
+    <div class="tabla-overflow">
+      <table class="tabla-dt">
+        <tbody>
+          <tr>
+            <td class="dt-label">Densidad<br />Textural</td>
+            <td class="dt-cell dt-purple">DT1</td>
+            <td class="dt-cell dt-purple">DT2</td>
+            <td class="dt-cell dt-purple">DT3</td>
+            <td class="dt-cell dt-purple">DT4</td>
+            <td class="dt-cell dt-orange">DT5</td>
+            <td class="dt-cell dt-orange">DT6</td>
+            <td class="dt-cell dt-orange">DT7</td>
+          </tr>
+          <tr>
+            <td class="dt-label">Escala<br />Tensión<br />Reposo</td>
+            <td class="dt-cell dt-purple">T1</td>
+            <td class="dt-cell dt-purple">T2</td>
+            <td class="dt-cell dt-purple">T3</td>
+            <td class="dt-cell dt-orange">R3</td>
+            <td class="dt-cell dt-orange">R2</td>
+            <td class="dt-cell dt-orange">R1</td>
+            <td class="dt-cell dt-orange">——</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Jerarquías -->
+    <p class="jerarquia-titulo">
+      Jerarquías de Tensión/Reposo según funciones texturales
+    </p>
+
+    <table class="tabla-jerarquia">
+      <thead>
+        <tr>
+          <th>Percusión</th>
+          <th>Familia rítmico armónica</th>
+          <th class="col-grado">Grado de T/R</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-perc"><strong>Bomba</strong></td>
+          <td class="col-familia"></td>
+          <td class="col-grado"><strong>T1</strong></td>
+        </tr>
+        <tr>
+          <td class="col-perc"><strong>Mazacote/Presión</strong></td>
+          <td class="col-familia">Tutti<br />Pedal</td>
+          <td class="col-grado"><strong>T2</strong></td>
+        </tr>
+        <tr>
+          <td class="col-perc"><strong>Presión</strong></td>
+          <td class="col-familia"></td>
+          <td class="col-grado"><strong>T3</strong></td>
+        </tr>
+        <tr>
+          <td class="col-perc"><strong>Marcha arriba</strong></td>
+          <td class="col-familia">
+            <span class="bracket-group">
+              <span class="bracket"></span>
+              <span class="bracket-items"
+                >Background/Ostinato<br />Línea de bajo/tumbao</span
+              >
+            </span>
+          </td>
+          <td class="col-grado"><strong>R3</strong></td>
+        </tr>
+        <tr>
+          <td class="col-perc"><strong>Marcha abajo</strong></td>
+          <td class="col-familia">
+            <span class="bracket-group">
+              <span class="bracket"></span>
+              <span class="bracket-items"
+                >Background/ostinato<br />Línea de bajo/tumbao</span
+              >
+            </span>
+          </td>
+          <td class="col-grado"><strong>R2</strong></td>
+        </tr>
+        <tr>
+          <td class="col-perc"></td>
+          <td class="col-familia">Respira/apoyos/acompañamiento</td>
+          <td class="col-grado"><strong>R1</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      function emitHeight() {
+        const h = document.body.scrollHeight;
+        if (window.parent !== window) {
+          window.parent.postMessage(
+            { type: "glosario2-height", height: h },
+            "*",
+          );
+        }
+      }
+      // Emitir varias veces para asegurar que el padre la reciba
+      window.addEventListener("load", () => {
+        emitHeight();
+        setTimeout(emitHeight, 100);
+        setTimeout(emitHeight, 400);
+      });
+      // También al redimensionar
+      window.addEventListener("resize", emitHeight);
+    </script>
+  </body>
+</html>

@@ -12,11 +12,9 @@
         margin: 0;
         padding: 0;
       }
-
       :root {
         --bg: #0a0a0a;
         --bg-card: #181818;
-        --bg-alt: #242424;
         --accent: #909090;
         --text: #909090;
         --text-muted: #606060;
@@ -24,7 +22,6 @@
         --font-title: Georgia, "Times New Roman", serif;
         --font-body: "Helvetica Neue", Arial, sans-serif;
       }
-
       body {
         background: var(--bg);
         color: var(--text);
@@ -34,61 +31,21 @@
         padding: 2rem 1.5rem 3rem;
       }
 
-      /* ── ENCABEZADO ── */
-      .glosario-header {
-        margin-bottom: 2rem;
-        padding-bottom: 1.25rem;
-        border-bottom: 1px solid var(--border);
-      }
-      .glosario-header h1 {
-        font-family: var(--font-title);
-        color: var(--accent);
-        font-size: clamp(1.3rem, 3vw, 1.8rem);
-        margin-bottom: 0.35rem;
-      }
-      .glosario-header p {
-        color: var(--text-muted);
-        font-size: 0.85rem;
-      }
-
-      /* ── LAYOUT APILADO ── */
-      .dos-columnas {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        align-items: stretch;
-      }
-
-      .col-tabla,
-      .col-glosario {
-        width: 100%;
-      }
-
-      /* ── SUBTÍTULOS DE COLUMNA ── */
-      .col-titulo {
-        font-family: var(--font-title);
-        color: var(--accent);
-        font-size: 1rem;
-        font-style: italic;
-        margin-bottom: 1.25rem;
-      }
-
-      /* ══ TABLA CATEGORÍAS ══ */
+      /* TABLA */
       .tabla-overflow {
         overflow-x: auto;
         border-radius: 8px;
         border: 1px solid rgba(255, 255, 255, 0.12);
+        margin-bottom: 2.5rem;
       }
-
       .tabla-cat {
         width: 100%;
         border-collapse: collapse;
         min-width: 480px;
         font-size: 0.72rem;
         font-family: var(--font-body);
-        background: #ffffff;
+        background: #fff;
       }
-
       .tabla-cat td {
         padding: 0.45rem 0.55rem;
         border: 1px solid #bbb;
@@ -97,7 +54,6 @@
         line-height: 1.3;
         color: #1a1a1a;
       }
-
       .tabla-cat .col-label {
         font-weight: 700;
         font-size: 0.7rem;
@@ -109,16 +65,13 @@
         background: #f0f0f0;
         color: #1a1a1a;
       }
-
-      /* ── Colores de fila ── */
       .fila-forma td,
       .fila-voz td,
       .fila-metales td,
       .fila-percusion td {
-        background: #ffffff;
+        background: #fff;
         color: #1a1a1a;
       }
-
       .fila-piano td {
         background: #4472c4;
         color: #fff;
@@ -131,8 +84,6 @@
         background: #c00000;
         color: #fff;
       }
-
-      /* Labels de filas blancas */
       .fila-forma .col-label,
       .fila-voz .col-label,
       .fila-metales .col-label,
@@ -140,8 +91,6 @@
         background: #e8e8e8;
         color: #1a1a1a;
       }
-
-      /* Labels de filas de color */
       .fila-piano .col-label {
         background: #2f5496;
         color: #fff;
@@ -154,8 +103,6 @@
         background: #7a0000;
         color: #fff;
       }
-
-      /* Celdas vacías */
       .tabla-cat td:empty {
         background: #f7f7f7 !important;
       }
@@ -165,10 +112,18 @@
         background: rgba(0, 0, 0, 0.12) !important;
       }
 
-      /* ── BUSCADOR ── */
+      /* TOOLTIPS — cursor only; bubble is rendered via JS */
+      [data-tip] {
+        cursor: help;
+      }
+
+      /* BUSCADOR */
+      .search-section {
+        max-width: 680px;
+      }
       .search-wrap {
-        margin-bottom: 1.25rem;
         position: relative;
+        margin-bottom: 0.75rem;
       }
       .search-wrap svg {
         position: absolute;
@@ -180,13 +135,13 @@
       }
       #buscador {
         width: 100%;
-        padding: 0.55rem 0.9rem 0.55rem 2.3rem;
+        padding: 0.6rem 1rem 0.6rem 2.4rem;
         background: var(--bg-card);
         border: 1px solid var(--border);
-        border-radius: 6px;
+        border-radius: 8px;
         color: var(--text);
         font-family: var(--font-body);
-        font-size: 0.88rem;
+        font-size: 0.9rem;
         outline: none;
         transition: border-color 0.2s;
       }
@@ -196,81 +151,49 @@
       #buscador::placeholder {
         color: var(--text-muted);
       }
-
       #contador {
         font-size: 0.78rem;
         color: var(--text-muted);
-        margin-bottom: 1rem;
         font-style: italic;
+        margin-bottom: 1.25rem;
+        min-height: 1.2em;
       }
 
-      /* ── ACORDEÓN ── */
-      .glosario-lista {
+      /* RESULTADOS */
+      .resultados-lista {
         display: flex;
         flex-direction: column;
         gap: 0;
       }
-
-      .termino {
+      .resultado-item {
         border-bottom: 1px solid var(--border);
-        overflow: hidden;
+        padding: 0.95rem 0.25rem;
       }
-      .termino:last-child {
+      .resultado-item:last-child {
         border-bottom: none;
       }
-
-      .termino-btn {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 0.8rem 0.25rem;
-        background: none;
-        border: none;
-        cursor: pointer;
-        text-align: left;
-        color: var(--accent);
+      .resultado-nombre {
         font-family: var(--font-title);
-        font-size: 0.95rem;
         font-style: italic;
-        transition: color 0.15s;
+        color: var(--accent);
+        font-size: 0.97rem;
+        margin-bottom: 0.35rem;
       }
-      .termino:hover .termino-btn {
-        color: #f2e9dc;
-      }
-
-      .termino-btn .chevron {
-        flex-shrink: 0;
-        width: 15px;
-        height: 15px;
+      .resultado-def {
         color: var(--text-muted);
-        transition: transform 0.25s ease;
-      }
-      .termino.abierto .chevron {
-        transform: rotate(180deg);
-      }
-
-      .termino-cuerpo {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-      }
-      .termino.abierto .termino-cuerpo {
-        max-height: 600px;
-      }
-
-      .termino-cuerpo-inner {
-        padding: 0 0.25rem 1rem;
-        color: var(--text-muted);
-        font-size: 0.85rem;
+        font-size: 0.84rem;
         line-height: 1.7;
       }
-      .termino-cuerpo-inner em {
-        font-size: 0.8rem;
+      .resultado-def em {
+        font-size: 0.79rem;
         opacity: 0.8;
       }
-
+      mark {
+        background: rgba(255, 220, 100, 0.22);
+        color: #f2e9dc;
+        border-radius: 2px;
+        padding: 0 1px;
+      }
       #sin-resultados {
         display: none;
         padding: 2rem 0;
@@ -280,16 +203,7 @@
         font-size: 0.9rem;
       }
 
-      @media (max-width: 900px) {
-        .dos-columnas {
-          flex-direction: column;
-        }
-        .col-tabla {
-          width: 100%;
-        }
-      }
-
-      /* ===== SCROLLBAR PERSONALIZADA ===== */
+      /* SCROLLBAR */
       html {
         scrollbar-width: thin;
         scrollbar-color: #f2e9dc #0a0a0a;
@@ -308,807 +222,708 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #d0c8bc;
       }
+
+      /* TABLA DENSIDAD TEXTURAL */
+      .densidad-section {
+        margin: 2.5rem 0;
+      }
+      .densidad-titulo {
+        font-family: var(--font-title);
+        font-style: italic;
+        font-size: 1rem;
+        color: #d0c8bc;
+        margin-bottom: 1rem;
+        font-weight: 400;
+      }
+      .tabla-dt {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 420px;
+        font-size: 0.78rem;
+        font-family: var(--font-body);
+      }
+      .dt-label {
+        background: #f0f0f0;
+        color: #1a1a1a;
+        font-weight: 700;
+        font-size: 0.72rem;
+        padding: 0.5rem 0.7rem;
+        border: 1px solid #bbb;
+        min-width: 80px;
+        vertical-align: middle;
+        line-height: 1.4;
+      }
+      .dt-cell {
+        text-align: center;
+        padding: 0.5rem 0.6rem;
+        border: 1px solid #bbb;
+        font-weight: 600;
+        font-size: 0.8rem;
+      }
+      .dt-purple {
+        background: #7030a0;
+        color: #fff;
+      }
+      .dt-orange {
+        background: #e36c09;
+        color: #fff;
+      }
+
+      /* JERARQUÍAS */
+      .jerarquia-titulo {
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #909090;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.75rem;
+      }
+      .tabla-jerarquia {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.82rem;
+        font-family: var(--font-body);
+      }
+      .tabla-jerarquia thead th {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #606060;
+        font-weight: 600;
+        padding: 0.4rem 0.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        text-align: left;
+      }
+      .tabla-jerarquia thead th.grado-col {
+        text-align: center;
+      }
+      .jer-row td {
+        padding: 0.55rem 0.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        vertical-align: middle;
+        color: #c0b8b0;
+        font-size: 0.83rem;
+      }
+      .jer-perc {
+        color: #d0c8bc;
+        font-size: 0.82rem;
+        white-space: nowrap;
+      }
+      .jer-grado {
+        text-align: center;
+        font-weight: 700;
+        color: #d0c8bc;
+        font-size: 0.88rem;
+        white-space: nowrap;
+      }
+      .corchete-wrap {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+      .corchete {
+        font-size: 1.4rem;
+        color: #606060;
+        line-height: 1;
+        font-style: normal;
+      }
+      .corchete-items {
+        color: #909090;
+        font-size: 0.81rem;
+        line-height: 1.55;
+      }
     </style>
   </head>
   <body>
-    <div class="dos-columnas">
-      <!-- ══ COLUMNA IZQUIERDA: TABLA ══ -->
-      <div class="col-tabla">
-        <p class="col-titulo">Categorías por instrumento</p>
-        <div class="tabla-overflow">
-          <table class="tabla-cat">
-            <tbody>
-              <tr class="fila-forma">
-                <td class="col-label">FORMA</td>
-                <td>A / B / C</td>
-                <td>Coro /<br />Coro y guía</td>
-                <td>Puente/<br />Precoro</td>
-                <td>Mambo</td>
-                <td>Intro/Coda</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+    <div class="tabla-overflow">
+      <table class="tabla-cat">
+        <tbody>
+          <tr class="fila-forma">
+            <td class="col-label">FORMA</td>
+            <td>A / B / C</td>
+            <td
+              data-tip="Coro: Dentro de la música latina el Coro, además de ser como el estribillo de la obra, define el paso al montuno. La percusión pasa a la marcha arriba y el cantante principal suele improvisar vocalmente dialogando con el Coro, que puede ser cantado por un coro vocal o por todos los instrumentistas."
+            >
+              Coro /<br />Coro y guía
+            </td>
+            <td>Puente/<br />Precoro</td>
+            <td>Mambo</td>
+            <td>Intro/Coda</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
 
-              <tr class="fila-voz">
-                <td class="col-label">VOZ</td>
-                <td>Melodía/<br />Contramelodia</td>
-                <td>Coro</td>
-                <td>Guía</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+          <tr class="fila-voz">
+            <td class="col-label">VOZ</td>
+            <td
+              data-tip="Melodía: sucesión lineal de sonidos de distintas alturas que el oyente suele recordar y tararear, con identidad y sentido musical propio. Contramelodía: línea melódica secundaria simultánea a la principal que la complementa y contrasta con personalidad propia."
+            >
+              Melodía/<br />Contramelodia
+            </td>
+            <td
+              data-tip="Coro: Dentro de la música latina el Coro, además de ser como el estribillo de la obra, define el paso al montuno. La percusión pasa a la marcha arriba y el cantante principal suele improvisar vocalmente dialogando con el Coro."
+            >
+              Coro
+            </td>
+            <td
+              data-tip="Guía: En la música latina se le llama guía a la improvisación de la voz en la parte montuno o marcha arriba del tema. El cantante va guiando a la orquesta con lo que canta. Por eso se llama coro y guía."
+            >
+              Guía
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
 
-              <tr class="fila-metales">
-                <td class="col-label">METALES</td>
-                <td>Melodía/<br />Contramelodia</td>
-                <td>Apoyos</td>
-                <td>Entrada<br />/Salida</td>
-                <td>Preg/Resp</td>
-                <td>Ostinato/<br />Background</td>
-                <td></td>
-                <td></td>
-                <td>Background</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+          <tr class="fila-metales">
+            <td class="col-label">METALES</td>
+            <td
+              data-tip="Melodía: sucesión lineal de sonidos de distintas alturas que el oyente suele recordar y tararear. Contramelodía: línea melódica secundaria simultánea a la principal que la complementa y contrasta con personalidad propia."
+            >
+              Melodía/<br />Contramelodia
+            </td>
+            <td
+              data-tip="Apoyos: El apoyo es una especie de obligado más corto, o la acentuación de algún golpe que realiza otro u otros instrumentos."
+            >
+              Apoyos
+            </td>
+            <td
+              data-tip="Entrada / Salida: Fill de percusión o motivo para entrar o salir de una sección. Se llamará entrada o salida dependiendo la relación que se percibe con lo que sucedió o lo que prosigue."
+            >
+              Entrada<br />/Salida
+            </td>
+            <td
+              data-tip="Pregunta / Respuesta: Técnica musical ancestral y universal, arraigada en las músicas africanas y afroamericanas. Una frase musical (la pregunta) es contestada por otra (la respuesta). Siempre que existe Preg. existe una Resp., relacionando dos funciones percibidas como complementarias."
+            >
+              Preg/Resp
+            </td>
+            <td
+              data-tip="Ostinato: Motivo, frase o ritmo musical que se repite persistentemente de manera idéntica a lo largo de una composición o sección. Background: Línea secundaria que complementa a la melodía principal, activándose cuando ésta reposa o guarda silencio."
+            >
+              Ostinato/<br />Background
+            </td>
+            <td></td>
+            <td></td>
+            <td
+              data-tip="Background: Línea secundaria que complementa a la melodía principal, activándose generalmente cuando ésta reposa o guarda silencio. Es un diseño que suele ejecutar la base rítmico-armónica (piano, guitarra y bajo)."
+            >
+              Background
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
 
-              <tr class="fila-piano">
-                <td class="col-label">ARMONÍA<br />PIANO</td>
-                <td>Melodía/<br />Contramelodia</td>
-                <td>Apoyos/<br />Acomp.</td>
-                <td>Entrada<br />/Salida</td>
-                <td>Obligado /<br />tutti</td>
-                <td>Ostinato</td>
-                <td>Respira</td>
-                <td>Tumbao</td>
-                <td>Background</td>
-                <td></td>
-                <td></td>
-                <td>Comentario<br />melódico</td>
-              </tr>
+          <tr class="fila-piano">
+            <td class="col-label">ARMONÍA<br />PIANO</td>
+            <td
+              data-tip="Melodía: sucesión lineal de sonidos de distintas alturas que el oyente suele recordar y tararear. Contramelodía: línea melódica secundaria simultánea a la principal que la complementa y contrasta con personalidad propia."
+            >
+              Melodía/<br />Contramelodia
+            </td>
+            <td
+              data-tip="Apoyos: El apoyo es una especie de obligado más corto, o la acentuación de algún golpe que realiza otro u otros instrumentos. Acompañamiento: soporte musical que sustenta a la melodía principal; se llama así cuando no encaja en el concepto de tumbao, contratumbao, background, etc."
+            >
+              Apoyos/<br />Acomp.
+            </td>
+            <td
+              data-tip="Entrada / Salida: Fill de percusión o motivo para entrar o salir de una sección. Se llamará entrada o salida dependiendo la relación que se percibe con lo que sucedió o lo que prosigue."
+            >
+              Entrada<br />/Salida
+            </td>
+            <td
+              data-tip="Obligado: Fragmento breve que realiza un instrumento necesariamente junto a otro u otros."
+            >
+              Obligado /<br />tutti
+            </td>
+            <td
+              data-tip="Ostinato: Motivo, frase o ritmo musical que se repite persistentemente de manera idéntica a lo largo de una composición o sección."
+            >
+              Ostinato
+            </td>
+            <td
+              data-tip="Respira: Término que se utiliza para describir una sensación de reposo o nota larga."
+            >
+              Respira
+            </td>
+            <td
+              data-tip="Tumbao: Patrón relativamente conciso de carácter repetitivo, basado en específicos modelos rítmico-melódico-armónicos. Son muy flexibles y funcionan a partir de numerosas posibilidades de realización, no de paradigmas únicos."
+            >
+              Tumbao
+            </td>
+            <td
+              data-tip="Background: Línea secundaria que complementa a la melodía principal, activándose generalmente cuando ésta reposa o guarda silencio. Es un diseño que suele ejecutar la base rítmico-armónica (piano, guitarra y bajo)."
+            >
+              Background
+            </td>
+            <td></td>
+            <td></td>
+            <td
+              data-tip="Comentario melódico: Pequeñas frases melódicas, generalmente improvisadas o semi-improvisadas, que un instrumento toca en los huecos que deja la voz principal. Son comentarios musicales que dialogan con el cantante y enriquecen el arreglo."
+            >
+              Comentario<br />melódico
+            </td>
+          </tr>
 
-              <tr class="fila-guitarra">
-                <td class="col-label">ARMONÍA<br />GUITARRA</td>
-                <td>Melodía/<br />Contramelodia</td>
-                <td>Apoyos/<br />Acomp.</td>
-                <td>Entrada<br />/Salida</td>
-                <td>Obligado /<br />tutti</td>
-                <td>Ostinato</td>
-                <td>Respira</td>
-                <td>Tumbao/<br />Contratumbao</td>
-                <td>Background</td>
-                <td></td>
-                <td></td>
-                <td>Comentario<br />melódico</td>
-              </tr>
+          <tr class="fila-guitarra">
+            <td class="col-label">ARMONÍA<br />GUITARRA</td>
+            <td
+              data-tip="Melodía: sucesión lineal de sonidos de distintas alturas que el oyente suele recordar y tararear. Contramelodía: línea melódica secundaria simultánea a la principal que la complementa y contrasta con personalidad propia."
+            >
+              Melodía/<br />Contramelodia
+            </td>
+            <td
+              data-tip="Apoyos: El apoyo es una especie de obligado más corto, o la acentuación de algún golpe que realiza otro u otros instrumentos. Acompañamiento: soporte musical que sustenta a la melodía principal; se llama así cuando no encaja en el concepto de tumbao, contratumbao, background, etc."
+            >
+              Apoyos/<br />Acomp.
+            </td>
+            <td
+              data-tip="Entrada / Salida: Fill de percusión o motivo para entrar o salir de una sección. Se llamará entrada o salida dependiendo la relación que se percibe con lo que sucedió o lo que prosigue."
+            >
+              Entrada<br />/Salida
+            </td>
+            <td
+              data-tip="Obligado: Fragmento breve que realiza un instrumento necesariamente junto a otro u otros."
+            >
+              Obligado /<br />tutti
+            </td>
+            <td
+              data-tip="Ostinato: Motivo, frase o ritmo musical que se repite persistentemente de manera idéntica a lo largo de una composición o sección."
+            >
+              Ostinato
+            </td>
+            <td
+              data-tip="Respira: Término que se utiliza para describir una sensación de reposo o nota larga."
+            >
+              Respira
+            </td>
+            <td
+              data-tip="Tumbao: Patrón relativamente conciso de carácter repetitivo, basado en específicos modelos rítmico-melódico-armónicos. Contratumbao: acompañamiento que se define como tal por la estrecha relación que mantiene necesariamente junto a un tumbao."
+            >
+              Tumbao/<br />Contratumbao
+            </td>
+            <td
+              data-tip="Background: Línea secundaria que complementa a la melodía principal, activándose generalmente cuando ésta reposa o guarda silencio. Es un diseño que suele ejecutar la base rítmico-armónica (piano, guitarra y bajo)."
+            >
+              Background
+            </td>
+            <td></td>
+            <td></td>
+            <td
+              data-tip="Comentario melódico: Pequeñas frases melódicas, generalmente improvisadas o semi-improvisadas, que un instrumento toca en los huecos que deja la voz principal. Son comentarios musicales que dialogan con el cantante y enriquecen el arreglo."
+            >
+              Comentario<br />melódico
+            </td>
+          </tr>
 
-              <tr class="fila-bajo">
-                <td class="col-label">ARMONÍA<br />BAJO</td>
-                <td>Melodía/<br />Contramelodia</td>
-                <td>Apoyos/<br />Acomp.</td>
-                <td>Entrada</td>
-                <td>Obligado /<br />tutti</td>
-                <td>Ostinato</td>
-                <td>Respira</td>
-                <td>Línea<br />son/timba/<br />rumba/etc.</td>
-                <td>Background</td>
-                <td>Pedal</td>
-                <td>Bomba</td>
-                <td>Comentario<br />melódico</td>
-              </tr>
+          <tr class="fila-bajo">
+            <td class="col-label">ARMONÍA<br />BAJO</td>
+            <td
+              data-tip="Melodía: sucesión lineal de sonidos de distintas alturas que el oyente suele recordar y tararear. Contramelodía: línea melódica secundaria simultánea a la principal que la complementa y contrasta con personalidad propia."
+            >
+              Melodía/<br />Contramelodia
+            </td>
+            <td
+              data-tip="Apoyos: El apoyo es una especie de obligado más corto, o la acentuación de algún golpe que realiza otro u otros instrumentos. Acompañamiento: soporte musical que sustenta a la melodía principal; se llama así cuando no encaja en el concepto de tumbao, contratumbao, background, etc."
+            >
+              Apoyos/<br />Acomp.
+            </td>
+            <td
+              data-tip="Entrada / Salida: Fill de percusión o motivo para entrar o salir de una sección."
+            >
+              Entrada
+            </td>
+            <td
+              data-tip="Obligado: Fragmento breve que realiza un instrumento necesariamente junto a otro u otros."
+            >
+              Obligado /<br />tutti
+            </td>
+            <td
+              data-tip="Ostinato: Motivo, frase o ritmo musical que se repite persistentemente de manera idéntica a lo largo de una composición o sección."
+            >
+              Ostinato
+            </td>
+            <td
+              data-tip="Respira: Término que se utiliza para describir una sensación de reposo o nota larga."
+            >
+              Respira
+            </td>
+            <td
+              data-tip="Linea de son, timba, rumba: Diseño melódico exclusivamente del bajo con características que se identifican con un género en particular. La linea de son acentúa casi exclusivamente las notas de tumbao; la de timba posee más agresividad o diseños más complejos rítmicamente."
+            >
+              Línea<br />son/timba/<br />rumba/etc.
+            </td>
+            <td
+              data-tip="Background: Línea secundaria que complementa a la melodía principal, activándose generalmente cuando ésta reposa o guarda silencio. Es un diseño que suele ejecutar la base rítmico-armónica (piano, guitarra y bajo)."
+            >
+              Background
+            </td>
+            <td
+              data-tip="Pedal / Presión: Sección propia de la timba en la que el bajo hace una nota tenida (respira), las congas pueden ejecutar un chapeo y en la percusión se escucha la clave. El tumbao de piano/tres se queda perenne, y generalmente se expone o presenta un coro."
+            >
+              Pedal
+            </td>
+            <td
+              data-tip="Bomba: Sección propia de la timba, considerada la de mayor tensión. El bajo mantiene golpes percusivos sobre los trastes y las cuerdas de manera improvisada, y otros instrumentos de la percusión meten palos respondiendo también a la improvisación."
+            >
+              Bomba
+            </td>
+            <td
+              data-tip="Comentario melódico: Pequeñas frases melódicas, generalmente improvisadas o semi-improvisadas, que un instrumento toca en los huecos que deja la voz principal. Son comentarios musicales que dialogan con el cantante y enriquecen el arreglo."
+            >
+              Comentario<br />melódico
+            </td>
+          </tr>
 
-              <tr class="fila-percusion">
-                <td class="col-label">PERCUSIÓN</td>
-                <td>Marcha arriba</td>
-                <td>Apoyos</td>
-                <td>Entrada<br />/Salida</td>
-                <td>Obligado</td>
-                <td>Bloques</td>
-                <td>Marcha<br />abajo</td>
-                <td>Otro género</td>
-                <td>Presión</td>
-                <td>Mazacote</td>
-                <td>Bomba</td>
-                <td>Comentario<br />rítmico</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- ══ COLUMNA DERECHA: GLOSARIO ══ -->
-      <div class="col-glosario">
-        <p class="col-titulo">Definiciones</p>
-
-        <div class="search-wrap">
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-          <input
-            id="buscador"
-            type="search"
-            placeholder="Buscar término…"
-            autocomplete="off"
-          />
-        </div>
-
-        <p id="contador"></p>
-
-        <div class="glosario-lista" id="glosario-lista">
-          <div class="termino" data-termino="melodía melodia">
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Melodía</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Es una sucesión lineal y coherente de sonidos de diferentes
-                alturas que tiene una identidad y un sentido musical propio. Es
-                la "voz principal" que el oyente suele recordar y tararear.
-                Según Walter Piston, "la melodía es la superficie de la música",
-                una secuencia organizada de notas que el oído percibe como una
-                entidad única. <em>(Piston, 1941)</em>
-              </div>
-            </div>
-          </div>
-
-          <div class="termino" data-termino="contramelodía contramelodia">
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Contramelodía</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Es una línea melódica secundaria que se ejecuta de manera
-                simultánea a la melodía principal. Su función es complementar,
-                enriquecer y contrastar con la melodía principal, creando una
-                textura más compleja. No es un simple acompañamiento, sino una
-                verdadera "contra-melodía" con personalidad propia.
-              </div>
-            </div>
-          </div>
-
-          <div class="termino" data-termino="coro montuno estribillo">
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Coro</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Dentro de la música latina el Coro, además de ser como el
-                estribillo de la obra, define el paso al montuno. Esto define
-                varios elementos dentro de la orquesta: la percusión pasa a la
-                marcha arriba, el cantante principal suele responder con
-                improvisaciones vocales que dialogan dialécticamente con el
-                Coro, que puede ser cantado por un coro vocal con esa función o
-                por todos los instrumentistas de la orquesta.
-              </div>
-            </div>
-          </div>
-
-          <div class="termino" data-termino="guía guia improvisación montuno">
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Guía</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                En la música latina se le llama guía a la improvisación de la
-                voz en la parte montuno o marcha arriba del tema. El cantante
-                con lo que va cantando va guiando a la orquesta. Por eso se
-                llama coro y guía.
-                <em
-                  >(Jansel Torres, comunicación personal, 15 de agosto de
-                  2025)</em
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="termino" data-termino="apoyos obligado acentuación">
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Apoyos</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                El apoyo es una especie de obligado más corto o la acentuación
-                de algún golpe que realiza otro u otros instrumentos.
-              </div>
-            </div>
-          </div>
-
-          <div class="termino" data-termino="entrada salida fill sección">
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Entrada / Salida</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Entendemos por entrada o salida un fill de percusión o un motivo
-                para entrar o salir de una sección. Se llamará entrada o salida
-                dependiendo la relación que se percibe ya sea con lo que sucedió
-                o lo que prosigue.
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="pregunta respuesta preg resp africano"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Preg. / Resp.</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Una técnica musical ancestral y universal, profundamente
-                arraigada en las músicas africanas y afroamericanas. Consiste en
-                la presentación de una frase musical (la "pregunta") que es
-                contestada por otra frase musical (la "respuesta"). Si existe la
-                categoría Preg. siempre existirá una Resp.; se utiliza para
-                relacionar dos funciones que se perciben como complementarias en
-                la acción.
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="ostinato repetición motivo patrón patron"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Ostinato</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Un motivo, frase o ritmo musical que se repite persistentemente
-                de manera idéntica a lo largo de una composición o una sección
-                de la misma.
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="background fondo melódico melodico herrera piano bajo guitarra"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Background</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                El background melódico, según Herrera (1987), es una línea
-                secundaria que complementa a la melodía principal como un
-                acompañamiento, activándose generalmente cuando ésta reposa o
-                guarda silencio. En la presente investigación se la identifica
-                como un diseño que suele ejecutar la base rítmico-armónica
-                (piano, guitarra y bajo). <em>(Herrera, 1987)</em>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="acompañamiento acompanamiento soporte armónico armonico"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Acompañamiento</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Es el soporte musical que envuelve y sustenta a la melodía
-                principal. Su función es proporcionar el contexto armónico,
-                rítmico y textural para que la melodía principal destaque. Se le
-                llama acompañamiento a aquellos soportes rítmico-armónicos que
-                no encajan en el concepto de tumbao, contratumbao, background,
-                etc.
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="obligado fragmento breve instrumento"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Obligado</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Fragmento breve que realiza un instrumento necesariamente junto
-                a otro u otros.
-              </div>
-            </div>
-          </div>
-
-          <div class="termino" data-termino="respira reposo nota larga">
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Respira</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Término que se utiliza para describir una sensación de reposo o
-                nota larga.
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="tumbao patrón patron rítmico ritmico cubano alujas"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Tumbao</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Se comprende como tumbao un patrón relativamente conciso de
-                carácter repetitivo. Dicha entidad toma forma sobre la base de
-                específicos modelos rítmico-melódico-armónicos, los cuales
-                funcionan a partir de numerosas posibilidades de realización y
-                no de paradigmas únicos, por lo que son muy flexibles.
-                <em>(Alujas, 2006)</em>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="contratumbao contra tumbao acompañamiento acompanamiento"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Contratumbao</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Se utiliza este término para describir un acompañamiento que se
-                define como contratumbao por la estrecha relación que se percibe
-                necesariamente junto a un tumbao.
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="comentario melódico melodico improvisación frase hueco voz"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Comentario melódico</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Pequeñas frases melódicas, generalmente improvisadas o
-                semi-improvisadas, que un instrumento toca en espacios o
-                "huecos" que deja la voz principal y no se consideran
-                identitarios del arreglo. Son "comentarios" musicales que
-                dialogan con el cantante y enriquecen el arreglo.
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="comentario rítmico ritmico percusión percusion timbal batería tumbadoras cencerro"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Comentario rítmico</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Similar al comentario melódico, pero de naturaleza puramente
-                rítmica. Un instrumento de percusión acentúa ciertos golpes o
-                frases rítmicas cortas en respuesta a la melodía o a otro
-                instrumento, creando interacción y dinamismo.
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="línea linea son timba rumba brasil bajo género genero"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Línea de son, timba, rumba, Brasil…</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Diseño melódico exclusivamente del bajo con características que
-                se identifican con un género en particular. La "línea de son"
-                acentúa casi exclusivamente las notas de tumbao, mientras que la
-                de timba posee más agresividad o diseños más complejos
-                rítmicamente e incluso más largos.
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="marcha arriba montuno coro campana bongó tumbadoras"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Marcha arriba</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                En la relación dialéctica que existe en la música cubana entre
-                estrofa/estribillo, la marcha arriba es la parte que se
-                identifica con el montuno, coro y guía. Las tumbadoras se abren
-                a la hembra y la campana de bongó pasa al montuno.
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="marcha abajo estrofa puente intro arreglista"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Marcha abajo</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                En la relación dialéctica mencionada, la marcha abajo se asocia
-                a la contrapartida del montuno: en general cuerpo de número,
-                puentes, intros, etc., aunque no se la relaciona directamente a
-                una sección ya que eso depende de las decisiones del arreglista.
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="bloques percusión percusion mazacote presión presion bajo"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Bloques</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Se refiere a un arreglo ejecutado por más de un instrumento, en
-                general de la familia de la percusión. Se suelen utilizar en
-                momentos de Mazacote o Presión. Son como obligados de la
-                percusión que pueden estar apoyados por el bajo.
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="presión presion pedal timba clave congas chapeo piano jansel torres"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Presión</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                El pedal o presión es una sección propia de la timba en la que
-                el bajo hace una nota tenida (respira), las congas pueden
-                ejecutar un chapeo y en la percusión se escucha la clave. El
-                tumbao de piano/tres se queda ahí, perenne, y generalmente se
-                expone o presenta un coro.
-                <em
-                  >(Jansel Torres, comunicación personal, 15 de agosto de
-                  2025)</em
-                >
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="mazacote percusión percusion bloques bajo presión presion"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Mazacote</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                El mazacote es como un pedal o presión, pero la percusión suele
-                tener más protagonismo a través de bloques que pueden o no ser
-                apoyados en algunos casos por el bajo.
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="termino"
-            data-termino="bomba timba tensión tension bajo percusivo improvisado palos"
-          >
-            <button class="termino-btn" onclick="toggleTermino(this)">
-              <span>Bomba</span>
-              <svg
-                class="chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="termino-cuerpo">
-              <div class="termino-cuerpo-inner">
-                Esta sección, también propia de la timba, es establecida por
-                consenso entre varios autores como la de mayor tensión. Es
-                similar al mazacote, pero el bajo mantiene golpes percusivos
-                sobre los trastes y las cuerdas de manera improvisada, y otros
-                instrumentos de la percusión meten palos, respondiendo también a
-                la improvisación.
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /glosario-lista -->
-
-        <p id="sin-resultados">No se encontraron términos para esa búsqueda.</p>
-      </div>
-      <!-- /col-glosario -->
+          <tr class="fila-percusion">
+            <td class="col-label">PERCUSIÓN</td>
+            <td
+              data-tip="Marcha arriba: En la relación dialéctica entre estrofa/estribillo de la música cubana, la marcha arriba se identifica con el montuno, coro y guía. Las tumbadoras se abren a la hembra y la campana de bongó pasa al montuno."
+            >
+              Marcha arriba
+            </td>
+            <td
+              data-tip="Apoyos: El apoyo es una especie de obligado más corto, o la acentuación de algún golpe que realiza otro u otros instrumentos."
+            >
+              Apoyos
+            </td>
+            <td
+              data-tip="Entrada / Salida: Fill de percusión o motivo para entrar o salir de una sección. Se llamará entrada o salida dependiendo la relación que se percibe con lo que sucedió o lo que prosigue."
+            >
+              Entrada<br />/Salida
+            </td>
+            <td
+              data-tip="Obligado: Fragmento breve que realiza un instrumento necesariamente junto a otro u otros."
+            >
+              Obligado
+            </td>
+            <td
+              data-tip="Bloques: Arreglo ejecutado por más de un instrumento, en general de la familia de la percusión. Se suelen utilizar en momentos de Mazacote o Presión. Son como obligados de la percusión que pueden estar apoyados por el bajo."
+            >
+              Bloques
+            </td>
+            <td
+              data-tip="Marcha abajo: En la relación dialéctica de la música cubana, la marcha abajo se asocia a la contrapartida del montuno: en general cuerpo de número, puentes, intros, etc., aunque no se la relaciona directamente a una sección fija."
+            >
+              Marcha<br />abajo
+            </td>
+            <td>Otro género</td>
+            <td
+              data-tip="Presión: Sección propia de la timba en la que el bajo hace una nota tenida (respira), las congas pueden ejecutar un chapeo y en la percusión se escucha la clave. El tumbao de piano/tres se queda perenne, y generalmente se expone o presenta un coro."
+            >
+              Presión
+            </td>
+            <td
+              data-tip="Mazacote: Similar al pedal o presión, pero la percusión suele tener más protagonismo a través de bloques que pueden o no ser apoyados en algunos casos por el bajo."
+            >
+              Mazacote
+            </td>
+            <td
+              data-tip="Bomba: Sección propia de la timba, considerada la de mayor tensión. El bajo mantiene golpes percusivos sobre los trastes y las cuerdas de manera improvisada, y otros instrumentos de la percusión meten palos respondiendo también a la improvisación."
+            >
+              Bomba
+            </td>
+            <td
+              data-tip="Comentario rítmico: Similar al comentario melódico, pero de naturaleza puramente rítmica. Un instrumento de percusión acentúa ciertos golpes o frases rítmicas cortas en respuesta a la melodía o a otro instrumento, creando interacción y dinamismo."
+            >
+              Comentario<br />rítmico
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <!-- /dos-columnas -->
+
+    <!-- BUSCADOR -->
+    <div class="search-section">
+      <div class="search-wrap">
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input
+          id="buscador"
+          type="search"
+          placeholder="Buscar término…"
+          autocomplete="off"
+        />
+      </div>
+      <p id="contador"></p>
+      <div class="resultados-lista" id="resultados"></div>
+      <p id="sin-resultados">No se encontraron términos para esa búsqueda.</p>
+    </div>
 
     <script>
-      const terminos = document.querySelectorAll(".termino");
+      const TERMINOS = [
+        {
+          nombre: "Melodía",
+          tags: "melodia melodía",
+          def: 'Es una sucesión lineal y coherente de sonidos de diferentes alturas que tiene una identidad y un sentido musical propio. Es la "voz principal" que el oyente suele recordar y tararear. Según Walter Piston, la melodía es "la superficie de la música": una secuencia organizada de notas que el oído percibe como una entidad única. <em>(Piston, 1941)</em>',
+        },
+        {
+          nombre: "Contramelodía",
+          tags: "contramelodia contramelodía",
+          def: "Es una línea melódica secundaria que se ejecuta de manera simultánea a la melodía principal. Su función es complementar, enriquecer y contrastar con la melodía principal, creando una textura más compleja. No es un simple acompañamiento, sino una verdadera «contra-melodía» con personalidad propia.",
+        },
+        {
+          nombre: "Coro",
+          tags: "coro montuno estribillo",
+          def: "Dentro de la música latina el Coro, además de ser como el estribillo de la obra, define el paso al montuno. Esto define varios elementos dentro de la orquesta: la percusión pasa a la marcha arriba, el cantante principal suele responder con improvisaciones vocales que dialogan dialécticamente con el Coro, que puede ser cantado por un coro vocal con esa función o por todos los instrumentistas de la orquesta.",
+        },
+        {
+          nombre: "Guía",
+          tags: "guia guía improvisación montuno",
+          def: "En la música latina se le llama guía a la improvisación de la voz en la parte montuno o marcha arriba del tema. El cantante con lo que va cantando va guiando a la orquesta. Por eso se llama coro y guía. <em>(Jansel Torres, comunicación personal, 15 de agosto de 2025)</em>",
+        },
+        {
+          nombre: "Apoyos",
+          tags: "apoyos obligado acentuación",
+          def: "El apoyo es una especie de obligado más corto o la acentuación de algún golpe que realiza otro u otros instrumentos.",
+        },
+        {
+          nombre: "Entrada / Salida",
+          tags: "entrada salida fill sección",
+          def: "Entendemos por entrada o salida un fill de percusión o un motivo para entrar o salir de una sección. Se llamará entrada o salida dependiendo la relación que se percibe ya sea con lo que sucedió o lo que prosigue.",
+        },
+        {
+          nombre: "Preg. / Resp.",
+          tags: "pregunta respuesta preg resp africano",
+          def: "Una técnica musical ancestral y universal, profundamente arraigada en las músicas africanas y afroamericanas. Consiste en la presentación de una frase musical (la «pregunta») que es contestada por otra frase musical (la «respuesta»). Si existe la categoría Preg. siempre existirá una Resp.; se utiliza para relacionar dos funciones que se perciben como complementarias en la acción.",
+        },
+        {
+          nombre: "Ostinato",
+          tags: "ostinato repetición motivo patrón",
+          def: "Un motivo, frase o ritmo musical que se repite persistentemente de manera idéntica a lo largo de una composición o una sección de la misma.",
+        },
+        {
+          nombre: "Background",
+          tags: "background fondo melódico herrera piano bajo guitarra",
+          def: "El background melódico, según Herrera (1987), es una línea secundaria que complementa a la melodía principal como un acompañamiento, activándose generalmente cuando ésta reposa o guarda silencio. En la presente investigación se la identifica como un diseño que suele ejecutar la base rítmico-armónica (piano, guitarra y bajo). <em>(Herrera, 1987)</em>",
+        },
+        {
+          nombre: "Acompañamiento",
+          tags: "acompañamiento acompanamiento soporte armónico",
+          def: "Es el soporte musical que envuelve y sustenta a la melodía principal. Su función es proporcionar el contexto armónico, rítmico y textural para que la melodía principal destaque. Se le llama acompañamiento a aquellos soportes rítmico-armónicos que no encajan en el concepto de tumbao, contratumbao, background, etc.",
+        },
+        {
+          nombre: "Obligado",
+          tags: "obligado fragmento breve instrumento",
+          def: "Fragmento breve que realiza un instrumento necesariamente junto a otro u otros.",
+        },
+        {
+          nombre: "Respira",
+          tags: "respira reposo nota larga",
+          def: "Término que se utiliza para describir una sensación de reposo o nota larga.",
+        },
+        {
+          nombre: "Tumbao",
+          tags: "tumbao patrón rítmico cubano alujas",
+          def: "Se comprende como tumbao un patrón relativamente conciso de carácter repetitivo. Dicha entidad toma forma sobre la base de específicos modelos rítmico-melódico-armónicos, los cuales funcionan a partir de numerosas posibilidades de realización y no de paradigmas únicos, por lo que son muy flexibles. <em>(Alujas, 2006)</em>",
+        },
+        {
+          nombre: "Contratumbao",
+          tags: "contratumbao contra tumbao acompañamiento",
+          def: "Se utiliza este término para describir un acompañamiento que se define como contratumbao por la estrecha relación que se percibe necesariamente junto a un tumbao.",
+        },
+        {
+          nombre: "Comentario melódico",
+          tags: "comentario melódico melodico improvisación frase hueco voz",
+          def: "Pequeñas frases melódicas, generalmente improvisadas o semi-improvisadas, que un instrumento toca en espacios o «huecos» que deja la voz principal y no se consideran identitarios del arreglo. Son «comentarios» musicales que dialogan con el cantante y enriquecen el arreglo.",
+        },
+        {
+          nombre: "Comentario rítmico",
+          tags: "comentario rítmico ritmico percusión percusion",
+          def: "Similar al comentario melódico, pero de naturaleza puramente rítmica. Un instrumento de percusión acentúa ciertos golpes o frases rítmicas cortas en respuesta a la melodía o a otro instrumento, creando interacción y dinamismo.",
+        },
+        {
+          nombre: "Línea de son, timba, rumba…",
+          tags: "línea linea son timba rumba brasil bajo género genero",
+          def: "Diseño melódico exclusivamente del bajo con características que se identifican con un género en particular. La «línea de son» acentúa casi exclusivamente las notas de tumbao, mientras que la de timba posee más agresividad o diseños más complejos rítmicamente e incluso más largos.",
+        },
+        {
+          nombre: "Marcha arriba",
+          tags: "marcha arriba montuno coro campana bongó tumbadoras",
+          def: "En la relación dialéctica que existe en la música cubana entre estrofa/estribillo, la marcha arriba es la parte que se identifica con el montuno, coro y guía. Las tumbadoras se abren a la hembra y la campana de bongó pasa al montuno.",
+        },
+        {
+          nombre: "Marcha abajo",
+          tags: "marcha abajo estrofa puente intro arreglista",
+          def: "En la relación dialéctica mencionada, la marcha abajo se asocia a la contrapartida del montuno: en general cuerpo de número, puentes, intros, etc., aunque no se la relaciona directamente a una sección ya que eso depende de las decisiones del arreglista.",
+        },
+        {
+          nombre: "Bloques",
+          tags: "bloques percusión percusion mazacote presión presion bajo",
+          def: "Se refiere a un arreglo ejecutado por más de un instrumento, en general de la familia de la percusión. Se suelen utilizar en momentos de Mazacote o Presión. Son como obligados de la percusión que pueden estar apoyados por el bajo.",
+        },
+        {
+          nombre: "Presión",
+          tags: "presión presion pedal timba clave congas chapeo piano jansel torres",
+          def: "El pedal o presión es una sección propia de la timba en la que el bajo hace una nota tenida (respira), las congas pueden ejecutar un chapeo y en la percusión se escucha la clave. El tumbao de piano/tres se queda ahí, perenne, y generalmente se expone o presenta un coro. <em>(Jansel Torres, comunicación personal, 15 de agosto de 2025)</em>",
+        },
+        {
+          nombre: "Mazacote",
+          tags: "mazacote percusión percusion bloques bajo presión presion",
+          def: "El mazacote es como un pedal o presión, pero la percusión suele tener más protagonismo a través de bloques que pueden o no ser apoyados en algunos casos por el bajo.",
+        },
+        {
+          nombre: "Bomba",
+          tags: "bomba timba tensión tension bajo percusivo improvisado palos",
+          def: "Esta sección, también propia de la timba, es establecida por consenso entre varios autores como la de mayor tensión. Es similar al mazacote, pero el bajo mantiene golpes percusivos sobre los trastes y las cuerdas de manera improvisada, y otros instrumentos de la percusión meten palos, respondiendo también a la improvisación.",
+        },
+      ];
+
       const buscador = document.getElementById("buscador");
       const contador = document.getElementById("contador");
+      const resultados = document.getElementById("resultados");
       const sinResultados = document.getElementById("sin-resultados");
 
-      function actualizarContador(visibles) {
-        contador.textContent =
-          visibles === terminos.length
-            ? `${terminos.length} términos`
-            : `${visibles} de ${terminos.length} términos`;
-      }
-      actualizarContador(terminos.length);
-
-      function toggleTermino(btn) {
-        const item = btn.closest(".termino");
-        const abierto = item.classList.contains("abierto");
-        document
-          .querySelectorAll(".termino.abierto")
-          .forEach((t) => t.classList.remove("abierto"));
-        if (!abierto) item.classList.add("abierto");
-      }
-
-      buscador.addEventListener("input", () => {
-        const q = buscador.value
-          .trim()
+      function norm(s) {
+        return s
           .toLowerCase()
           .normalize("NFD")
           .replace(/[\u0300-\u036f]/g, "");
-        let visibles = 0;
-        terminos.forEach((t) => {
-          const datos = (
-            t.dataset.termino +
-            " " +
-            t.querySelector(".termino-btn span").textContent
-          )
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "");
-          const desc = t
-            .querySelector(".termino-cuerpo-inner")
-            .textContent.toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "");
-          const match = !q || datos.includes(q) || desc.includes(q);
-          t.style.display = match ? "" : "none";
-          if (match) visibles++;
+      }
+
+      function escRe(s) {
+        return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      }
+
+      function highlightText(text, q) {
+        if (!q) return text;
+        return text.replace(
+          new RegExp("(" + escRe(q) + ")", "gi"),
+          "<mark>$1</mark>",
+        );
+      }
+
+      function highlightHtml(html, q) {
+        if (!q) return html;
+        // only replace inside text nodes (outside tags)
+        return html.replace(
+          />([^<]*)</g,
+          (m, inner) => ">" + highlightText(inner, q) + "<",
+        );
+      }
+
+      function emitHeight() {
+        const h = document.body.scrollHeight;
+        if (window.parent !== window) {
+          window.parent.postMessage(
+            { type: "glosario-height", height: h },
+            "*",
+          );
+        }
+      }
+
+      function render(q) {
+        resultados.innerHTML = "";
+        sinResultados.style.display = "none";
+        contador.textContent = "";
+
+        if (!q) {
+          setTimeout(emitHeight, 50);
+          return;
+        }
+
+        const qn = norm(q);
+        const matches = TERMINOS.filter((t) => norm(t.nombre).includes(qn));
+
+        if (!matches.length) {
+          setTimeout(emitHeight, 50);
+          return;
+        }
+
+        matches.forEach((t) => {
+          const div = document.createElement("div");
+          div.className = "resultado-item";
+          div.innerHTML =
+            '<div class="resultado-nombre">' +
+            highlightText(t.nombre, q) +
+            "</div>" +
+            '<div class="resultado-def">' +
+            t.def +
+            "</div>";
+          resultados.appendChild(div);
         });
-        actualizarContador(visibles);
-        sinResultados.style.display = visibles === 0 ? "block" : "none";
+        setTimeout(emitHeight, 50);
+      }
+
+      buscador.addEventListener("input", () => render(buscador.value.trim()));
+      window.addEventListener("load", emitHeight);
+    </script>
+
+    <!-- JS Tooltip Engine: appended to body, never clipped -->
+    <div
+      id="js-tip"
+      style="
+        position: fixed;
+        z-index: 9999;
+        pointer-events: none;
+        background: #1c1c1c;
+        color: #e0d8cc;
+        border: 1px solid #505050;
+        border-radius: 7px;
+        padding: 0.65rem 0.9rem;
+        font-size: 0.76rem;
+        font-family: &quot;Helvetica Neue&quot;, Arial, sans-serif;
+        line-height: 1.55;
+        width: 280px;
+        text-align: left;
+        box-shadow: 0 6px 22px rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        transition: opacity 0.18s ease;
+        white-space: normal;
+      "
+    ></div>
+    <script>
+      const tip = document.getElementById("js-tip");
+      const PAD = 12; // gap from cursor
+
+      document.querySelectorAll("[data-tip]").forEach((el) => {
+        el.addEventListener("mouseenter", (e) => {
+          tip.innerHTML = el.dataset.tip;
+          tip.style.opacity = "1";
+          position(e);
+        });
+        el.addEventListener("mousemove", position);
+        el.addEventListener("mouseleave", () => {
+          tip.style.opacity = "0";
+        });
       });
+
+      function position(e) {
+        const W = window.innerWidth,
+          H = window.innerHeight;
+        const tw = tip.offsetWidth,
+          th = tip.offsetHeight;
+        let x = e.clientX + PAD;
+        let y = e.clientY - th - PAD; // prefer above cursor
+
+        // flip below if not enough room above
+        if (y < 8) y = e.clientY + PAD;
+        // keep within horizontal bounds
+        if (x + tw > W - 8) x = e.clientX - tw - PAD;
+        if (x < 8) x = 8;
+
+        tip.style.left = x + "px";
+        tip.style.top = y + "px";
+      }
     </script>
   </body>
 </html>
