@@ -131,9 +131,9 @@ p .destaca {
   margin-bottom: 0;
 }
 
-/* altura compartida imagen ↔ video */
+/* ── altura compartida imagen ↔ video */
 :root {
-  --hero-media-h: 320px;
+  --hero-media-h: 260px;
 }
 
 .hero-img-wrap {
@@ -163,19 +163,31 @@ p .destaca {
 .hero-right {
   display: flex;
   flex-direction: column;
-  gap: var(--content-gap);
+  gap: 1rem;
   padding: var(--section-padding-v) 0;
   padding-bottom: calc(var(--section-padding-v) * 2);
-  margin-top: 12rem;
+  margin-top: 13.71rem;
 }
 
 .hero-right h2 {
   margin-bottom: 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.5rem);
 }
 
 .hero-right p {
   max-width: 100%;
   margin-bottom: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.hero-right .hero-nav {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+}
+
+.hero-right .hero-nav-link {
+  font-size: 0.875rem;
 }
 
 /* ── PLAYER ── */
