@@ -52,6 +52,43 @@
         overflow-x: auto;
         border-radius: 8px;
         border: 1px solid #ccc;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .tabla-wrap::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Scrollbar sticky fija en el fondo */
+      .scroll-bar-sticky {
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        height: 17px;
+        background: #ffffff;
+        border-top: 1px solid #ccc;
+        z-index: 10;
+        scrollbar-width: thin;
+        scrollbar-color: #888 #ffffff;
+      }
+      .scroll-bar-sticky::-webkit-scrollbar {
+        height: 17px;
+      }
+      .scroll-bar-sticky::-webkit-scrollbar-track {
+        background: #ffffff;
+      }
+      .scroll-bar-sticky::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+      }
+      .scroll-bar-sticky::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      .scroll-bar-inner {
+        height: 1px;
       }
 
       table {
@@ -2273,6 +2310,34 @@
             }, 1800);
           });
       }
+    </script>
+
+    <!-- Scrollbar sticky sincronizada con la tabla -->
+    <div class="scroll-bar-sticky" id="sticky-scroll">
+      <div class="scroll-bar-inner" id="sticky-inner"></div>
+    </div>
+    <script>
+      (function () {
+        const tablaWrap = document.querySelector(".tabla-wrap");
+        const stickyScroll = document.getElementById("sticky-scroll");
+        const stickyInner = document.getElementById("sticky-inner");
+
+        function syncInnerWidth() {
+          const table = tablaWrap.querySelector("table");
+          if (table) {
+            stickyInner.style.width = table.scrollWidth + "px";
+          }
+        }
+        syncInnerWidth();
+        window.addEventListener("resize", syncInnerWidth);
+
+        stickyScroll.addEventListener("scroll", function () {
+          tablaWrap.scrollLeft = stickyScroll.scrollLeft;
+        });
+        tablaWrap.addEventListener("scroll", function () {
+          stickyScroll.scrollLeft = tablaWrap.scrollLeft;
+        });
+      })();
     </script>
   </body>
 </html>
