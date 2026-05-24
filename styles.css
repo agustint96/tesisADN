@@ -1245,3 +1245,58 @@ a:after .hero-nav-link {
     font-size: 0.62rem;
   }
 }
+
+/* ===== TARJETAS + BOTONES — RESPONSIVE MOBILE ===== */
+@media (max-width: 600px) {
+  /* Una tarjeta por fila, sin altura mínima exagerada */
+  .grafico-item {
+    flex: 1 1 100%;
+    min-height: unset;
+    justify-content: flex-start;
+    padding: 1.1rem 1rem;
+  }
+
+  .grafico-contenido {
+    gap: 0.5rem;
+  }
+
+  .grafico-botones {
+    gap: 0.45rem;
+    margin-top: 0.5rem;
+  }
+
+  .btn-galeria {
+    font-size: 0.78rem;
+    padding: 0.5rem 0.8rem;
+    gap: 0.45rem;
+    line-height: 1.35;
+    white-space: normal;
+    word-break: break-word;
+    align-items: flex-start;
+  }
+
+  .btn-galeria i {
+    font-size: 0.88rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+}
+
+/* ===== FIX: botones y contenedor no desbordan en mobile ===== */
+@media (max-width: 600px) {
+  .grafico-item {
+    overflow: hidden;
+  }
+
+  .grafico-botones {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .btn-galeria {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+}
