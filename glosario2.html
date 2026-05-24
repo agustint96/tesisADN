@@ -22,18 +22,24 @@
         --font-title: Georgia, "Times New Roman", serif;
         --font-body: "Helvetica Neue", Arial, sans-serif;
       }
+      html {
+        overflow-x: hidden;
+      }
       body {
         background: var(--bg);
         color: var(--text);
         font-family: var(--font-body);
         font-size: 0.92rem;
         line-height: 1.65;
-        padding: 2rem 1.5rem 2.5rem;
+        padding: 1.2rem 0.75rem 2rem;
+        overflow-x: hidden;
+        max-width: 100vw;
       }
 
       /* ── TABLA SUPERIOR DT ── */
       .tabla-overflow {
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         border-radius: 8px;
         border: 1px solid var(--border);
         margin-bottom: 2rem;
@@ -89,6 +95,7 @@
         border-collapse: collapse;
         font-size: 0.83rem;
         font-family: var(--font-body);
+        min-width: 360px;
       }
 
       .tabla-jerarquia thead th {
@@ -223,6 +230,7 @@
       Jerarquías de Tensión/Reposo según funciones texturales
     </p>
 
+    <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -0.1rem;">
     <table class="tabla-jerarquia">
       <thead>
         <tr>
@@ -278,6 +286,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
 
     <script>
       function emitHeight() {
