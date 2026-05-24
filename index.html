@@ -1045,26 +1045,9 @@
 
         document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 
-        // Mostrar side-nav cuando hero-right termina su animación
-        const heroRight = document.querySelector(".hero-right");
+        // Asegurar que el side-nav siempre esté visible desde el inicio
         const sideNav = document.getElementById("side-nav");
-        if (heroRight && sideNav) {
-          const heroObserver = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((e) => {
-                if (e.isIntersecting) {
-                  // delay 550ms (hero-right) + 650ms (duración reveal) = ~1200ms total
-                  setTimeout(() => {
-                    sideNav.classList.remove("side-nav--hidden");
-                  }, 1200);
-                  heroObserver.unobserve(heroRight);
-                }
-              });
-            },
-            { threshold: 0.1 },
-          );
-          heroObserver.observe(heroRight);
-        }
+        if (sideNav) sideNav.classList.remove("side-nav--hidden");
       })();
 
       // ── ANIMACIÓN SECUENCIAL NAV LINKS ─────────────────────
