@@ -41,6 +41,14 @@
         border-color: var(--accent) !important;
         color: var(--accent) !important;
       }
+      /* ── h2 con link: mismo color que h2 sin link ── */
+      h2 > a {
+        color: var(--accent);
+      }
+      h2 > a:hover {
+        color: var(--accent);
+        opacity: 0.75;
+      }
       <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -227,16 +235,14 @@
             <div class="hero-nav-col">
               <strong>
                 <a href="#graficos" class="hero-nav-link"
-                  >Gráficos <br />
-                  descriptivos</a
+                  >Gráficos <br class="nav-br" />descriptivos</a
                 ></strong
               >
             </div>
             <div class="hero-nav-col">
               <strong>
                 <a href="#compendio" class="hero-nav-link"
-                  >Compendio de <br />
-                  texturas</a
+                  >Compendio de <br class="nav-br" />texturas</a
                 ></strong
               >
             </div>
@@ -248,7 +254,7 @@
 
     <!-- ── 2. GLOSARIO DE TEXTURAS ── -->
     <div class="container--2" id="glosario">
-      <h1><a href="glosario.html">Glosario de texturas</a></h1>
+      <h2><a href="glosario.html">Glosario de funciones texturales</a></h2>
       <p>Alaín Pérez · Disco ADN · Terminología de análisis textural</p>
       <div class="compendio-embed-wrap">
         <iframe
@@ -256,7 +262,7 @@
           class="compendio-embed"
           id="glosario-iframe"
           style="height: 600px; transition: height 0.3s ease"
-          title="Glosario de texturas"
+          title="Glosario de funciones texturales"
           scrolling="no"
           frameborder="0"
         ></iframe>
@@ -267,11 +273,11 @@
 
     <!-- ── 2b. TABLA DE DENSIDAD TEXTURAL ── -->
     <div class="container--2" id="glosario2">
-      <h1>
+      <h2>
         <a href="glosario2.html"
           >Tabla de niveles de densidad textural y tensión/reposo</a
         >
-      </h1>
+      </h2>
       <p>
         Alaín Pérez · Disco ADN · Escala de densidad y jerarquías de
         tensión/reposo
@@ -293,7 +299,7 @@
 
     <!-- ── 3. GRÁFICOS ── -->
     <div class="container--3" id="graficos">
-      <h1>Gráficos descriptivos</h1>
+      <h2>Gráficos descriptivos</h2>
 
       <!-- PLAYLIST DE SPOTIFY -->
       <div id="spotify-playlist">
@@ -636,7 +642,9 @@
 
     <!-- ── 4. COMPENDIO DE TEXTURAS ── -->
     <div class="container--4" id="compendio">
-      <h1><a href="compendio.html">Compendio de texturas</a></h1>
+      <h2>
+        <a href="compendio.html">Compendio de texturas</a>
+      </h2>
       <p>
         Análisis textural completo del disco ADN — fila por fila, con audios de
         referencia.

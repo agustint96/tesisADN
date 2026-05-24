@@ -295,6 +295,15 @@ a:after .hero-nav-link {
 
   .hero-nav-col {
     justify-content: flex-start;
+    text-align: left !important;
+  }
+
+  .hero-nav-link {
+    text-align: left !important;
+  }
+
+  .nav-br {
+    display: none;
   }
 }
 
@@ -305,6 +314,13 @@ a:after .hero-nav-link {
 }
 
 .container--2 > h1 {
+  max-width: var(--max-width);
+  margin: 0 auto var(--content-gap);
+}
+
+.container--2 > h2,
+.container--3 > h2,
+.container--4 > h2 {
   max-width: var(--max-width);
   margin: 0 auto var(--content-gap);
 }
@@ -1153,11 +1169,14 @@ a:after .hero-nav-link {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  opacity: 1;
+  opacity: 0;
   transform: translateX(0);
   transition:
     opacity 0.6s ease,
     transform 0.6s ease;
+}
+.side-nav:hover {
+  opacity: 2;
 }
 
 .side-nav-btn {
