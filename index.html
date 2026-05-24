@@ -5,7 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Análisis textural — ADN — Alaín Pérez</title>
     <link rel="stylesheet" href="styles.css" />
-    <link
+    <style>
+      /* ── Centrar texto links del nav ── */
+      .hero-nav-link {
+        text-align: center !important;
+      }
+      .hero-nav-col {
+        text-align: center !important;
+      }
+      /* ── Pop effect Spotify ── */
+      #spotify-iframe {
+        transition:
+          transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+          box-shadow 0.15s ease;
+        transform-origin: center center;
+      }
+      #spotify-iframe.spotify-pop {
+        transform: scale(1.04);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      }
+      .container--4 > h1 {
+        background-image: none !important;
+        -webkit-text-fill-color: var(--accent) !important;
+        background-clip: unset !important;
+        -webkit-background-clip: unset !important;
+        color: var(--accent) !important;
+      }
+      .side-nav-btn--play {
+        border: 1px solid rgba(242, 233, 220, 0.07) !important;
+        color: rgba(242, 233, 220, 0.28) !important;
+        margin: 0 !important;
+      }
+      .side-nav-btn--play:hover:not(:disabled) {
+        background: rgba(242, 233, 220, 0.1) !important;
+        border-color: var(--accent) !important;
+        color: var(--accent) !important;
+      }
+      <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
@@ -105,6 +141,7 @@
           class="hero-right reveal reveal--right"
           style="transition-delay: 550ms"
         >
+          <h2>¿Cómo usarlo?</h2>
           <div id="player-wrap">
             <div id="video-placeholder">
               <div class="video-placeholder-inner">
@@ -117,8 +154,6 @@
               </div>
             </div>
           </div>
-
-          <h2>¿Cómo usarlo?</h2>
           <p>
             Este documento interactivo es una herramienta de análisis musical
             diseñada para explorar las texturas sonoras del disco
@@ -185,16 +220,24 @@
           <!-- NAV en columnas debajo del texto -->
           <nav class="hero-nav">
             <div class="hero-nav-col">
-              <a href="#glosario" class="hero-nav-link">Glosario</a>
-            </div>
-            <div class="hero-nav-col">
-              <a href="#graficos" class="hero-nav-link"
-                >Gráficos descriptivos</a
+              <strong>
+                <a href="#glosario" class="hero-nav-link">Glosario</a></strong
               >
             </div>
             <div class="hero-nav-col">
-              <a href="#compendio" class="hero-nav-link"
-                >Compendio de texturas</a
+              <strong>
+                <a href="#graficos" class="hero-nav-link"
+                  >Gráficos <br />
+                  descriptivos</a
+                ></strong
+              >
+            </div>
+            <div class="hero-nav-col">
+              <strong>
+                <a href="#compendio" class="hero-nav-link"
+                  >Compendio de <br />
+                  texturas</a
+                ></strong
               >
             </div>
           </nav>
@@ -254,10 +297,11 @@
 
       <!-- PLAYLIST DE SPOTIFY -->
       <div id="spotify-playlist">
-        <div class="youtube-embed-wrap">
+        <div class="youtube-embed-wrap" style="position: relative">
           <iframe
+            id="spotify-iframe"
             data-testid="embed-iframe"
-            style="border-radius: 12px"
+            style="border-radius: 12px; display: block"
             src="https://open.spotify.com/embed/album/7EZxvOUfpm1qcnAZhh44fr?utm_source=generator"
             width="100%"
             height="352"
@@ -272,6 +316,17 @@
             "
             loading="lazy"
           ></iframe>
+          <div
+            id="spotify-overlay"
+            style="
+              display: none;
+              position: absolute;
+              inset: 0;
+              border-radius: 12px;
+              background: var(--bg-card);
+              pointer-events: none;
+            "
+          ></div>
         </div>
       </div>
       <br />
@@ -989,6 +1044,27 @@
         );
 
         document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+        // Mostrar side-nav cuando hero-right termina su animación
+        const heroRight = document.querySelector(".hero-right");
+        const sideNav = document.getElementById("side-nav");
+        if (heroRight && sideNav) {
+          const heroObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((e) => {
+                if (e.isIntersecting) {
+                  // delay 550ms (hero-right) + 650ms (duración reveal) = ~1200ms total
+                  setTimeout(() => {
+                    sideNav.classList.remove("side-nav--hidden");
+                  }, 1200);
+                  heroObserver.unobserve(heroRight);
+                }
+              });
+            },
+            { threshold: 0.1 },
+          );
+          heroObserver.observe(heroRight);
+        }
       })();
 
       // ── ANIMACIÓN SECUENCIAL NAV LINKS ─────────────────────
@@ -1020,11 +1096,215 @@
               }
             });
           },
-          { threshold: 0.8 },
+          { threshold: 0.9 },
         );
 
         navObserver.observe(nav);
       })();
+    </script>
+
+    <!-- ── NAV FLOTANTE LATERAL ── -->
+    <nav class="side-nav" id="side-nav" aria-label="Navegación por secciones">
+      <button class="side-nav-btn" id="snav-top" title="Ir al inicio">
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          style="transform: rotate(90deg)"
+        >
+          <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z" />
+        </svg>
+      </button>
+      <button class="side-nav-btn" id="snav-prev" title="Sección anterior">
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          style="transform: rotate(90deg)"
+        >
+          <path d="M11 18V6l-8.5 6 8.5 6zm.5-6 8.5 6V6l-8.5 6z" />
+        </svg>
+      </button>
+      <button
+        class="side-nav-btn side-nav-btn--play"
+        id="snav-play"
+        title="Reproducir playlist Spotify"
+      >
+        <svg
+          id="snav-play-icon"
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          style="transform: rotate(90deg)"
+        >
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </button>
+      <button class="side-nav-btn" id="snav-next" title="Sección siguiente">
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          style="transform: rotate(270deg)"
+        >
+          <path d="M11 18V6l-8.5 6 8.5 6zm.5-6 8.5 6V6l-8.5 6z" />
+        </svg>
+      </button>
+    </nav>
+
+    <script>
+      // ── NAV LATERAL — hold to scroll ─────────────────────────────────────
+      const SECCIONES = [
+        document.body,
+        document.getElementById("glosario"),
+        document.getElementById("glosario2"),
+        document.getElementById("graficos"),
+        document.getElementById("compendio"),
+      ];
+
+      let idxActual = 0;
+      let holdTimer = null; // intervalo mientras se mantiene pulsado
+      let pulsando = false;
+
+      function topDe(el) {
+        if (!el || el === document.body) return 0;
+        return el.getBoundingClientRect().top + window.scrollY;
+      }
+
+      function sincronizarIndice() {
+        let best = 0,
+          bestDist = Infinity;
+        SECCIONES.forEach((el, i) => {
+          const dist = Math.abs(topDe(el) - window.scrollY);
+          if (dist < bestDist) {
+            bestDist = dist;
+            best = i;
+          }
+        });
+        idxActual = best;
+      }
+
+      function irA(idx) {
+        idx = Math.max(0, Math.min(SECCIONES.length - 1, idx));
+        idxActual = idx;
+        window.scrollTo({ top: topDe(SECCIONES[idx]), behavior: "smooth" });
+        actualizarBotones();
+      }
+
+      function actualizarBotones() {
+        document.getElementById("snav-top").disabled = idxActual === 0;
+        document.getElementById("snav-prev").disabled = idxActual === 0;
+        document.getElementById("snav-next").disabled =
+          idxActual === SECCIONES.length - 1;
+      }
+
+      // ── Hold logic ───────────────────────────────────────────────────────
+      // dirección: -1 prev, +1 next, 0 top
+      function iniciarHold(dir) {
+        if (pulsando) return;
+        pulsando = true;
+
+        // Primer salto inmediato
+        if (dir === 0) {
+          irA(0);
+        } else {
+          irA(idxActual + dir);
+        }
+
+        // Saltos siguientes cada 600ms mientras se mantiene
+        holdTimer = setInterval(() => {
+          if (dir === 0) {
+            detenerHold();
+            return;
+          }
+          const siguiente = idxActual + dir;
+          if (siguiente < 0 || siguiente >= SECCIONES.length) {
+            detenerHold();
+            return;
+          }
+          irA(siguiente);
+        }, 700);
+      }
+
+      function detenerHold() {
+        pulsando = false;
+        if (holdTimer) {
+          clearInterval(holdTimer);
+          holdTimer = null;
+        }
+        sincronizarIndice();
+        actualizarBotones();
+      }
+
+      // ── Bind eventos ─────────────────────────────────────────────────────
+      function bindHold(btnId, dir) {
+        const btn = document.getElementById(btnId);
+        // Mouse
+        btn.addEventListener("mousedown", () => iniciarHold(dir));
+        btn.addEventListener("mouseup", detenerHold);
+        btn.addEventListener("mouseleave", detenerHold);
+        // Touch
+        btn.addEventListener(
+          "touchstart",
+          (e) => {
+            e.preventDefault();
+            iniciarHold(dir);
+          },
+          { passive: false },
+        );
+        btn.addEventListener("touchend", detenerHold);
+        btn.addEventListener("touchcancel", detenerHold);
+      }
+
+      bindHold("snav-top", 0);
+      bindHold("snav-prev", -1);
+      bindHold("snav-next", +1);
+
+      // ── Botón Play Spotify ────────────────────────────────────────────────
+      let spotifyPlaying = false;
+      const SPOTIFY_BASE =
+        "https://open.spotify.com/embed/album/7EZxvOUfpm1qcnAZhh44fr?utm_source=generator";
+
+      // ── Botón Play Spotify ────────────────────────────────────────────────
+      document.getElementById("snav-play").addEventListener("click", () => {
+        const iframe = document.getElementById("spotify-iframe");
+        const icon = document.getElementById("snav-play-icon");
+        const btn = document.getElementById("snav-play");
+
+        // Navegar a gráficos y hacer pop effect
+        irA(3);
+        iframe.classList.add("spotify-pop");
+        setTimeout(() => iframe.classList.remove("spotify-pop"), 400);
+
+        // Cambiar a ícono pausa y deshabilitar
+        icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+        btn.disabled = true;
+      });
+
+      // Scroll manual sincroniza índice
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (!pulsando) {
+            sincronizarIndice();
+            actualizarBotones();
+          }
+          // Reactivar botón play si el usuario se fue de gráficos (idx 3)
+          const btn = document.getElementById("snav-play");
+          const icon = document.getElementById("snav-play-icon");
+          if (idxActual !== 3 && btn.disabled) {
+            btn.disabled = false;
+            icon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+          }
+        },
+        { passive: true },
+      );
+
+      actualizarBotones();
     </script>
   </body>
 </html>
