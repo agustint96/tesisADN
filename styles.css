@@ -1124,10 +1124,21 @@ a:after .hero-nav-link {
   border-color: rgba(242, 233, 220, 0.25);
 }
 
-.btn-texturas:hover,
+/* ── Gráficos descriptivos: borde gradiente azul → verde → rojo ── */
+.btn-texturas:hover {
+  background:
+    linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+    linear-gradient(90deg, #4472c4, #548235, #c00000) border-box;
+  border: 1.8px solid transparent;
+  transform: translateY(-1px);
+}
+
+/* ── Gráficos de densidad y tensión/reposo: borde gradiente dorado → violeta ── */
 .btn-tr:hover {
-  background: rgba(242, 233, 220, 0.1);
-  border-color: var(--accent);
+  background:
+    linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+    linear-gradient(90deg, #ffcf0d83, #7030a0) border-box;
+  border: 1.8px solid transparent;
   transform: translateY(-1px);
 }
 
