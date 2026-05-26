@@ -6,14 +6,12 @@
     <title>Análisis textural — ADN — Alaín Pérez</title>
     <link rel="stylesheet" href="styles.css" />
     <style>
-      /* ── Centrar texto links del nav ── */
       .hero-nav-link {
         text-align: center !important;
       }
       .hero-nav-col {
         text-align: center !important;
       }
-      /* ── Pop effect Spotify ── */
       #spotify-iframe {
         transition:
           transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
@@ -41,7 +39,6 @@
         border-color: var(--accent) !important;
         color: var(--accent) !important;
       }
-      /* ── h2 con link: mismo color que h2 sin link ── */
       h2 > a {
         color: var(--accent);
       }
@@ -49,15 +46,16 @@
         color: var(--accent);
         opacity: 0.75;
       }
-      <link
+    </style>
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <style>
-      /* ── Panel de audios dentro del modal de galería ── */
       .gallery-audio-panel {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
         gap: 6px;
         flex: 1;
         flex-wrap: wrap;
@@ -114,13 +112,129 @@
       .btn-audio-textura i {
         font-size: 0.65rem;
       }
+      .gallery-modal-content {
+        max-height: 96vh !important;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .gallery-carousel {
+        flex: 1 1 0;
+        min-height: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0a0a0a;
+      }
+      .gallery-image {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        object-fit: contain !important;
+        position: absolute !important;
+        inset: 0 !important;
+      }
+      .full-song-player {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-top: 1px solid rgba(242, 233, 220, 0.08);
+        background: #181818;
+        flex-shrink: 0;
+      }
+      .full-song-player-row {
+        display: contents;
+      }
+      .btn-audio-completo {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(242, 233, 220, 0.25);
+        background: rgba(242, 233, 220, 0.07);
+        color: rgba(242, 233, 220, 0.85);
+        cursor: pointer;
+        flex-shrink: 0;
+        transition:
+          background 0.18s,
+          border-color 0.18s,
+          color 0.18s,
+          transform 0.12s;
+      }
+      .btn-audio-completo:hover {
+        background: rgba(242, 233, 220, 0.18);
+        border-color: #f2e9dc;
+        color: #f2e9dc;
+        transform: scale(1.08);
+      }
+      .btn-audio-completo.reproduciendo {
+        background: rgba(242, 233, 220, 0.13);
+        border-color: #f2e9dc;
+        color: #f2e9dc;
+      }
+      .btn-audio-completo i {
+        font-size: 0.65rem;
+      }
+      .full-song-progress-wrap {
+        position: relative;
+        height: 14px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        flex: 1;
+        min-width: 40px;
+      }
+      .full-song-progress-track {
+        width: 100%;
+        height: 3px;
+        border-radius: 3px;
+        background: rgba(242, 233, 220, 0.12);
+        transition: height 0.15s;
+        position: relative;
+      }
+      .full-song-progress-wrap:hover .full-song-progress-track {
+        height: 5px;
+      }
+      .full-song-progress-fill {
+        height: 100%;
+        border-radius: 3px;
+        background: rgba(242, 233, 220, 0.6);
+        width: 0%;
+        pointer-events: none;
+        transition: background 0.15s;
+      }
+      .full-song-progress-wrap:hover .full-song-progress-fill {
+        background: #f2e9dc;
+      }
+      .full-song-time {
+        font-size: 0.6rem;
+        color: rgba(242, 233, 220, 0.38);
+        white-space: nowrap;
+        flex-shrink: 0;
+        font-variant-numeric: tabular-nums;
+      }
+      .full-song-name {
+        font-size: 0.58rem;
+        color: rgba(242, 233, 220, 0.25);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        flex-shrink: 1;
+        min-width: 0;
+      }
     </style>
   </head>
   <body>
-    <!-- ── 1. INTRO ── -->
     <div class="container--1">
       <div class="hero-grid">
-        <!-- COLUMNA IZQUIERDA: sticky / parallax -->
         <div class="hero-left">
           <h1 class="reveal reveal--up" style="transition-delay: 0ms">
             Análisis textural <br />
@@ -143,8 +257,6 @@
             />
           </div>
         </div>
-
-        <!-- COLUMNA DERECHA: se desliza, hero-left queda fijo -->
         <div
           class="hero-right reveal reveal--right"
           style="transition-delay: 550ms"
@@ -176,19 +288,26 @@
           </p>
           <p>
             Podés acceder al
-            <strong class="destaca">glosario de funciones texturales</strong>
+            <strong class="destaca"
+              ><a target="_blank" href="glosario.html"
+                >glosario de funciones texturales</a
+              ></strong
+            >
             para entender los términos técnicos utilizados a lo largo del
             análisis y lograr la lectura fluida de los
-            <strong class="destaca">gráficos descriptivos</strong>. Cada
-            definición está pensada para ser accesible tanto para músicos
-            profesionales o en formación como para oyentes con experiencia y
-            curiosos con ganas de aprender.
+            <strong class="destaca"
+              ><a target="" href="#graficos">gráficos descriptivos</a></strong
+            >. Cada definición está pensada para ser accesible tanto para
+            músicos profesionales o en formación como para oyentes con
+            experiencia y curiosos con ganas de aprender.
           </p>
           <p>
             Para navegar por el otro tipo de gráfico hay que guiarse en base a
             la
             <strong class="destaca"
-              >tabla de niveles de densidad textural y tensión/reposo</strong
+              ><a target="" href="#glosario2"
+                >tabla de niveles de densidad textural y tensión/reposo</a
+              ></strong
             >
             la cual establece una referencia para observar esta información
             dinámica en ese tipo de gráficos.
@@ -196,10 +315,14 @@
           <p>
             En la sección de gráficos encontrarás representaciones de dos tipos
             de gráficos. Los
-            <strong class="destaca">gráficos descriptivos</strong> en los cuales
-            se describen las texturas. Y los
             <strong class="destaca"
-              >gráficos de densidad y tensión/reposo</strong
+              ><a target="" href="#graficos">gráficos descriptivos</a></strong
+            >
+            en los cuales se describen las texturas. Y los
+            <strong class="destaca"
+              ><a class="destacanegrita" href="#graficos"
+                >gráficos de densidad y tensión/reposo</a
+              ></strong
             >
             para 11 canciones del disco. Hacé clic en los botones de cada
             tarjeta para abrir el visor de imágenes y elegir con qué gráfico
@@ -224,8 +347,6 @@
             escuchar en detenimiento lo que sucede orquestalmente de manera
             visual con el gráfico descriptivo.
           </p>
-
-          <!-- NAV en columnas debajo del texto -->
           <nav class="hero-nav">
             <div class="hero-nav-col">
               <strong>
@@ -250,12 +371,18 @@
         </div>
       </div>
     </div>
-    <!-- /container--1 -->
 
-    <!-- ── 2. GLOSARIO DE TEXTURAS ── -->
     <div class="container--2" id="glosario">
       <h2><a href="glosario.html">Glosario de funciones texturales</a></h2>
       <p>Alaín Pérez · Disco ADN · Terminología de análisis textural</p>
+      <p>
+        En la columna primera están los instrumentos o grupos instrumentales. En
+        el caso del <span class="letraazul">piano</span>, la
+        <span class="letraverde">guitarra eléctrica</span> y el
+        <span class="letraroja">bajo</span>, a estos instrumentos se los
+        representa con un color en particular. Colocando el cursor en cada
+        casillero se define abreviada cada función.
+      </p>
       <div class="compendio-embed-wrap">
         <iframe
           src="glosario.html"
@@ -269,9 +396,6 @@
       </div>
     </div>
 
-    <!-- /container--2 -->
-
-    <!-- ── 2b. TABLA DE DENSIDAD TEXTURAL ── -->
     <div class="container--2" id="glosario2">
       <h2>
         <a href="glosario2.html"
@@ -279,8 +403,17 @@
         >
       </h2>
       <p>
-        Alaín Pérez · Disco ADN · Escala de densidad y jerarquías de
+        Alaín Pérez · Disco ADN · Escala de densidad textural y jerarquías de
         tensión/reposo
+      </p>
+      <p>
+        El color violeta establece la
+        <span class="letravioleta">densidad textural</span> es decir cuántas
+        funciones texturales o elementos están coexistiendo en esa textura. En
+        color dorado se establece el
+        <span class="letradorada">nivel en la escala de T/R</span> la cual se
+        define en base a las jerarquías de Tensión Reposo según funciones
+        texturales.
       </p>
       <div class="compendio-embed-wrap">
         <iframe
@@ -295,56 +428,22 @@
       </div>
     </div>
 
-    <!-- /container--2b -->
-
-    <!-- ── 3. GRÁFICOS ── -->
     <div class="container--3" id="graficos">
-      <h2>Gráficos descriptivos</h2>
-
-      <!-- PLAYLIST DE SPOTIFY -->
-      <div id="spotify-playlist">
-        <div class="youtube-embed-wrap" style="position: relative">
-          <iframe
-            id="spotify-iframe"
-            data-testid="embed-iframe"
-            style="border-radius: 12px; display: block"
-            src="https://open.spotify.com/embed/album/7EZxvOUfpm1qcnAZhh44fr?utm_source=generator"
-            width="100%"
-            height="352"
-            frameborder="0"
-            allowfullscreen=""
-            allow="
-              autoplay;
-              clipboard-write;
-              encrypted-media;
-              fullscreen;
-              picture-in-picture;
-            "
-            loading="lazy"
-          ></iframe>
-          <div
-            id="spotify-overlay"
-            style="
-              display: none;
-              position: absolute;
-              inset: 0;
-              border-radius: 12px;
-              background: var(--bg-card);
-              pointer-events: none;
-            "
-          ></div>
-        </div>
-      </div>
+      <h2>Gráficos</h2>
+      <p>Alaín Pérez · Disco ADN · Gráficos</p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
       <br />
-      <br />
-      <!-- GRÁFICOS — uno por tema -->
       <div class="graficos-grid" id="graficos-container">
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="0"
-          data-gallery-texturas='["IMAGENES/A ella le gustan mis canciones (1).jpg","IMAGENES/A ella le gustan mis canciones (2).jpg"]'
-          data-gallery-tr='["IMAGENES-T-R/A ella le gustan mis canciones (1).jpg","IMAGENES-T-R/A ella le gustan mis canciones (2).jpg"]'
-          data-audios-texturas="[1,2,3,4,5]"
+          data-audios-texturas='[{"l":"1","f":2},{"l":"2","f":3},{"l":"3","f":4},{"l":"4","f":5},{"l":"5","f":6}]'
         >
           <div class="grafico-contenido">
             <h3>A Ella Le Gustan Mis Canciones</h3>
@@ -366,13 +465,10 @@
             </div>
           </div>
         </div>
-
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="1"
-          data-gallery-texturas='["IMAGENES/ADN (1).jpg","IMAGENES/ADN (2).jpg"]'
-          data-gallery-tr='["IMAGENES-T-R/Adn (1).jpg","IMAGENES-T-R/Adn (2).jpg"]'
-          data-audios-texturas="[6,7,8,9,10,11,12]"
+          data-audios-texturas='[{"l":"6","f":7},{"l":"7","f":8},{"l":"8","f":9},{"l":"9","f":10},{"l":"10","f":11},{"l":"11","f":12},{"l":"12","f":13}]'
         >
           <div class="grafico-contenido">
             <h3>ADN</h3>
@@ -394,13 +490,10 @@
             </div>
           </div>
         </div>
-
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="2"
-          data-gallery-texturas='["IMAGENES/Amor contradictorio (1).jpg","IMAGENES/Amor contradictorio (2).jpg"]'
-          data-gallery-tr='["IMAGENES-T-R/Amor contradictorio (1).jpg","IMAGENES-T-R/Amor contradictorio (2).jpg"]'
-          data-audios-texturas='[13,14,15,16,17,18,{"l":"18a","f":19}]'
+          data-audios-texturas='[{"l":"13","f":14},{"l":"14","f":15},{"l":"15","f":16},{"l":"16","f":17},{"l":"17","f":18},{"l":"18","f":1},{"l":"18a","f":19}]'
         >
           <div class="grafico-contenido">
             <h3>Amor Contradictorio</h3>
@@ -422,12 +515,9 @@
             </div>
           </div>
         </div>
-
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="3"
-          data-gallery-texturas='["IMAGENES/Anotonio Rodriguez (1).jpg","IMAGENES/Anotonio Rodriguez (2).jpg"]'
-          data-gallery-tr='["IMAGENES-T-R/Antonio rodriguez (1).jpg","IMAGENES-T-R/Antonio rodriguez (2).jpg"]'
           data-audios-texturas='[{"l":"19","f":20},{"l":"20","f":21},{"l":"21","f":22},{"l":"22","f":23},{"l":"23","f":24}]'
         >
           <div class="grafico-contenido">
@@ -450,12 +540,9 @@
             </div>
           </div>
         </div>
-
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="4"
-          data-gallery-texturas='["IMAGENES/De flor en flor (1).jpg","IMAGENES/De flor en flor (2).jpg"]'
-          data-gallery-tr='["IMAGENES-T-R/De flor en flor (1).jpg","IMAGENES-T-R/De flor en flor (2).jpg"]'
           data-audios-texturas='[{"l":"24","f":25},{"l":"25","f":26},{"l":"26","f":27},{"l":"27","f":28},{"l":"28","f":29}]'
         >
           <div class="grafico-contenido">
@@ -478,12 +565,9 @@
             </div>
           </div>
         </div>
-
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="5"
-          data-gallery-texturas='["IMAGENES/Chacha (1).jpg","IMAGENES/Chacha (2).jpg"]'
-          data-gallery-tr='["IMAGENES-T-R/Chacha (1).jpg","IMAGENES-T-R/Chacha (2).jpg"]'
           data-audios-texturas='[{"l":"29","f":30},{"l":"30","f":31},{"l":"31","f":32},{"l":"32","f":33},{"l":"33","f":34},{"l":"34","f":35}]'
         >
           <div class="grafico-contenido">
@@ -506,12 +590,9 @@
             </div>
           </div>
         </div>
-
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="6"
-          data-gallery-texturas='["IMAGENES/Shorcito (1).jpg","IMAGENES/Shorcito (2).jpg"]'
-          data-gallery-tr='["IMAGENES-T-R/Shorcito (1).jpg","IMAGENES-T-R/Shorcito (2).jpg"]'
           data-audios-texturas='[{"l":"35","f":36},{"l":"36","f":37},{"l":"37","f":38},{"l":"38","f":39},{"l":"39","f":40},{"l":"40","f":41},{"l":"41","f":42}]'
         >
           <div class="grafico-contenido">
@@ -534,12 +615,9 @@
             </div>
           </div>
         </div>
-
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="7"
-          data-gallery-texturas='["IMAGENES/Con corbata y sin cabeza (1).jpg","IMAGENES/Con corbata y sin cabeza (2).jpg"]'
-          data-gallery-tr='["IMAGENES-T-R/Con corbata y sin cabeza (1).jpg","IMAGENES-T-R/Con corbata y sin cabeza (2).jpg"]'
           data-audios-texturas='[{"l":"42","f":43},{"l":"43","f":44},{"l":"44","f":45},{"l":"45","f":46},{"l":"46","f":47},{"l":"47","f":48}]'
         >
           <div class="grafico-contenido">
@@ -562,12 +640,9 @@
             </div>
           </div>
         </div>
-
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="8"
-          data-gallery-texturas='["IMAGENES/Peligroso ladron (1).jpg","IMAGENES/Peligroso ladron (2).jpg"]'
-          data-gallery-tr='["IMAGENES-T-R/Peligroso ladron (1).jpg","IMAGENES-T-R/Peligroso ladron (2).jpg"]'
           data-audios-texturas='[{"l":"48","f":49},{"l":"49","f":50},{"l":"50","f":51},{"l":"51","f":52},{"l":"52","f":53}]'
         >
           <div class="grafico-contenido">
@@ -590,12 +665,9 @@
             </div>
           </div>
         </div>
-
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="9"
-          data-gallery-texturas='["IMAGENES/Nos vemos luego (1).jpg","IMAGENES/Nos vemos luego (2).jpg"]'
-          data-gallery-tr='["IMAGENES-T-R/Nos vemos luego (1).jpg","IMAGENES-T-R/Nos vemos luego (2).jpg"]'
           data-audios-texturas='[{"l":"53","f":54},{"l":"54","f":55},{"l":"55","f":56}]'
         >
           <div class="grafico-contenido">
@@ -618,12 +690,9 @@
             </div>
           </div>
         </div>
-
         <div
           class="grafico-item activo reveal reveal--up"
           data-track-index="10"
-          data-gallery-texturas='["IMAGENES/Bemba colora (1).jpg","IMAGENES/Bemba colora (2).jpg"]'
-          data-gallery-tr='["IMAGENES-T-R/Bemba colorá (1).jpg","IMAGENES-T-R/Bemba colorá (2).jpg"]'
           data-audios-texturas='[{"l":"56","f":57},{"l":"57","f":58},{"l":"58","f":59},{"l":"59","f":60},{"l":"60","f":61},{"l":"61","f":62}]'
         >
           <div class="grafico-contenido">
@@ -647,11 +716,8 @@
           </div>
         </div>
       </div>
-      <!-- /graficos-grid -->
     </div>
-    <!-- /container--3 -->
 
-    <!-- ── 4. COMPENDIO DE TEXTURAS ── -->
     <div class="container--4" id="compendio">
       <h2>
         <a href="compendio.html">Compendio de texturas</a>
@@ -670,9 +736,7 @@
         ></iframe>
       </div>
     </div>
-    <!-- /container--4 -->
 
-    <!-- ── MODAL PDF ── -->
     <div
       id="pdf-modal"
       class="pdf-modal"
@@ -710,9 +774,7 @@
         </div>
       </div>
     </div>
-    <!-- /pdf-modal -->
 
-    <!-- ── MODAL GALERÍA ── -->
     <div
       id="gallery-modal"
       class="gallery-modal"
@@ -763,39 +825,43 @@
           </button>
           <div id="gallery-placeholder" class="gallery-placeholder">
             <div class="pdf-placeholder-icon">🖼️</div>
-            <p>
-              No hay imágenes disponibles para esta galería. Agregá rutas
-              válidas en el atributo <code>data-gallery-texturas</code> o
-              <code>data-gallery-tr</code> del gráfico.
+            <p id="gallery-placeholder-message">
+              No hay imágenes disponibles para esta galería.
             </p>
           </div>
         </div>
-        <div class="gallery-controls">
+
+        <div
+          id="full-song-player-wrap"
+          class="full-song-player"
+          style="display: none"
+        >
           <button
-            class="gallery-button"
-            onclick="moverSlide(-1)"
-            aria-label="Anterior"
+            class="btn-audio-completo"
+            id="btn-full-song"
+            title="Reproducir canción completa"
           >
-            ◀
+            <i class="fa-solid fa-play"></i>
           </button>
-          <div class="gallery-meta">
-            <span id="gallery-title"></span>
-            <span id="gallery-counter" class="gallery-counter"></span>
+          <span class="full-song-name" id="full-song-name"></span>
+          <div
+            class="full-song-progress-wrap"
+            id="full-song-progress-wrap"
+            title="Clic para saltar"
+          >
+            <div class="full-song-progress-track">
+              <div
+                class="full-song-progress-fill"
+                id="full-song-progress-fill"
+              ></div>
+            </div>
           </div>
-          <button
-            class="gallery-button"
-            onclick="moverSlide(1)"
-            aria-label="Siguiente"
-          >
-            ▶
-          </button>
+          <span class="full-song-time" id="full-song-time">0:00 / –:––</span>
         </div>
       </div>
     </div>
-    <!-- /gallery-modal -->
 
     <script>
-      // ── BARRAS animadas al cargar ──────────────────────────
       document.querySelectorAll(".barra").forEach((b) => {
         const w = getComputedStyle(b).getPropertyValue("--w").trim() || "60%";
         b.style.width = "0%";
@@ -804,7 +870,6 @@
         }, 200);
       });
 
-      // ── MODAL PDF ──────────────────────────────────────────
       function abrirPDF(btn) {
         const pdfSrc = btn.getAttribute("data-pdf");
         const titulo = btn
@@ -840,38 +905,100 @@
         }, 300);
       }
 
-      // ── CARRUSEL DE IMÁGENES ───────────────────────────────
       const galeria = {
         currentIndex: 0,
         images: [],
       };
 
-      // Reproductor de audio activo
       let audioActivo = null;
       let btnActivo = null;
+      let audioCompleto = null;
+      let rafId = null;
+      let currentSongSrc = null;
 
-      // btn  = el botón clickeado
-      // tipo = 'texturas' | 'tr'
+      // MAPA de nombres de archivo corregidos y normalizados para evitar problemas de tildes
+      const nombresTexturas = {
+        "A Ella Le Gustan Mis Canciones": "A ella le gustan mis canciones",
+        ADN: "ADN",
+        "Amor Contradictorio": "Amor contradictorio",
+        "Antonio Rodríguez": "Antonio Rodriguez",
+        "De Flor En Flor": "De flor en flor",
+        Chacha: "Chacha",
+        Shorcito: "Shorcito",
+        "Con Corbata Y Sin Cabeza": "Con corbata y sin cabeza",
+        "Peligroso Ladrón": "Peligroso ladron",
+        "Nos Vemos Luego": "Nos vemos luego",
+        "Bemba Colorá": "Bemba colora",
+      };
+
+      const nombresTR = {
+        "A Ella Le Gustan Mis Canciones": "A ella le gustan mis canciones",
+        ADN: "Adn",
+        "Amor Contradictorio": "Amor contradictorio",
+        "Antonio Rodríguez": "Antonio rodriguez",
+        "De Flor En Flor": "De flor en flor",
+        Chacha: "Chacha",
+        Shorcito: "Shorcito",
+        "Con Corbata Y Sin Cabeza": "Con corbata y sin cabeza",
+        "Peligroso Ladrón": "Peligroso ladron",
+        "Nos Vemos Luego": "Nos vemos luego",
+        "Bemba Colorá": "Bemba colora",
+      };
+
       function abrirGaleria(event, btn, tipo) {
         event.preventDefault();
         event.stopPropagation();
 
         const item = btn.closest(".grafico-item");
-        const attr =
-          tipo === "texturas" ? "data-gallery-texturas" : "data-gallery-tr";
-        const rawGallery = item.getAttribute(attr);
+        const titulo = item.querySelector("h3").textContent.trim();
+
         let images = [];
 
-        try {
-          images = rawGallery ? JSON.parse(rawGallery) : [];
-        } catch (error) {
-          images = [];
+        // Número real de imágenes por canción y por tipo de gráfico
+        const totalImagenesTexturas = {
+          "A Ella Le Gustan Mis Canciones": 2,
+          ADN: 2,
+          "Amor Contradictorio": 2,
+          "Antonio Rodríguez": 2,
+          "De Flor En Flor": 2,
+          Chacha: 2,
+          Shorcito: 2,
+          "Con Corbata Y Sin Cabeza": 2,
+          "Peligroso Ladrón": 2,
+          "Nos Vemos Luego": 2,
+          "Bemba Colorá": 2,
+        };
+        const totalImagenesTR = {
+          "A Ella Le Gustan Mis Canciones": 2,
+          ADN: 2,
+          "Amor Contradictorio": 2,
+          "Antonio Rodríguez": 2,
+          "De Flor En Flor": 2,
+          Chacha: 2,
+          Shorcito: 2,
+          "Con Corbata Y Sin Cabeza": 2,
+          "Peligroso Ladrón": 2,
+          "Nos Vemos Luego": 2,
+          "Bemba Colorá": 2,
+        };
+
+        if (tipo === "texturas") {
+          const baseName = nombresTexturas[titulo] || titulo;
+          const total = totalImagenesTexturas[titulo] ?? 2;
+          for (let i = 1; i <= total; i++) {
+            images.push(`IMAGENES/${baseName} (${i}).jpg`);
+          }
+        } else {
+          const baseName = nombresTR[titulo] || titulo;
+          const total = totalImagenesTR[titulo] ?? 2;
+          for (let i = 1; i <= total; i++) {
+            images.push(`IMAGENES-T-R/${baseName} (${i}).jpg`);
+          }
         }
 
         galeria.images = images;
         galeria.currentIndex = 0;
 
-        const titulo = item.querySelector("h3").textContent;
         const tipoLabel =
           tipo === "texturas"
             ? "Gráficos descriptivos"
@@ -880,7 +1007,6 @@
         document.getElementById("gallery-modal-title").textContent = titulo;
         document.getElementById("gallery-modal-tipo").textContent = tipoLabel;
 
-        // ── Panel de audios (solo en modo texturas) ──
         const audioPanel = document.getElementById("gallery-audio-panel");
         audioPanel.innerHTML = "";
         detenerAudio();
@@ -904,7 +1030,6 @@
             grid.className = "audio-btn-grid";
 
             audioNums.forEach((entry) => {
-              // entry puede ser número simple o {l: "label", f: fileNum}
               const fileNum = typeof entry === "object" ? entry.f : entry;
               const label = typeof entry === "object" ? entry.l : String(entry);
               const ab = document.createElement("button");
@@ -924,6 +1049,48 @@
           audioPanel.style.display = "none";
         }
 
+        detenerAudioCompleto();
+        const trackIndex = parseInt(
+          item.getAttribute("data-track-index") ?? "-1",
+          10,
+        );
+        const trackNum = trackIndex + 1;
+        const playerWrap = document.getElementById("full-song-player-wrap");
+        const nameEl = document.getElementById("full-song-name");
+        const fillEl = document.getElementById("full-song-progress-fill");
+        const timeEl = document.getElementById("full-song-time");
+
+        if (trackNum >= 1 && trackNum <= 11) {
+          currentSongSrc = `discocompleto/(${trackNum}).mp3`;
+          if (nameEl) nameEl.textContent = titulo;
+          if (fillEl) fillEl.style.width = "0%";
+          if (timeEl) timeEl.textContent = "0:00 / –:––";
+
+          const oldBtn = document.getElementById("btn-full-song");
+          const newBtn = oldBtn.cloneNode(true);
+          newBtn.classList.remove("reproduciendo");
+          newBtn.querySelector("i").className = "fa-solid fa-play";
+          oldBtn.parentNode.replaceChild(newBtn, oldBtn);
+          newBtn.addEventListener("click", () => toggleAudioCompleto(newBtn));
+
+          const oldBar = document.getElementById("full-song-progress-wrap");
+          const newBar = oldBar.cloneNode(true);
+          oldBar.parentNode.replaceChild(newBar, oldBar);
+          newBar.addEventListener("click", (e) => {
+            if (!audioCompleto || !isFinite(audioCompleto.duration)) return;
+            const rect = newBar.getBoundingClientRect();
+            const ratio = Math.max(
+              0,
+              Math.min(1, (e.clientX - rect.left) / rect.width),
+            );
+            audioCompleto.currentTime = ratio * audioCompleto.duration;
+          });
+
+          if (playerWrap) playerWrap.style.display = "flex";
+        } else {
+          if (playerWrap) playerWrap.style.display = "none";
+        }
+
         actualizarGaleria();
         document.getElementById("gallery-modal").classList.add("abierto");
         document.body.style.overflow = "hidden";
@@ -932,23 +1099,19 @@
       function toggleAudio(btn, num) {
         const src = `audios/textura (${num}).mp3`;
 
-        // Si hay un audio activo y es el mismo botón → pausar
         if (audioActivo && btnActivo === btn) {
           detenerAudio();
           return;
         }
 
-        // Si hay otro audio activo → detenerlo primero
         detenerAudio();
 
-        // Reproducir nuevo
         audioActivo = new Audio(src);
         btnActivo = btn;
         btn.classList.add("reproduciendo");
         btn.querySelector("i").className = "fa-solid fa-pause";
 
         audioActivo.play().catch(() => {
-          // El archivo no existe o no se pudo reproducir
           btn.classList.add("error");
           btn.querySelector("i").className = "fa-solid fa-triangle-exclamation";
           audioActivo = null;
@@ -975,8 +1138,97 @@
         }
       }
 
+      function fmt(s) {
+        if (!isFinite(s) || s < 0) return "–:––";
+        return (
+          Math.floor(s / 60) + ":" + String(Math.floor(s % 60)).padStart(2, "0")
+        );
+      }
+
+      function detenerAudioCompleto() {
+        if (rafId) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+        if (audioCompleto) {
+          audioCompleto.pause();
+          audioCompleto = null;
+        }
+        const fill = document.getElementById("full-song-progress-fill");
+        const timeEl = document.getElementById("full-song-time");
+        const btn = document.getElementById("btn-full-song");
+        if (fill) fill.style.width = "0%";
+        if (timeEl) timeEl.textContent = "0:00 / –:––";
+        if (btn) {
+          btn.classList.remove("reproduciendo");
+          const ico = btn.querySelector("i");
+          if (ico) ico.className = "fa-solid fa-play";
+        }
+      }
+
+      function toggleAudioCompleto(btn) {
+        const fill = document.getElementById("full-song-progress-fill");
+        const timeEl = document.getElementById("full-song-time");
+
+        if (audioCompleto) {
+          if (audioCompleto.paused) {
+            audioCompleto.play();
+            btn.classList.add("reproduciendo");
+            btn.querySelector("i").className = "fa-solid fa-pause";
+          } else {
+            audioCompleto.pause();
+            btn.classList.remove("reproduciendo");
+            btn.querySelector("i").className = "fa-solid fa-play";
+          }
+          return;
+        }
+
+        audioCompleto = new Audio(currentSongSrc);
+        btn.classList.add("reproduciendo");
+        btn.querySelector("i").className = "fa-solid fa-pause";
+
+        function tick() {
+          if (!audioCompleto) return;
+          const cur = audioCompleto.currentTime;
+          const dur = audioCompleto.duration;
+          if (fill && isFinite(dur) && dur > 0)
+            fill.style.width = ((cur / dur) * 100).toFixed(2) + "%";
+          if (timeEl) timeEl.textContent = fmt(cur) + " / " + fmt(dur);
+          if (!audioCompleto.paused && !audioCompleto.ended)
+            rafId = requestAnimationFrame(tick);
+        }
+
+        audioCompleto.addEventListener("play", () => {
+          rafId = requestAnimationFrame(tick);
+        });
+        audioCompleto.addEventListener("pause", () => {
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
+        });
+        audioCompleto.addEventListener("ended", () => {
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
+          btn.classList.remove("reproduciendo");
+          btn.querySelector("i").className = "fa-solid fa-play";
+          if (fill) fill.style.width = "100%";
+          audioCompleto = null;
+        });
+
+        audioCompleto.play().catch(() => {
+          btn.classList.remove("reproduciendo");
+          btn.querySelector("i").className = "fa-solid fa-triangle-exclamation";
+          if (timeEl) timeEl.textContent = "Sin archivo";
+          audioCompleto = null;
+        });
+      }
+
       function cerrarGalleryModal() {
         detenerAudio();
+        detenerAudioCompleto();
         const modal = document.getElementById("gallery-modal");
         modal.classList.remove("abierto");
         document.body.style.overflow = "";
@@ -994,27 +1246,62 @@
         const imageEl = document.getElementById("gallery-image");
         const placeholder = document.getElementById("gallery-placeholder");
         const counter = document.getElementById("gallery-counter");
+        const controls = document.querySelector(".gallery-controls");
 
         if (!galeria.images.length) {
           imageEl.style.display = "none";
           placeholder.style.display = "flex";
-          counter.textContent = "";
+          if (counter) counter.textContent = "";
+          if (controls) controls.style.display = "none";
           return;
         }
+
+        const idx = galeria.currentIndex;
+        const total = galeria.images.length;
+        const src = galeria.images[idx];
+
+        if (counter) counter.textContent = `${idx + 1} / ${total}`;
+        if (controls) controls.style.display = "flex";
+
+        imageEl.onload = null;
+        imageEl.onerror = null;
+        imageEl.style.display = "none";
+        placeholder.style.display = "flex";
+        imageEl.src = "";
+
+        imageEl.alt = `Imagen ${idx + 1} de ${total}`;
+
+        const resolvedSrc = new URL(src, window.location.href).href;
+
+        // Mostrar la imagen de inmediato; ocultar placeholder
+        imageEl.style.display = "block";
+        placeholder.style.display = "none";
+
+        imageEl.onload = () => {
+          imageEl.style.display = "block";
+          placeholder.style.display = "none";
+          const message = document.getElementById(
+            "gallery-placeholder-message",
+          );
+          if (message) message.textContent = "";
+        };
 
         imageEl.onerror = () => {
           imageEl.style.display = "none";
           placeholder.style.display = "flex";
-          counter.textContent = "";
+          if (counter) counter.textContent = "";
+          const message = document.getElementById(
+            "gallery-placeholder-message",
+          );
+          if (message)
+            message.textContent =
+              "No se pudo cargar esta imagen. Revisa la ruta: " + resolvedSrc;
+          console.warn("Galería no pudo cargar imagen:", resolvedSrc);
         };
-        imageEl.src = galeria.images[galeria.currentIndex];
-        imageEl.alt = `Imagen ${galeria.currentIndex + 1} de ${galeria.images.length}`;
-        imageEl.style.display = "block";
-        placeholder.style.display = "none";
-        counter.textContent = `${galeria.currentIndex + 1} / ${galeria.images.length}`;
+
+        imageEl.src = resolvedSrc;
       }
 
-      // Cerrar con Escape
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
           cerrarModal();
@@ -1022,7 +1309,6 @@
         }
       });
 
-      // ── ICONO CARRUSEL EN CADA TEMA ───────────────────────
       document
         .querySelectorAll(".grafico-item .grafico-contenido")
         .forEach((content) => {
@@ -1033,7 +1319,6 @@
           content.insertBefore(icon, content.firstChild);
         });
 
-      // ── AUTO-ALTURA IFRAME GLOSARIO ───────────────────────
       window.addEventListener("message", (e) => {
         if (e.data && e.data.type === "glosario-height") {
           const iframe = document.getElementById("glosario-iframe");
@@ -1045,7 +1330,6 @@
         }
       });
 
-      // ── SCROLL REVEAL ──────────────────────────────────────
       (function () {
         const items = document.querySelectorAll(".grafico-item.reveal");
         items.forEach((el, i) => {
@@ -1066,12 +1350,10 @@
 
         document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 
-        // Asegurar que el side-nav siempre esté visible desde el inicio
         const sideNav = document.getElementById("side-nav");
         if (sideNav) sideNav.classList.remove("side-nav--hidden");
       })();
 
-      // ── ANIMACIÓN SECUENCIAL NAV LINKS ─────────────────────
       (function () {
         const nav = document.querySelector(".hero-nav");
         const links = nav.querySelectorAll(".hero-nav-link");
@@ -1085,11 +1367,9 @@
                 navObserver.unobserve(nav);
 
                 links.forEach((link, i) => {
-                  // encender
                   setTimeout(() => {
                     link.classList.add("nav-pulse");
                   }, i * 350);
-                  // apagar
                   setTimeout(
                     () => {
                       link.classList.remove("nav-pulse");
@@ -1107,7 +1387,6 @@
       })();
     </script>
 
-    <!-- ── NAV FLOTANTE LATERAL ── -->
     <nav class="side-nav" id="side-nav" aria-label="Navegación por secciones">
       <button class="side-nav-btn" id="snav-top" title="Ir al inicio">
         <svg
@@ -1161,7 +1440,6 @@
     </nav>
 
     <script>
-      // ── NAV LATERAL — hold to scroll ─────────────────────────────────────
       const SECCIONES = [
         document.body,
         document.getElementById("glosario"),
@@ -1171,7 +1449,7 @@
       ];
 
       let idxActual = 0;
-      let holdTimer = null; // intervalo mientras se mantiene pulsado
+      let holdTimer = null;
       let pulsando = false;
 
       function topDe(el) {
@@ -1206,20 +1484,16 @@
           idxActual === SECCIONES.length - 1;
       }
 
-      // ── Hold logic ───────────────────────────────────────────────────────
-      // dirección: -1 prev, +1 next, 0 top
       function iniciarHold(dir) {
         if (pulsando) return;
         pulsando = true;
 
-        // Primer salto inmediato
         if (dir === 0) {
           irA(0);
         } else {
           irA(idxActual + dir);
         }
 
-        // Saltos siguientes cada 600ms mientras se mantiene
         holdTimer = setInterval(() => {
           if (dir === 0) {
             detenerHold();
@@ -1244,14 +1518,11 @@
         actualizarBotones();
       }
 
-      // ── Bind eventos ─────────────────────────────────────────────────────
       function bindHold(btnId, dir) {
         const btn = document.getElementById(btnId);
-        // Mouse
         btn.addEventListener("mousedown", () => iniciarHold(dir));
         btn.addEventListener("mouseup", detenerHold);
         btn.addEventListener("mouseleave", detenerHold);
-        // Touch
         btn.addEventListener(
           "touchstart",
           (e) => {
@@ -1268,28 +1539,10 @@
       bindHold("snav-prev", -1);
       bindHold("snav-next", +1);
 
-      // ── Botón Play Spotify ────────────────────────────────────────────────
-      let spotifyPlaying = false;
-      const SPOTIFY_BASE =
-        "https://open.spotify.com/embed/album/7EZxvOUfpm1qcnAZhh44fr?utm_source=generator";
-
-      // ── Botón Play Spotify ────────────────────────────────────────────────
       document.getElementById("snav-play").addEventListener("click", () => {
-        const iframe = document.getElementById("spotify-iframe");
-        const icon = document.getElementById("snav-play-icon");
-        const btn = document.getElementById("snav-play");
-
-        // Navegar a gráficos y hacer pop effect
         irA(3);
-        iframe.classList.add("spotify-pop");
-        setTimeout(() => iframe.classList.remove("spotify-pop"), 400);
-
-        // Cambiar a ícono pausa y deshabilitar
-        icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
-        btn.disabled = true;
       });
 
-      // Scroll manual sincroniza índice
       window.addEventListener(
         "scroll",
         () => {
@@ -1297,7 +1550,6 @@
             sincronizarIndice();
             actualizarBotones();
           }
-          // Reactivar botón play si el usuario se fue de gráficos (idx 3)
           const btn = document.getElementById("snav-play");
           const icon = document.getElementById("snav-play-icon");
           if (idxActual !== 3 && btn.disabled) {
